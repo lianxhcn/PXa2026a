@@ -1,0 +1,121 @@
+# AI 工作流与 skills 上手 {#sec-skills-guide}
+
+::: {.callout-note title="本页定位"}
+这是本次课程转型的核心页面，Day 1 上午第一讲现场走一遍，之后各讲只引用不重复。目标：让每位
+学员在课程结束时，能**看懂、安装、使用并自己写一个跨 agent 的 skill**。
+:::
+
+::: {.keypoint}
+从第一个 skill 开始，就把 skills 当作**个人长期资产**，而不是某个 agent 的附属配置。
+:::
+
+## 1. skills 是什么
+
+做实证时，我们会反复对 AI 说类似的话：「帮我检查这段 merge 的主键」「按这个格式整理复现日志」
+「解释这张回归表但别把相关说成因果」。把这些**重复的提示词与工作流程**固定下来、封装成一个可
+复用的单元，就是一个 **skill**。
+
+skill 的价值不在"更聪明的提示词"，而在**稳定**与**可迁移**：同一个 skill 今天用 Claude Code、
+明天换 Codex 都能触发；同一套检查标准，人人跑出来的结果一致，便于人工抽查。
+
+本课程的 skills 分两层：
+
+- **`core/`**（课程必备，目标 5±2 个）：三天课堂上每个都会**现场用到至少一次**；
+- **`extra/`**（进阶自选）：课后按需探索，衔接高级班与论文班。
+
+一张目录解剖图：
+
+```text
+skills/
+├── README.md          # 总索引 + 安装三步 + 分层说明
+├── core/
+│   └── NN-name/
+│       ├── SKILL.md    # 唯一必读：YAML 头（name + description）+ 正文
+│       ├── scripts/    # 可执行脚本
+│       ├── references/ # 方法说明与检查标准
+│       └── assets/     # 模板与静态资源
+└── extra/ ...
+```
+
+## 2. 开放格式：SKILL.md
+
+每个 skill 一个文件夹，遵循 [agentskills.io](https://agentskills.io) 开放标准。`SKILL.md` 的
+YAML 头**只写两个公共字段**——`name` 与 `description`：
+
+```yaml
+---
+name: stata-code-review
+description: Use this skill when reviewing Stata code, replication files,
+  regression specifications, or reproducibility problems.
+---
+```
+
+- `description` 要写清**触发场景、边界与关键触发词**——agent 靠它做自动匹配；
+- 正文包含固定小节：「何时用」「输入输出约定」「最小使用示例」，以及记录来源、许可、最后
+  验证日期与本地化改动点的「来源与许可」小节；
+- 可选子目录 `scripts/` `references/` `assets/` 按需加载；
+- 确需某个 agent 的专属能力时，增量配置放 `adapters/<agent>/`，**不写进公共 SKILL.md**——
+  这样 skill 才能跨 agent 移植，也不会因将来换 agent 而过时。
+
+Claude Code 与 Codex 都采用**渐进式加载**：启动时只读取 skill 的名称与说明，匹配到任务后才读
+完整的 `SKILL.md`。
+
+## 3. 安装三步（跨 agent 同一套源）
+
+```text
+① 克隆仓库           git clone https://github.com/lianxhcn/PXa2026a.git
+② 生成调用入口       scripts/setup-skills.ps1   （macOS/Linux：bash scripts/setup-skills.sh）
+③ 30 秒冒烟测试       启动 agent，让它复述某个 skill 的用途
+```
+
+`skills/` 是**唯一需要人工维护的源目录**；`.claude/skills/` 与 `.agents/skills/` 只是各 agent 的
+**发现入口**，由 setup 脚本本地生成（Windows 用 junction 或复制，macOS/Linux 用 symlink），
+**不入库、不形成独立版本**。这样无论用哪个 agent，读的都是同一份源。
+
+## 4. 写一个最小的跨 agent skill
+
+课堂现场演练：新建 `skills/extra/hello-check/SKILL.md`，写上 `name` 与 `description`，正文给
+一段"检查清单"式指令；重新运行 setup 脚本生成入口后，分别在 Claude Code 与 Codex 中各触发
+一次，确认**自动触发、显式调用、执行结果**三项都正常。
+
+<!-- TODO: 待第一个 core skill 定稿后，补一段完整的最小 skill 实录（截图或文字） -->
+
+## 5. 课堂速查表：每讲用到哪些 core skills
+
+| 讲 | 主要 core skills | 用途 |
+|---|---|---|
+| [第 1 讲](lectures/01_replication.qmd) | `01-paper-context` · `02-paper-strategy` · `03-replication-navigator` · `06-repro-logger` | 读懂背景/策略、生成复现路线图与日志 |
+| [第 2 讲](lectures/02_data.qmd) | `04-data-cleaning-planner` · `06-repro-logger` | 清洗计划、merge 检查、样本筛选日志 |
+| [第 3 讲](lectures/03_framework.qmd) | `02-paper-strategy` | 拆解 P-S-D-M-I 五层、一致性检查清单 |
+| [第 4 讲](lectures/04_ols.qmd) | `05-regression-interpreter` | 回归表解读、因果表述检查 |
+| [第 5 讲](lectures/05_FE_intFE.qmd) | `05-regression-interpreter` | 交乘项边际效应、FE 可识别性 |
+| [第 6 讲](lectures/06_practice.qmd) | `03-replication-navigator` · `06-repro-logger` | 综合工作流串联 |
+| 全程 | `07-stata-runner`（引用型） | 让 agent 本地运行 Stata（Stata All in One 插件附带） |
+
+> 完整索引见 [附录 B · skills 索引](appendix/B_skills_index.qmd)。core 清单以老师逐个过目冻结的
+> 版本为准，可能随课程微调。
+
+::: {.keypoint}
+这三天是"引进门"：用少量、稳定、已被验证的 core skills 建立工作流程与信心；修行靠个人——
+课后按自己的研究需要探索、改写、自编更多 skills。
+:::
+
+---
+
+## 延伸：课后修行（不占三天课时）
+
+以下内容供课后自学，不在课堂主线展开。
+
+**老用户迁移七步**（已有 `.claude/skills/` 或 `.agents/skills/` 积累者）：① 盘点现有 skills →
+② 识别重复与过时 → ③ 抽取跨 agent 通用核心 → ④ 迁入公共库 → ⑤ agent 专属设置进适配层 →
+⑥ 生成调用入口 → ⑦ 分别测试自动触发、显式调用与执行结果。核心一句话：**迁移不是复制文件，
+而是把 agent 专属 skill 重构成 agent 无关的工作流程**。
+
+**版本与安全管理**：用 Git 管理 skills；从 GitHub 收录的 skill 记录原仓库链接与许可证，只收
+许可允许再分发的内容；注意脚本权限与执行前的测试。
+
+**Router 与规模化**：skills 数量少时，靠 `name` / `description` 自动匹配即可；数量很大后
+（Codex 对初始 skills 清单设有上下文预算），才需要按领域分类、只暴露部分候选、确定调用顺序、
+处理名称相近的 skills——这属于进阶话题。
+
+课后探索的更多资源见 `skills/extra/` 与 [附录 D · 延伸阅读](appendix/D_reading_list.qmd)。

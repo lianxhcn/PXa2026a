@@ -1,0 +1,65 @@
+# 从总体到推断：实证分析的五层框架 {#sec-03}
+
+::: {.callout-note title="本讲要点"}
+- Population：研究总体、目标对象和外推边界；
+- Sample：样本产生机制、抽样误差和样本选择偏误；
+- Data：变量测量、代理变量、测量误差和数据质量；
+- Model：模型设定、函数形式和误设风险；
+- Inference：标准误、置信区间、显著性和不确定性表达；
+- 随机抽样与随机分配的区别；
+- 样本选择偏误与自选择偏误的基本直觉；
+- 如何利用分组统计量、密度函数图、样本筛选表和政策背景说明，检查研究总体、分析样本、变量
+  测量和模型设定是否相互匹配。
+- 本讲用到的 skills：[`core/02-paper-strategy`](../appendix/B_skills_index.qmd)；
+- 可运行伴生文件：`examples/ch03/ch03_main.do`、`examples/ch03/ch03_python.ipynb`。
+:::
+
+<!-- W1 写作窗口（接力）负责本章。以下为统一模板骨架，逐节填充。 -->
+
+## 案例情境
+
+<!-- TODO: 用一个例子把 P-S-D-M-I 五层串起来 -->
+
+## 概念讲解
+
+::: {.psdmi-box}
+::: {.psdmi-title}
+实证分析的五层框架
+:::
+::: {.psdmi-steps}
+[**Population**<br>总体]{.node} <span class="arrow">→</span> [**Sample**<br>样本]{.node} <span class="arrow">→</span> [**Data**<br>数据]{.node} <span class="arrow">→</span> [**Model**<br>模型]{.node} <span class="arrow">→</span> [**Inference**<br>推断]{.node}
+:::
+一个实证研究是否可信，不只取决于模型是否复杂，还取决于总体、样本、数据、模型和推断之间是否一致。
+:::
+
+<!-- TODO: 逐层展开；样本选择偏误处可含 Heckman 选择函数的理念性表述（深度以 ci-policy 为上限，不做 Tobit 推导） -->
+
+## 代码实操
+
+<!-- TODO: 分组统计量、密度函数图、样本筛选表 -->
+
+## AI 协作
+
+> 契约边界：本节逐条覆盖大纲「AI 协作训练」清单，不删项。
+
+- 让 AI 帮助拆解一篇论文的 Population、Sample、Data、Model 和 Inference —— `core/02-paper-strategy`；
+- 将 AI 设定为 coauthor 或论文导师，从五个层次追问一致性 —— `core/02-paper-strategy`；
+- 让 AI 根据分组统计量、密度函数图、样本筛选表和政策背景材料，生成「样本与研究设计一致性
+  检查清单」 —— `core/02-paper-strategy`；
+- 让 AI 检查研究问题、样本口径、变量构造和模型设定之间是否存在明显不一致 —— `core/02-paper-strategy`。
+
+<!-- TODO -->
+
+## Python 附录
+
+载体 `examples/ch03/ch03_python.ipynb`。
+
+<!-- TODO -->
+
+## 小结与练习
+
+<!-- TODO -->
+
+## 延伸阅读
+
+<!-- TODO -->

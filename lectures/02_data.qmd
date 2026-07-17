@@ -1,0 +1,67 @@
+# 数据处理、探索性分析与样本构造 {#sec-02}
+
+::: {.callout-note title="本讲要点"}
+- 数据来源、数据字典和变量口径；
+- 观察单位、数据颗粒度、主键和唯一性检查；
+- 横截面、时间序列、面板数据和多层级数据；
+- 数据合并、追加、聚合、频率转换和长宽转换；
+- 缺失值、离群值、缩尾、截尾、对数转换和标准化；
+- 字符变量、日期变量和简单文本变量处理；
+- 探索性数据分析 (EDA)：直方图、密度图、箱线图、散点图、时间趋势图和分组均值图；
+- 如何用图形检查变量分布、离群值、样本断点、组间差异和潜在样本选择问题；
+- 样本筛选日志、变量字典、匹配率和样本流失检查；
+- 数据处理过程的记录、复核和可复现性。
+- 本讲用到的 skills：[`core/04-data-cleaning-planner`](../appendix/B_skills_index.qmd) ·
+  `core/06-repro-logger`；
+- 可运行伴生文件：`examples/ch02/ch02_main.do`、`examples/ch02/ch02_python.ipynb`。
+:::
+
+<!-- W2 写作窗口负责本章。以下为统一模板骨架，逐节填充；动笔每节前先重读 working/STYLE.md。 -->
+
+## 案例情境
+
+以面板数据为主，兼顾文本等非结构化数据的入门处理；概念演示用 Stata 自带数据 + 老师财务
+数据。代码骨架以 `MUST-A2-data.do` 为主线（2.1 导入 · 2.2 合并追加 · 2.3 重组 · 2.4 主键/
+重复值 · 2.5 缺漏值 · 2.6 离群值 · 2.7 文字变量）。
+
+<!-- TODO(W2) -->
+
+## 概念讲解
+
+数据处理流程、常见错误、图形诊断和检查方法。
+
+<!-- TODO(W2) -->
+
+## 代码实操
+
+Stata 为主线；有 Python 对照处用 `panel-tabset`。派生 `examples/ch02/ch02_main.do`。
+
+<!-- TODO(W2): EDA 图形补缺（参考 ds2026 第 13/14 章与可视化系列，Stata 实现配 stata101） -->
+
+## AI 协作
+
+> 契约边界：本节逐条覆盖大纲「AI 协作训练」清单，不删项。每条给任务说明书/提示词 +
+> core skill。
+
+- 让 AI 根据变量清单和数据字典生成清洗计划 —— `core/04-data-cleaning-planner`；
+- 让 AI 检查 merge / join 逻辑是否合理 —— `core/04-data-cleaning-planner`；
+- 让 AI 解释缺失值、离群值、缩尾、截尾和对数转换的差别 —— `core/04-data-cleaning-planner`；
+- 让 AI 根据变量类型建议合适的探索性图形 —— `core/04-data-cleaning-planner`；
+- 让 AI 把 Stata 数据处理逻辑翻译成 Python / R —— `core/04-data-cleaning-planner`；
+- 让 AI 生成变量构造说明和样本筛选日志 —— `core/06-repro-logger`。
+
+<!-- TODO(W2) -->
+
+## Python 附录
+
+载体 `examples/ch02/ch02_python.ipynb`；正文只放入口与示范提示词。
+
+<!-- TODO(W2) -->
+
+## 小结与练习
+
+<!-- TODO(W2): 3–5 题，含 1 道"交给 agent 并审计"；答案折叠框 -->
+
+## 延伸阅读
+
+<!-- TODO(W2) -->

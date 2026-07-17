@@ -1,0 +1,87 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "AI 时代的实证研究基础"
+  subtitle: "连享会 2026 暑期班 · 初级班"
+  reader-mode: true
+  author: "连玉君（中山大学）"
+  date: today
+  date-format: iso
+  repo-url: https://github.com/lianxhcn/PXa2026a
+  repo-branch: main
+  repo-actions: [edit, issue]
+  sidebar:
+    title: "暑期班 · 初级班"
+    logo: images/book-logo.png
+    logo-href: https://lianxhcn.github.io/PXa2026a/
+    style: floating
+    search: true
+    background: light
+    tools:
+      - icon: house-fill
+        href: https://www.lianxh.cn
+  favicon: images/book-logo.png
+  site-url: https://lianxhcn.github.io/PXa2026a/
+  page-footer:
+    center: "[lianxh.cn](https://www.lianxh.cn)"
+    right: "基于 [Quarto](https://quarto.org/) 构建"
+
+  chapters:
+    - index.qmd
+    - syllabus.qmd
+    - settings.qmd
+    - skills-guide.qmd
+    - part: "**讲义**"
+      chapters:
+        - lectures/01_replication.qmd   # Day1 上 · A1 从顶刊复现项目开始：实证研究的完整流程
+        - lectures/02_data.qmd          # Day1 下 · A2 数据处理、探索性分析与样本构造
+        - lectures/03_framework.qmd     # Day2 上 · A3 从总体到推断：实证分析的五层框架
+        - lectures/04_ols.qmd           # Day2 下 · A4 线性回归的建模语言：CEF、OLS 与统计推断
+        - lectures/05_FE_intFE.qmd      # Day3 上 · A5 FWL、虚拟变量、交乘项与固定效应
+        - lectures/06_practice.qmd      # Day3 下 · A6 综合实操：从复现代码到自己的分析任务
+  appendices:
+    - appendix/A_prompt_templates.qmd
+    - appendix/B_skills_index.qmd
+    - appendix/C_datasets.qmd
+    - appendix/D_reading_list.qmd
+    - appendix/E_faq.qmd
+    - appendix/F_akcigit.qmd   # 回放期交付，占位先建
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    theme:
+      light: cosmo
+      dark: darkly
+    linestretch: 1.6
+    fontsize: 11.5pt
+    number-sections: true
+    link-external-newwindow: true
+    highlight-style: atom-one
+    code-fold: false
+    code-line-numbers: false
+    code-overflow: wrap
+    css: styles.css
+    callout-appearance: default
+  # --- PDF 输出（预留，需要时取消注释启用；typst 引擎免装 LaTeX） ---
+  # typst:
+  #   papersize: a4
+  #   mainfont: "SimSun"
+  #   toc: true
+  #   number-sections: true
+
+crossref:
+  chapters: true
+  appendix-title: "附录"
+  fig-title: "图"
+  fig-prefix: "图"
+  tbl-title: "表"
+  tbl-prefix: "表"
+  eq-prefix: "式"
+  sec-prefix: "节"
+
+language:
+  section-title-appendices: "附录"

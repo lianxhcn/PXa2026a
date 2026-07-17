@@ -1,0 +1,58 @@
+# FWL、虚拟变量、交乘项与固定效应：理解条件比较 {#sec-05}
+
+::: {.callout-note title="本讲要点"}
+- FWL 定理的直觉：残差化之后的比较；
+- 控制变量、遗漏变量、坏控制和过度控制；
+- 虚拟变量、分类变量、基准组和虚拟变量陷阱；
+- 个体固定效应、时间固定效应和双向固定效应；
+- 高维固定效应的基本思想；
+- 交乘项、条件效应、调节效应和异质性分析；
+- DID 中的组别、时间和处理交乘项；
+- RDD 中的阈值虚拟变量、运行变量、趋势项和交乘项；
+- 如何理解带固定效应和交乘项模型中的系数。
+- 本讲用到的 skills：[`core/05-regression-interpreter`](../appendix/B_skills_index.qmd)；
+- 可运行伴生文件：`examples/ch05/ch05_main.do`、`examples/ch05/ch05_python.ipynb`。
+:::
+
+<!-- W1 写作窗口（接力）负责本章。以下为统一模板骨架，逐节填充。 -->
+
+## 案例情境
+
+<!-- TODO -->
+
+## 概念讲解
+
+FWL 残差化直觉 → 虚拟变量与陷阱 → 个体/时间/双向固定效应 → 高维固定效应思想 → 交乘项与
+异质性 → 从"虚拟变量 × 时间 × 处理交乘项"视角理解 DID、从阈值局部比较理解 RDD。
+
+<!-- TODO: 大量可直接取材自 ci-policy 第 4 章（FE）+ 附录 F 实操；DDML/现代 DID 估计量只放延伸链接 -->
+
+## 代码实操
+
+<!-- TODO: reghdfe 等；附录 F 代码裁剪进 examples/ch05 -->
+
+## AI 协作
+
+> 契约边界：本节逐条覆盖大纲「AI 协作训练」清单，不删项。
+
+- 让 AI 解释含有 FWL、虚拟变量和交乘项的回归式 —— `core/05-regression-interpreter`；
+- 让 AI 检查 DID 型回归中每个变量和交乘项的含义 —— `core/05-regression-interpreter`；
+- 让 AI 生成交乘项结果的边际效应解释 —— `core/05-regression-interpreter`；
+- 让 AI 检查固定效应模型中的系数是否可以被识别 —— `core/05-regression-interpreter`；
+- 让 AI 把复杂回归式改写成「变量含义 + 比较对象 + 系数解释」三列表 —— `core/05-regression-interpreter`。
+
+<!-- TODO -->
+
+## Python 附录
+
+载体 `examples/ch05/ch05_python.ipynb`。
+
+<!-- TODO -->
+
+## 小结与练习
+
+<!-- TODO -->
+
+## 延伸阅读
+
+<!-- TODO: 现代 DID 估计量（CSDID 等）留高级班，链接 https://www.lianxh.cn/details/1811.html -->

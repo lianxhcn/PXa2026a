@@ -1,0 +1,28 @@
+# skills 索引 {#sec-B}
+
+本附录是课程 skills 的总索引，与 `skills/README.md` 同源。core 清单以老师逐个过目冻结的版本
+为准，可能随课程微调。skills 的安装与使用见「[AI 工作流与 skills 上手](../skills-guide.qmd)」。
+
+## core（课程必备）
+
+| skill | 覆盖的大纲训练项 | 主战场 |
+|---|---|---|
+| `01-paper-context` | 读懂研究背景、主要贡献与文献定位；产出标准化「背景卡」 | 第 1 讲 |
+| `02-paper-strategy` | 拆解 P-S-D-M-I 五层；识别策略与比较关系地图；AI 扮 coauthor 追问；产出「策略卡」 | 第 1、3 讲 |
+| `03-replication-navigator` | README → 复现路线图；文件夹结构与主程序调用；说明代码在流程中的位置 | 第 1、6 讲 |
+| `04-data-cleaning-planner` | 清洗计划；merge/join 检查；缺失/离群/缩尾/对数解释；EDA 图形建议 | 第 2 讲 |
+| `05-regression-interpreter` | 回归表解读；因果表述检查；交乘项边际效应；三列表；FE 可识别性 | 第 4、5 讲 |
+| `06-repro-logger` | 复现日志；变量字典；样本筛选日志；代码注释版；流程模板化 | 第 1、2、6 讲 |
+| `07-stata-runner`（引用型） | 让 agent 本地运行 Stata（Stata All in One 插件附带，不复制入库） | 全程 |
+
+::: {.callout-tip title="质量护栏"}
+`01`/`02` 两个解读 skill 的输出必须**带页码与表号引证**，并以固定「阅读卡片」格式落盘
+（背景卡 / 策略卡 / 数据卡），供人工抽查与后续迁移复用。
+:::
+
+## extra（课后修行）
+
+课后自选、衔接高级班与论文班的增值项，如 `lit-mapper`（文献脉络 → 选题）、`research-transfer`
+（阅读卡片 + 课题描述 → 研究设计初稿）等。
+
+<!-- TODO: 本索引在 T3 skills 入库后自动/半自动从 skills/ 生成 -->

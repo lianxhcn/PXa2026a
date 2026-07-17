@@ -1,0 +1,105 @@
+body {
+  line-height: 1.7;
+}
+
+.callout {
+  border-radius: 6px;
+}
+
+.sidebar-item-section > .sidebar-item-container > .sidebar-item-text .menu-text,
+.sidebar-item-section > .sidebar-item-container > .sidebar-link .menu-text {
+  font-weight: 700;
+}
+
+/* 关键「金句」高亮块（明暗主题自适应） */
+.keypoint {
+  border-left: 5px solid #e8935a;
+  background: var(--bs-tertiary-bg, rgba(232, 147, 90, 0.08));
+  border-radius: 0 10px 10px 0;
+  padding: 0.85rem 1.15rem;
+  margin: 1.3rem 0;
+  font-size: 1.06em;
+  font-weight: 600;
+}
+
+/* 工作流「流程块」：醒目展示 研究问题 → … → 迭代（明暗主题自适应） */
+.flow-box {
+  border: 1px solid var(--bs-border-color);
+  border-left: 5px solid #3d8bcd;
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.3rem 0;
+  background: var(--bs-tertiary-bg, rgba(61, 139, 205, 0.06));
+}
+.flow-box .flow-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9em;
+  color: #3d8bcd;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.65rem;
+}
+.flow-box .flow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.55rem;
+  line-height: 1.6;
+}
+.flow-box .step {
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 8px;
+  padding: 0.4em 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.flow-box .arrow {
+  color: #3d8bcd;
+  font-weight: 700;
+}
+
+/* 五层框架块 Population → Sample → Data → Model → Inference（A3 复用；明暗自适应） */
+.psdmi-box {
+  border-left: 6px solid #2f6f9f;
+  background: var(--bs-tertiary-bg, rgba(47, 111, 159, 0.06));
+  padding: 1em 1.2em;
+  margin: 1.2em 0;
+  border-radius: 8px;
+}
+.psdmi-box .psdmi-title {
+  font-weight: 700;
+  color: #2f6f9f;
+  margin-bottom: 0.8em;
+}
+.psdmi-box .psdmi-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55em;
+  line-height: 1.5;
+}
+.psdmi-box .psdmi-steps .node {
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  padding: 0.45em 0.75em;
+  border-radius: 6px;
+  text-align: center;
+}
+.psdmi-box .psdmi-steps .arrow {
+  font-weight: 700;
+  color: #557;
+}
+
+/* 侧边栏 header：标题占一行，工具图标（github/主页/主题切换）换到第二行 */
+.sidebar-title .sidebar-tools-main {
+  display: flex;
+  flex-basis: 100%;
+  margin-top: 0.35rem;
+  margin-left: -0.25rem;
+}
+.sidebar-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}

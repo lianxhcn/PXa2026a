@@ -1,0 +1,65 @@
+# 从顶刊复现项目开始：实证研究的完整流程 {#sec-01}
+
+::: {.callout-note title="本讲要点"}
+- 实证研究的基本链条：问题、数据、模型、结果、论文；
+- 复现项目的文件夹结构、`README`、主脚本和输出文件；
+- 原始数据、中间数据、分析样本、图表结果之间的关系；
+- 如何识别一个复现包的主程序、数据处理脚本和结果输出脚本；
+- 如何用 AI 辅助阅读 replication package，而不是让 AI 替代研究判断；
+- Lane (2025) 中政策行业、产业代码、工业面板、IO 表和贸易数据之间的映射关系；
+- 从复现文档中学习研究设计、数据处理和结果组织。
+- 本讲用到的 skills：[`core/01-paper-context`](../appendix/B_skills_index.qmd) ·
+  `core/02-paper-strategy` · `core/03-replication-navigator` · `core/06-repro-logger`；
+- 可运行伴生文件：`examples/ch01/ch01_main.do`（`**#` 大纲与书稿节标题一一对应）、
+  `examples/ch01/ch01_python.ipynb`（Python 附录载体）。
+:::
+
+<!-- W1 写作窗口负责本章。以下为统一模板骨架，逐节填充；动笔每节前先重读 working/STYLE.md。 -->
+
+## 案例情境
+
+主案例 Lane (2025, QJE) 引入：研究问题 → 数据从哪来 → 我们最终要产出什么。本讲定位为
+「顶刊解读 skills 组合」的演练场——不逐表复现，目标是零经验学员借助 skills 在一天内读懂其
+研究背景、贡献与实证策略。
+
+<!-- TODO(W1): 韩国 HCI 政策背景叙事，改写自 ci-policy 附录 A/B；配「阅读卡片 + 页码引证」 -->
+
+## 概念讲解
+
+以"讲人话 → 给直觉 → 再给记号"的顺序展开实证研究的基本链条与复现项目的组织方式。
+
+<!-- TODO(W1) -->
+
+## 代码实操
+
+以 Stata 为主线；有 Python 对照处用 `panel-tabset`（`group="language"`，Stata 默认标签）。
+代码静态展示、输出冻结，由 `qmd-to-runnable` 派生为 `examples/ch01/ch01_main.do`。
+
+<!-- TODO(W1) -->
+
+## AI 协作
+
+> 契约边界：本节逐条覆盖大纲「AI 协作训练」清单，不删项、不缩范围。每条给可复制的任务
+> 说明书/提示词，并标注对应 core skill。
+
+- 让 AI 根据 `README` 生成复现路线图 —— `core/03-replication-navigator`；
+- 让 AI 解释项目文件夹结构和主程序调用关系 —— `core/03-replication-navigator`；
+- 让 AI 阅读一段 Stata / R 代码，并说明它在论文复现流程中的位置 —— `core/03-replication-navigator`；
+- 让 AI 总结「从数据到结果」的复现日志 —— `core/06-repro-logger`。
+
+<!-- TODO(W1): 每条补任务说明书 + skill 调用实录 + 人工检查清单 -->
+
+## Python 附录
+
+本章关键任务的 Python 版，载体为 `examples/ch01/ch01_python.ipynb`（任务说明与提示词 +
+agent 生成的 Python 代码 + 冻结输出）。正文此节只放入口链接、使用说明与 1–2 条示范提示词。
+
+<!-- TODO(W1) -->
+
+## 小结与练习
+
+<!-- TODO(W1): 3–5 题，至少 1 道纯手工 + 1 道"交给 agent 并审计"；答案用折叠框紧随题目 -->
+
+## 延伸阅读
+
+<!-- TODO(W1): 少量高质量入口；可复用参考仓库既有链接 -->

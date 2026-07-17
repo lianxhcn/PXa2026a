@@ -1,0 +1,35 @@
+# FAQ：环境与 agent 常见问题 {#sec-E}
+
+本附录汇总环境配置、代码运行与 AI 工具使用中的常见问题，课中持续回填。
+
+::: {.callout-note}
+课程配备助教团队，在课程群中协助解答常见问题。本页在课中根据答疑情况滚动更新。
+:::
+
+## 环境
+
+**Q：Stata 装在哪里？批处理怎么调用？**
+A：Windows 通常在 `C:\Program Files\StataNN\`。批处理示例：
+`"C:\Program Files\Stata19\StataMP-64.exe" /e do 文件名.do`。找不到就在 `C:\Program Files\`
+下搜 `Stata*`。
+
+**Q：Stata All in One 插件识别不到 Stata？**
+A：插件会最大程度自动识别本机 Stata；少数情况需手动配置（可能与其他 Stata 相关插件冲突或使用
+未注册的便携版），按提示操作即可。
+
+<!-- TODO: 更多环境问题课中回填 -->
+
+## AI 工具与 skills
+
+**Q：skill 没有被 agent 自动触发？**
+A：检查是否运行过 `scripts/setup-skills.*` 生成调用入口；确认 `SKILL.md` 的 `description`
+写清了触发场景与关键词。
+
+<!-- TODO: 更多 agent 问题课中回填 -->
+
+## Python
+
+**Q：Python 附录需要哪些依赖？**
+A：见各 `examples/chNN/chNN_python.ipynb` 顶部的环境说明。新增依赖会在此登记。
+
+<!-- TODO: Python 依赖清单随 examples 定稿登记 -->

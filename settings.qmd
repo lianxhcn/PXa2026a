@@ -1,0 +1,94 @@
+# 课前准备 {#sec-settings}
+
+::: {.callout-note title="本页定位"}
+本页只做**快速自查 + 推荐课堂环境 + AI 工具上手**。基础软件（Stata、Python、R、VS Code、
+Jupyter）的完整安装步骤由**先导课**覆盖，详见[暑期班总览](https://www.lianxh.cn/details/1803.html)；
+本页遇到基础安装只给链接，不重复展开。
+:::
+
+课程不要求学员熟练掌握编程语言，只需能在本地**运行代码**，并借助 AI **读懂、修改和调试**示例
+脚本。开课前请确认下面三件事：① 能打开并运行一个 `.do` 文件；② 装好 VS Code 与推荐插件；
+③ 至少一个 AI 编程工具（Claude Code 或 Codex）能正常启动。
+
+## 1. 三分钟环境自查
+
+打开一个终端（PowerShell 或 Terminal），逐条运行，能出版本号即通过：
+
+```powershell
+quarto --version     # 建议 1.5+
+git --version
+python --version     # 建议 3.10+
+```
+
+Stata 请确认能正常启动，并记下安装路径（Windows 通常在 `C:\Program Files\StataNN\`）。
+课程以 **Stata 和 Python 为主，R 作为补充**——R 只需能"装好环境、让 agent 用它执行"，不要求
+掌握语法。
+
+<!-- TODO: 先导课各软件安装页链接待老师提供后补齐 -->
+
+## 2. 推荐课堂环境：VS Code + Stata All in One
+
+课堂推荐 **VS Code + [Stata All in One](https://marketplace.visualstudio.com/items?itemName=ZihaoVistonWang.stata-all-in-one)
+插件**作为主环境（一键安装、内嵌运行、`**#` 大纲导航、数据查看，其附带的 AI Skill 可让
+agent 原生运行 Stata）。保留 Stata 原生界面作为备选路径。
+
+> 以下插件介绍改写自王梓豪《Stata All in One：在 VSCode 中一站式使用 Stata》一文，作者已授权
+> 本课件采用（作者为本期助教）。原文见文末链接。
+
+**它能做什么**——在一个 VS Code 界面里完成写代码、跑代码、看结果和看数据：
+
+- **写代码**：`.do` 文件语法高亮、代码提示；运行一次后可按当前数据集补全变量名；
+- **跑代码**：最常用快捷键 `Ctrl/Cmd + D`——光标在普通行运行当前行，选中多行运行选区，光标在
+  章节标题行运行整个章节；支持**外部应用模式**（发送到 Stata 窗口，稳）与**嵌入式控制台模式**
+  （在 VS Code 内直接显示输出与图形）；
+- **管代码**：用 `**#` 至 `**######` 注释标题自动生成大纲（最高 6 级），几百上千行的 do 文件也能
+  像 Word 目录一样跳转。**这正是本课程 `examples/chNN/chNN_main.do` 的组织方式**——书稿节标题
+  一一映射为 do 文件的多级大纲；
+- **看数据**：直接在 VS Code 中点开 `.dta` 文件，查看变量名、标签、类型，按需加载行列；
+- **联 AI**：附带 `Stata AI Skill` 工作流，让 Claude Code、Cursor、Codex 等工具通过本地服务
+  **运行 Stata** 并验证结果——原生实现，开箱即用，Windows / macOS 均支持。
+
+**安装**：在 VS Code 扩展市场搜索 `Stata All in One`，点击安装即可；Cursor / Trae 等编辑器可从
+[Open VSX](https://open-vsx.org/extension/ZihaoVistonWang/stata-all-in-one) 或
+[GitHub](https://github.com/ZihaoVistonWang/stata-all-in-one) 下载 `.vsix` 安装。部分功能需要
+`STATA.LIC` 证书文件，请支持正版 Stata。
+
+::: {.callout-warning title="AI 不替代研究者判断"}
+AI 可以帮忙检查代码、定位报错、辅助重复性数据处理，但**回归设定、变量口径等仍需研究者自己
+把关**。把它当作"辅助调试工具"，而不是"自动研究工具"。
+:::
+
+## 3. AI 编程工具上手（Claude Code / Codex）
+
+本课程的 skills 面向**多个 agent 通用**，不绑定某一个工具。任选其一装好即可跟上课堂演示：
+
+- **Claude Code**：Anthropic 官方 CLI，个人与项目 skills 默认位于 `~/.claude/skills/` 与
+  `.claude/skills/`；
+- **Codex**：会扫描 `$HOME/.agents/skills/` 和项目中的 `.agents/skills/`。
+
+<!-- TODO: Claude Code / Codex 的具体安装与登录步骤待补（含首次运行与信任文件夹） -->
+
+首次运行的冒烟测试：用 VS Code 打开本课程仓库文件夹，在终端启动 agent，让它**复述某个 skill
+的用途**——能正确复述，说明 skills 已被发现。详细流程见「[AI 工作流与 skills 上手](skills-guide.qmd)」。
+
+## 4. 获取课程仓库与本地预览
+
+```bash
+git clone https://github.com/lianxhcn/PXa2026a.git
+cd PXa2026a
+quarto preview                 # 本地预览在线书
+scripts/setup-skills.ps1       # Windows：生成 skills 调用入口（macOS/Linux 用 setup-skills.sh）
+```
+
+之后每讲的可运行文件在 `examples/chNN/` 下：`chNN_main.do`（Stata，`**#` 大纲）与
+`chNN_python.ipynb`（Python 附录）。
+
+---
+
+::: {.callout-tip title="课堂答疑"}
+课程配备助教团队，在课程群中协助解答环境配置、代码运行和课程材料使用中的常见问题。常见问题
+持续汇总在 [附录 E · FAQ](appendix/E_faq.qmd)。
+:::
+
+**参考**：王梓豪，《Stata All in One：在 VSCode 中一站式使用 Stata》。作者主页
+<https://zihaowang.cn>。

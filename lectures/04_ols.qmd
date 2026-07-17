@@ -1,0 +1,56 @@
+# 线性回归的建模语言：CEF、OLS 与统计推断 {#sec-04}
+
+::: {.callout-note title="本讲要点"}
+- 条件期望函数 (CEF) 与线性投影；
+- OLS 系数的含义和局限；
+- 回归系数不是简单的「影响」，而是在特定条件下形成的比较；
+- 模型设定、函数形式和变量尺度；
+- 对数模型、比例变量、标准化变量和系数解释；
+- 统计显著性、经济显著性和结果解释边界；
+- 异方差稳健标准误与聚类稳健标准误；
+- 如何阅读回归表中的系数、标准误、置信区间、显著性和样本量；
+- 如何从回归表写出不过度解释的结果说明。
+- 本讲用到的 skills：[`core/05-regression-interpreter`](../appendix/B_skills_index.qmd)；
+- 可运行伴生文件：`examples/ch04/ch04_main.do`、`examples/ch04/ch04_python.ipynb`。
+:::
+
+<!-- W2 写作窗口（接力）负责本章。以下为统一模板骨架，逐节填充。 -->
+
+## 案例情境
+
+<!-- TODO -->
+
+## 概念讲解
+
+从 CEF 和线性投影入手讲 OLS 的基本含义；公式服务于直觉，不推导复杂公式。FWL 定理留下一讲。
+
+<!-- TODO: 铺垫"加入控制变量后系数含义为何改变"（FWL partial out 直觉，参考 ci-policy 第 7 章） -->
+
+## 代码实操
+
+<!-- TODO: 回归、稳健/聚类标准误、回归表阅读 -->
+
+## AI 协作
+
+> 契约边界：本节逐条覆盖大纲「AI 协作训练」清单，不删项。
+
+- 让 AI 用自然语言解释一张回归表中的核心系数 —— `core/05-regression-interpreter`；
+- 让 AI 检查结果解释是否把相关关系误写成因果关系 —— `core/05-regression-interpreter`；
+- 让 AI 根据变量定义说明对数转换、标准化和系数解释是否合理 —— `core/05-regression-interpreter`；
+- 让 AI 把一段回归代码改写成更清楚的注释版 —— `core/05-regression-interpreter`。
+
+<!-- TODO -->
+
+## Python 附录
+
+载体 `examples/ch04/ch04_python.ipynb`。
+
+<!-- TODO -->
+
+## 小结与练习
+
+<!-- TODO -->
+
+## 延伸阅读
+
+<!-- TODO -->

@@ -1,0 +1,33 @@
+# 课程数据集说明 {#sec-C}
+
+本附录说明课程用到的数据及其来源与许可。**课程不新造数据**：以 Stata 自带数据（`sysuse` /
+`webuse`）与老师逐章提供的既有数据为主。
+
+::: {.callout-important title="数据许可"}
+- 主案例 Lane (2025, QJE) 与扩展案例 Akcigit et al. (2022, QJE) 的复现数据来自
+  [Harvard Dataverse](https://dataverse.harvard.edu/)，本仓库**不整包再分发**，只提供官方
+  下载脚本与复现指引；
+- 源自商业数据库（CSMAR / Wind 等）的数据未经许可不入库；确需时改用脱敏抽样、衍生汇总或
+  "处理代码 + 学员自备数据"形式。
+:::
+
+## Stata 自带数据
+
+各讲概念演示优先使用 `sysuse`（如 `sysuse auto`）与 `webuse` 数据，克隆后无需额外下载即可
+运行。
+
+## 主案例 · Lane (2025, QJE)
+
+- 复现包：<https://doi.org/10.7910/DVN/VJECHN>
+- 课件提供下载脚本与复现导航，不再分发原始数据。
+
+<!-- TODO: 下载脚本位置（examples/ch01/）待 T5 补 -->
+
+## 扩展案例 · Akcigit et al. (2022, QJE)
+
+- 复现包：<https://doi.org/10.7910/DVN/SR410I>
+- 复现范围限州级前 1/3，详见 [附录 F](F_akcigit.qmd)（回放期交付）。
+
+## 各讲数据清单
+
+<!-- TODO: 随各章 examples/ 定稿逐条登记：数据名 / 来源 / 许可 / 用于哪节 -->

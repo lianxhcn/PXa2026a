@@ -1,0 +1,22 @@
+# 延伸阅读 {#sec-D}
+
+少量高质量入口，供课后深化与迁移。可直接复用连享会既有资源。
+
+## 连享会
+
+- 连享会主页：<https://www.lianxh.cn>
+- 现代 DID 估计量（CSDID 等，属高级班）：<https://www.lianxh.cn/details/1811.html>
+
+## 主案例与扩展案例
+
+- Lane, N. (2025). Manufacturing revolutions: Industrial policy and industrialization in
+  South Korea. *QJE*, 140(3), 1683–1741. <https://doi.org/10.1093/qje/qjaf025>
+- Akcigit, U., Grigsby, J., Nicholas, T., & Stantcheva, S. (2022). Taxation and innovation
+  in the twentieth century. *QJE*, 137(1), 329–385. <https://doi.org/10.1093/qje/qjab022>
+
+## 复现与 skills
+
+- Harvard Dataverse：<https://dataverse.harvard.edu/>
+- 开放 Agent Skills 标准：<https://agentskills.io>
+
+<!-- TODO: 各讲定稿后补充按讲分组的延伸阅读；衔接高级班/论文班的"课后修行路线图" -->
