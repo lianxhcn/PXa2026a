@@ -34,7 +34,7 @@
     "href": "index.html#两条主线每讲都在",
     "title": "AI 时代的实证研究基础",
     "section": "两条主线，每讲都在",
-    "text": "两条主线，每讲都在\n\n方法主线：大纲承诺的数据分析内容——从复现流程、数据处理，到五层框架、OLS、固定效应；\n工作流主线：每讲固定一个「AI 协作」环节，展示同一任务”传统手写 dofile”与”skill + agent” 两种做法的对照，并附人工检查清单。\n\n\n这三天是”引进门”：用少量、稳定、已被验证的 core skills 建立工作流程与信心；修行靠个人—— 课后按自己的研究需要探索、改写、自编更多 skills。",
+    "text": "两条主线，每讲都在\n\n方法主线：大纲承诺的数据分析内容——从复现流程、数据处理，到五层框架、OLS、固定效应；\n工作流主线：每讲固定一个「AI 协作」环节，展示同一任务”传统手写 dofile”与”skill + agent” 两种做法的对照，并附人工检查清单。\n\n\n这三天是「引进门」：用少量、稳定、已被验证的 core skills 建立工作流程与信心；修行靠个人 —— 课后按自己的研究需要探索、改写、自编更多 skills。",
     "crumbs": [
       "🏠 前言"
     ]
@@ -54,7 +54,7 @@
     "href": "index.html#主案例与扩展案例",
     "title": "AI 时代的实证研究基础",
     "section": "主案例与扩展案例",
-    "text": "主案例与扩展案例\n\n主案例：Lane, N. (2025). Manufacturing revolutions: Industrial policy and industrialization in South Korea. QJE, 140(3), 1683–1741. [链接] [复现包]。课堂以它为主案例，演示零经验学员如何 借助 skills 在一天内读懂一篇顶刊的研究背景、贡献与实证策略。\n扩展案例 (课后)：Akcigit, U., Grigsby, J., Nicholas, T., & Stantcheva, S. (2022). Taxation and innovation in the twentieth century. QJE, 137(1), 329–385. [链接]。复现文档与中文精要见 附录 F(回放期交付)。",
+    "text": "主案例与扩展案例\n\n主案例：Lane, N. (2025). Manufacturing revolutions: Industrial policy and industrialization in South Korea. QJE, 140(3), 1683–1741. [链接] [复现包]。课堂以它为主案例，演示零经验学员如何 借助 skills 在一天内读懂一篇顶刊的研究背景、贡献与实证策略。\n扩展案例 (课后)：Akcigit, U., Grigsby, J., Nicholas, T., & Stantcheva, S. (2022). Taxation and innovation in the twentieth century. QJE, 137(1), 329–385. [链接]。复现文档与中文精要见 附录 F (回放期交付)。",
     "crumbs": [
       "🏠 前言"
     ]

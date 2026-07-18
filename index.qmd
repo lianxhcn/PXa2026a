@@ -4,13 +4,10 @@ number-sections: false
 
 # 🏠 前言 {.unnumbered}
 
-<a href="https://www.lianxh.cn/details/1803.html"><img src="images/book-front.png" width="450"/></a>
+<a href="https://www.lianxh.cn/details/1803.html"><img src="images/book-front.png" width="750"/></a>
 
 ::: {.callout-note title="这是一本什么书"}
-这是连享会 **2026 暑期班 · 初级班** (2026 年 7 月 21–23 日，三天) 的配套讲义。
-书名《AI 时代的实证研究基础》，副题"连享会 2026 暑期班 · 初级班"。全书用
-[Quarto](https://quarto.org/) 编译，通过 GitHub Pages 发布，学员可在线阅读，也可克隆到
-本地边看边跑。
+这是连享会 **2026 暑期班 · 初级班** (2026 年 7 月 21–23 日，三天) 的配套讲义，书名《AI 时代的实证研究基础》。全书用 [Quarto](https://quarto.org/) 编译，通过 GitHub Pages 发布，学员可在线阅读，也可克隆到本地边看边跑。
 :::
 
 ## 这门课要解决什么
@@ -48,8 +45,7 @@ number-sections: false
   两种做法的对照，并附**人工检查清单**。
 
 ::: {.keypoint}
-这三天是"引进门"：用少量、稳定、已被验证的 core skills 建立工作流程与信心；修行靠个人——
-课后按自己的研究需要探索、改写、自编更多 skills。
+这三天是「引进门」：用少量、稳定、已被验证的 core skills 建立工作流程与信心；修行靠个人 —— 课后按自己的研究需要探索、改写、自编更多 skills。
 :::
 
 ## 如何使用本书
@@ -69,7 +65,7 @@ number-sections: false
 - **扩展案例** (课后)：Akcigit, U., Grigsby, J., Nicholas, T., & Stantcheva, S. (2022).
   *Taxation and innovation in the twentieth century.* QJE, 137(1), 329–385.
   [[链接]](https://doi.org/10.1093/qje/qjab022)。复现文档与中文精要见
-  [附录 F](appendix/F_akcigit.qmd)(回放期交付)。
+  [附录 F](appendix/F_akcigit.qmd) (回放期交付)。
 
 ## 暑期班信息
 
