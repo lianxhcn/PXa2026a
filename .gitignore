@@ -35,3 +35,6 @@ Thumbs.db
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# 离线分发包(本地留存,不推送)
+/_dist/
