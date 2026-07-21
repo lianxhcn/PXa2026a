@@ -1,0 +1,2959 @@
+                                         THE
+     QUARTERLY JOURNAL
+       OF ECONOMICS
+
+
+
+
+                                                                                               Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+Vol. 140                                  2025                               Issue 3
+
+ MANUFACTURING REVOLUTIONS: INDUSTRIAL POLICY
+    AND INDUSTRIALIZATION IN SOUTH KOREA∗
+
+                                   NATHAN LANE
+
+    I study the effect of industrial policies on industrial development by consider-
+ing an important episode during the East Asian miracle: South Korea’s heavy and
+chemical industry (HCI) drive, 1973–1979. Based on newly assembled data, I use
+
+
+      ∗ I am grateful to the editor, Nathan Nunn, Lawrence Katz, and the anony-
+
+mous referees. I thank Daron Acemoglu, Robert Allen, Sam Bazzi, Sascha O.
+Becker, Timo Boppart, Eric Chaney, David Cole, Arin Dube, Alice Evans, Réka
+Juhász, Mounir Karadja, Max Kasy, Oliver Kim, Changkeun Lee, Weijia Li,
+Ernest Liu, Andreas Madestam, Javier Mejia, Matti Mitrunen, Arieda Muço, Aldo
+Musacchio, Suresh Naidu, Dwight Perkins, Erik Prawitz, Pablo Querubín, Dani
+Rodrik, Martin Rotemberg, Todd Tucker, Eric Verhoogen, Robert Wade, and Lisa
+Xu. I thank audiences at American University, ANU, Azim Premji University,
+Berkeley, Central European University, Collège de France, Columbia, Geneva
+Graduate Institute, EBRD, Econometric Society European Meetings, Harvard,
+IMT–Lucca, INSEAD, Kellogg, KCL, Korea Development Institute, LSE ID, MIT,
+NBER SI, NEUDC, University of Nottingham, NYU–Abu Dhabi, University of
+Oxford, OzClio, Peking University, QMUL, Seoul National University, University
+of Sussex, UMass–Amherst, University of Melbourne, UNSW, University of Tech-
+nology Sydney, and University of Wollongong for valuable comments. I am espe-
+cially indebted to my advisors, Melissa Dell, Torsten Persson, James Robinson,
+and David Strömberg for their support. I benefited from the excellent assistance
+of Ida Brzezinska, Lottie Field, Seung Yeon Han, Shehryar Hasan, BoSuk Hong,
+Chan Kim, Véronica Pérez, Esha Vase, Hannah Wei, Cheongyeon Won, Hye Jin
+Won, Stephen Xu, and Kristen Yang. I thank the staff of the Bank of Korea and
+the Korea Development Institute. I gratefully acknowledge support from the Al-
+fred P. Sloan Foundation (G-2023-21089).
+
+C The Author(s) 2025. Published by Oxford University Press on behalf of President and Fel-
+lows of Harvard College. This is an Open Access article distributed under the terms of the
+Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the orig-
+inal work is properly cited.
+The Quarterly Journal of Economics (2025), 1683–1741. https://doi.org/10.1093/qje/qjaf025.
+Advance Access publication on May 29, 2025.
+
+                                          1683
+1684            THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+the introduction and termination of industrial policies to study their effects during
+and after the intervention period. I reveal that HCI policies promoted the expan-
+sion and dynamic comparative advantage of directly targeted industries. Using
+variation in exposure to policies through the input-output network, I demonstrate
+that the policy indirectly benefited downstream users of targeted intermediates.
+The benefits of HCI persisted even after the policy ended, and some results took
+
+
+
+
+                                                                                        Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+time to materialize. The findings suggest that the temporary drive shifted Korean
+manufacturing into more advanced markets and supported durable change. This
+study helps clarify the lessons drawn from the East Asian growth miracle. JEL
+codes: L5, O14, O25, N6.
+
+
+
+
+                              I. INTRODUCTION
+     Miracles by nature are mysterious. The forces behind the
+East Asian growth miracle are no exception. Industrial policy (IP)
+has defined Asia’s postwar transformation (Rodrik 1995). His-
+torically, economists focusing on development saw these policies
+as essential for industrial development (Rosenstein-Rodan 1943;
+Nurkse 1953; Hirschman 1958), and some have argued that they
+were instrumental to East Asia’s ascent (Wade 1990; Amsden
+1992). However, many economists have been skeptical of their use
+(Baldwin 1969; Krueger 1990), and others have argued that they
+played a counterproductive role in Asia (Pack 2000). South Korea
+exemplifies Asia’s rapid transformation and controversies around
+industrial policy. At the beginning of the 1960s, South Korea was
+a politically unstable industrial laggard; by the 1980s, it had
+undergone the kind of manufacturing transformation that had
+taken Western economies over a century to achieve (Nelson and
+Pack 1999). What role did industrial policy play in this transfor-
+mation? As conversations about industrial policy have returned
+(Juhász et al. 2025), empirical evidence surrounding its efficacy
+is scant, especially for the East Asian miracle (Lane 2020).
+     I use the context of the heavy industrial drive and employ
+a dynamic difference-in-differences (DD) estimation strategy. I
+evaluate the effects of South Korean industrial policy by com-
+paring changes in outcomes between targeted (treated) and non-
+targeted (untreated) manufacturing industries each year before
+and after the policy’s launch. My baseline DD results are based
+on traditional two-way fixed effect (TWFE) estimators. I build
+on these results in two ways. First, I show that the core results
+                     MANUFACTURING REVOLUTIONS                            1685
+
+are robust to using a double-robust DD estimator (Sant’Anna
+and Zhao 2020; Callaway and Sant’Anna 2021) that combines
+outcome-regression and propensity-score models to adjust the
+counterfactual. Second, I employ a cross-country, triple differ-
+ences (DDD) estimation strategy, comparing Korean manufactur-
+ing sectors with foreign placebo manufacturing sectors.
+
+
+
+
+                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+     The main DD estimates capture the effects of heavy indus-
+try policies, which emphasized directed credit and, to a lesser ex-
+tent, trade policy. Industry pre-trends inform Korea’s counterfac-
+tual sectoral structure. Without these interventions, industries
+would have evolved according to an earlier pattern of compara-
+tive advantage. I refer to Korea’s comparative advantage with-
+out intervention as its static comparative advantage. Differences
+after 1973 reveal the effect of industrial policy in promoting dy-
+namic comparative advantage, where the overarching policy was
+associated with the ascent of new industries and new patterns of
+specialization.1
+     To estimate these effects, I construct a new data set on in-
+dustrial outcomes spanning Korea’s miracle period (1967–1986).
+I harmonize material from digitized industrial surveys and his-
+torical machine-readable statistics into consistent panel data and
+then combine this industry-level data with digitized input-output
+(IO) accounts. This process results in panel data that cover a key
+episode of industrial development.
+     I highlight three empirical results. First, I find that the policy
+package resulted in significant positive effects across industrial
+development outcomes in targeted industries. Relative to pre-
+intervention levels, targeted heavy-chemical industries (HCIs)
+expanded their output by more than 100% over non-treated man-
+ufacturing sectors. Furthermore, labor productivity was more
+than 15% higher. This divergence was not driven by a decline
+in non-treated industries. Moreover, because industrial develop-
+ment is multidimensional, I consider it across outcomes and find
+effects on employment growth, export performance, and output
+prices. HCI appears to have durable, longer-run effects on treated
+industries, and I find evidence of persistent effects on plant-level,
+total factor productivity (TFP) in the post-1979 period.
+
+
+
+     1. These definitions build on Redding (1999), who defines dynamic compara-
+tive advantage more generally as a time-varying version of classic static compar-
+ative advantage.
+1686         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+      I emphasize the role of investment policy and find evi-
+dence that supports dynamic learning by doing. Reduced-form
+estimates show that HCI sectors are correlated with stronger
+learning-by-doing forces, and the results are consistent with
+industry-wide, cross-plant learning spillovers. Importantly, I do
+not find that the HCI policy crowded out investment in non-
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+treated industries.
+      Second, HCI coincided with a shift in the longer-term dy-
+namic comparative advantage of the targeted export industry.
+Post-1979 outcomes, such as the share of activity in manufac-
+turing sectors (employment or output), remained significantly
+higher than in non-treated sectors. In addition, treated indus-
+tries were 10 percentage points more likely to achieve compara-
+tive advantage in global markets after 1973. Indeed, the revealed
+comparative advantage (RCA) of HCI products increased 13%
+more than other manufacturing exports over the same period, and
+I observe similar patterns using gravity-based methods (Costinot,
+Donaldson, and Komunjer 2012). However, these patterns only
+emerged over time. Consistent with infant-industry theory (e.g.,
+Bardhan 1971), shorter-term evaluations may fail to capture the
+full, dynamic effects of a given policy.
+      Third, HCI-drive policies correspond with the development
+of downstream industries. I find that downstream sectors with
+strong links to targeted industries expanded during the policy
+period. During the drive, comparative advantage emerged among
+downstream exporters and fully materialized after the end of the
+policy period (1979). However, given that policies targeted more
+upstream industries, the backward-linkage effects of the policy
+seem limited. Hence, I find evidence that the policy may have
+supported network spillovers. These results are consistent with
+quantitative research on optimal-policy approaches in networks,
+such as Liu (2019), which uses IO data from this study. Account-
+ing for linkages reduces the precision of the main effects but pre-
+serves the core pattern of industrial-development estimates.
+      This study makes three contributions. First, I build on
+emerging research that uses contemporary econometrics to study
+the effect of industrial policies, including cross-country explo-
+rations of trade policy by Nunn and Trefler (2010), seminal
+case studies by Aghion et al. (2015) and Criscuolo et al. (2019),
+and sector-specific studies by Blonigen and Prusa (2016). It also
+complements the structural literature in industrial organization,
+which analyzes sector-specific industrial policies (Kalouptsidi
+                  MANUFACTURING REVOLUTIONS                     1687
+
+2018; Barwick, Kalouptsidi, and Zahur 2019), including ear-
+lier calibration-based evaluations (Baldwin and Krugman 1988;
+Irwin 1991; Head 1994). Similarly, relevant research in develop-
+ment economics by Rotemberg (2019) and Martin, Nataraj, and
+Harrison (2017) has explored industrial policy in India’s small
+and medium-sized enterprise policy.
+
+
+
+
+                                                                         Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+     I contribute to the empirical study of industrial policy via
+natural experiments. This article is the first study to use mod-
+ern empirical techniques to evaluate the HCI drive episode. I join
+Juhász (2018) and related work by Inwood and Keay (2013) and
+Harris, Keay, and Lewis (2015), who use historical experiments
+to estimate the effects of output market protection on manufac-
+turing development. I consider the efficacy of infant-industry pol-
+icy in a contemporary setting and with outward-oriented (e.g.,
+export-facing) policies. My findings align with studies that use
+temporary historical episodes to explore the process of dynamic
+comparative advantage (Pons-Benaiges 2017; Hanlon 2020; ). For
+example, Jaworski and Smyth (2018) and Giorcelli (2019) explore
+the impact of temporary government policies on industrial de-
+velopment. More broadly, I complement historical research high-
+lighting the potential of transitory policy to promote the longer-
+run development of nascent industries. I do so by examining a
+purposeful, targeted intervention. By considering targeted poli-
+cies, I connect with studies evaluating place-based policies, no-
+tably Criscuolo et al. (2019) and Becker, Egger, and Ehrlich
+(2010), who use exogenous spatial variation to study the effect
+of targeted support on distressed regions.
+     Finally, I add to debates on the role of industrial policy in de-
+velopment, especially those surrounding the East Asian miracle.
+On the one hand, rich qualitative research has emphasized the
+role of industrial strategies in newly industrializing economies
+(Johnson 1982; Wade 1990; Amsden 1992; Chang 1993). On the
+other hand, economists have generally expressed skepticism of
+such interventions (Noland and Pack 2003; Pack and Saggi 2006),
+especially their role in East Asia’s ascent (Krueger 1995; Pack
+2000). This study is the first modern empirical attempt to re-
+visit debates on the East Asian episode, which is summarized in
+Section III. By using contemporary econometrics, I build on early
+correlational studies (Weinstein 1995; Beason and Weinstein
+1996) and more recent quantitative research (Liu 2019).
+     My analysis is organized in the following way. In Section II,
+I discuss the institutional setting of the heavy industry drive and
+1688           THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+detail the policies. In Section III, I describe the general theoretical
+case for industrial policies. Section IV provides an overview of the
+data. In Section V, I present estimates of the direct effect of the
+heavy industry push on targeted industries, and in Section VI,
+I turn to policy mechanisms. Finally, I consider the estimates
+of HCI’s spillovers into external sectors through IO linkages in
+
+
+
+
+                                                                                 Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+Section VII. I conclude in Section VIII with a discussion of my
+findings.
+
+
+                     II. INSTITUTIONAL CONTEXT
+    I first consider the institutional and historical context of the
+HCI drive. This section describes the policy’s launch, sectoral
+choice, and variation over time. Finally, I synthesize my use of
+these features in the empirical research design.
+
+II.A. The Nixon Shock and Launch
+     Political crises in South Korea catalyzed its 1973 industrial
+drive, which was fundamentally security-driven (H.-A. Kim 2011;
+Moon and Jun 2011). Among the factors behind Korea’s crisis
+were (i) North Korea’s increasing militarization and offensive ac-
+tions (Kim 1997; Moon and Lee 2009) and, critically, (ii) a shift in
+U.S. foreign policy toward Asia. In 1969, President Richard Nixon
+declared that the United States would no longer provide direct
+military support to its allies in the Asia-Pacific region, creating
+the risk of U.S. troop withdrawal from the Korean Peninsula (Kim
+1970; Nixon 1970; Kwak 2003). Unfortunately, this U.S. pivot co-
+incided with North Korea’s growing military antagonism. Like its
+South Vietnamese allies, South Korea believed it would need to
+defend itself against an impending communist-backed invasion.
+However, South Korea had no domestic arms industry, and the
+North rivaled the South militarily, having pursued a military
+industrialization campaign through the 1960s (Hamm 1999)—
+South Korea had not kept up. Without U.S. troops, South Ko-
+rean armaments would not be able to absorb a North Korean blitz
+(Cushman 1979; Eberstadt 1999).2 Military exigencies drove the
+timing of the heavy industry push and shaped its sectoral scope.
+
+
+
+    2. Online Appendix A.1 describes the so-called Nixon shock and the subse-
+quent political crisis. Online Appendix H.1 describes Korea’s military status.
+                  MANUFACTURING REVOLUTIONS                   1689
+
+II.B. Sectoral Choice
+     1. Sectoral Rationale and Selection. The HCI drive tar-
+geted six strategic sectors: steel, nonferrous metals, shipbuild-
+ing, machinery, electronics, and petrochemicals (Stern et al. 1995;
+Castley 1997). Throughout this study, I define treated or targeted
+
+
+
+
+                                                                       Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+(I use the terms interchangeably throughout) industries as those
+listed in major policy acts—specifically, the enforcement decrees
+and national sectoral acts that undergirded the drive. Section IV
+specifies how I coded policy treatment separately from legislation,
+and I provide legislative details in Online Appendix 1.
+     Why were these sectors chosen, and what might deliberations
+over their selection tell us about expectations for their success?
+Two rationales dominated the choice of HCI sectors, and both
+have been documented by scholars and policy makers.
+     First, heavy industrial intermediates were seen as key for the
+military and industrial modernization (Lee 1991; Woo-Cumings
+1998; H.-A. Kim 2011). In the early 1970s, unlike North Korea,
+direct military production was largely beyond the South’s capa-
+bilities. Early failures in arms manufacturing were specifically
+mired by inputs of “inadequate” quality (Horikane 2005, 375).
+One former government official reported it was “apparent that
+the development of the heavy and chemical industries to the level
+of advanced countries was required to develop the defense in-
+dustry” (C.-Y. Kim 2011, 409). Hence, industrial intermediates
+were a means of promoting military industrialization and fu-
+ture hardware production. For planners, the steel and nonferrous
+metals sectors supplied crucial upstream materials for basic de-
+fense components, electronic components for electronic weaponry,
+and machinery for precision military production (C.-Y. Kim 2011).
+Former officials from the government of South Korean President
+Park Chung-hee echoed these rationales (Kwang-Mo 2015). Thus,
+unlike downstream weaponry, upstream inputs were within Ko-
+rea’s capabilities and less controversial to lenders.
+     Second, relative to advanced military hardware, South Ko-
+rea saw a potential advantage in targeting upstream production.
+Where Korea lacked the prerequisites to manufacture arms at
+scale, upstream intermediates were more practical—they were
+technologically within reach and featured economies of scale that
+could be supported through export markets (C.-Y. Kim 2011). To
+consider feasibility, the regime studied its contemporaries, includ-
+ing those in Western Europe and Japan (Perkins 2013), though
+1690           THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+the latter was less a metaphor than a blueprint. Japan’s experi-
+ence gave South Korea a guide to the sectors in which they had
+potential (Kong 2000; B.-K. Kim 2011; Moon and Jun 2011), and
+components of Korea’s drive were borrowed from the New Long-
+Range Economic Plan of Japan (1958–1968). I discuss the overlap
+between Japanese and Korean policies in Online Appendix 2.
+
+
+
+
+                                                                                 Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+     2. Selection Skepticism by Foreign Lenders. Ex ante, the po-
+tential of Korea’s heavy-chemical industries was not obvious, and
+international investors expressed doubts, famously rejecting the
+financing of erstwhile heavy industrial projects (Amsden 1992;
+Redding 1999). The International Monetary Fund (IMF), the
+U.S. Agency for International Development (USAID), and several
+European nations refused to provide loans for less ambitious,
+proto-HCI schemes (Woo 1991; Rhyu and Lew 2011). In 1969,
+both the U.S. Export-Import (EXIM) Bank and the World Bank
+blocked an early integrated steel mill, with the World Bank con-
+cluding that Korea “had no comparative advantage in the pro-
+duction of steel” (C.-Y. Kim 2011; Rhyu and Lew 2011, 324). The
+skepticism of lenders toward Korea’s proto-HCI projects contin-
+ued through the early 1970s, and such practicalities constrained
+early forays into heavy industrial projects—that is, until South
+Korea’s political turn in late 1972,3 when President Park’s auto-
+cratic self-coup and breakthroughs due to international capital
+finally enabled a heavy industrial push.
+
+II.C. Policy Instruments and Variation: Before, During, and After
+      HCI
+     The drive’s January 1973 announcement broke with Korea’s
+earlier horizontal export-first industrial policy regime (Frank,
+Kim, and Westphal 1975; Krueger 1979; Westphal and Kim 1982;
+Westphal 1990), which famously was not sectoral but aimed at ex-
+port activity writ large (Hong 1979, 28).4 Before the HCI drive, ex-
+port incentives were essentially “administered uniformly across
+all industries” (Westphal and Kim 1982, 217–218; Westphal 1990,
+44). Exporters were exempted from so many restrictions that
+scholars have argued that the export drive essentially “allowed
+
+    3. See Online Appendix 3 for details on these constraints.
+    4. Before 1973, Korea implemented no fewer than 38 different incentives to
+promote exports (Lim 1981, 18). See Online Appendix 4 for details on Korean
+economic planning.
+                     MANUFACTURING REVOLUTIONS                             1691
+
+exporters to operate under a virtual free trade regime” (Nam
+1980, 91; Lim 1981). In other words, the HCI drive represented a
+pivot to a fundamentally sector-specific strategy.
+    What was the industrial policy bundle? I consider two classes
+of policies in detail—investment policy and trade policy—and
+their variation across the period.
+
+
+
+
+                                                                                     Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+     1. The Bias of Lending and Investment Incentives. Di-
+rected lending was a central lever of the heavy industrial drive
+(Lee 1991; Woo 1991).5 Half of all domestic credit consisted
+of subsidized “policy loans,” which were allocated by financial
+institutions—less traditional nonbanking institutions (develop-
+ment banks) and more traditional commercial banks (Koo 1984;
+Lee 1996). Broadly defined, policy-targeted loans were designed
+to advance government objectives and were automatically redis-
+counted by the central bank at a preferential rate.6 For example,
+over this period, policy loans had longer repayment schedules,
+and average interest rates were 5 percentage points lower than
+benchmark loans (Cho and Kim 1995).
+     Figure I illustrates the shift from (pre-1973) sector-agnostic
+policies to (post-1973) sector-specific investment policies. Panels
+B and C track the rise in new credit to the heavy-chemical sec-
+tor after 1973 and the decline in direct state lending after 1979.
+Specifically, Panels B and C plot the change in loans issued by
+the Korea Development Bank (KDB), the source of around 90% of
+attractive policy loans lent by nonbanking financial institutions
+(Cho and Kim 1995, 42). Panel B presents the real value of all new
+KDB loans by industry, and Panel C presents these values for ma-
+chinery and intermediates, a major focus of the industrial drive
+policy. The thin lines correspond to two-digit industries, and the
+thick lines are averages for targeted (red/lighter gray; color ver-
+sion available online) and non-targeted (darker gray) industries.
+Parallel lines denote the average lending for each period.
+     The sectoral bias of lending by state institutions is also seen
+in more traditional commercial deposit banks, which allocated a
+significant share of policy loans (World Bank 1993; Cho and Kim
+1995). Online Appendix Figure A.2 shows similar growth for total
+
+    5. Woo summarizes that Korean policy sought to “hemorrhage as much capital
+as possible into the heavy industrialization program” (Woo 1991, 59).
+    6. Historically, Korean policy loans have served rural and infrastructural de-
+velopment objectives and were a prominent lever of heavy industry targeting.
+1692            THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+                        (A)
+
+
+
+
+                                                                                        Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                  (B)
+
+
+
+
+               (C)
+
+
+
+
+                                      FIGURE I
+         Investment Policy and the Heavy and Chemical Industry Drive
+  This figure shows the patterns of investment policy through time by industry.
+Panel A plots estimates of the average effective marginal tax rate (percentage)
+on the returns to capital, accounting for changes in industry-specific tax subsi-
+dies (1969–1983). Thin lines are estimates for two-digit manufacturing industries.
+Thick lines are averages for treated and non-treated industries. Gray lines corre-
+spond to non-targeted sectors, and red (lighter gray; color version available online)
+lines correspond to targeted sectors. Panel B plots the change in the (real) value
+of total loans issued by the Korea Development Bank, 1972–1981, a representa-
+tive state lending institution. Values are real values in won. Panel C plots only
+changes in lending for machinery, a major component of HCI lending and policy
+loans.
+                     MANUFACTURING REVOLUTIONS                            1693
+
+credit and intermediate equipment loans by commercial banks.
+Indeed, across lending institutions, aggregate data in both fig-
+ures (Figure I and Online Appendix Figure A.2) plot a trend-break
+in sectoral-specific lending after 1979, which marks the beginning
+of policy liberalization.
+     Similarly, Figure I, Panel A traces the sectoral bias of tax
+
+
+
+
+                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+policy over the period, using the estimated effective marginal
+tax rate. These estimates account for myriad period-specific in-
+vestment incentives, notably tax breaks, investment tax credits,
+and special depreciation rates (Kwack 1985; Stern et al. 1995;
+Lee 1996); see Online Appendix I.5 for details. Panel A presents
+the divergence in rates after 1973, when tax laws were reformed
+to concentrate investment in heavy industry (Kwack 1984; Kim
+1990).7 Like directed credit, tax policies converged after the start
+of the liberalization period in 1979.
+
+     2. The Bias of Trade Policy. The heavy and chemical indus-
+try drive also altered biases related to trade policy. Pre-1973, gov-
+ernment policies broadly exempted exporters from import restric-
+tions (Nam 1980; Westphal 1990). Indeed, measures of nominal
+protection were lower for heavy industry during this period (see
+Online Appendix 5 for pre-1973 trade policy). After 1973, exemp-
+tions were aimed at heavy industry (Woo 1991; Cho and Kim
+1995), and HCI producers were exempted from up to 100% of im-
+port duties. Park (1977, 212) estimates that “key industries,” on
+average, enjoyed 80% tariff exemptions. Although the post-1973
+trade policy was refocused toward heavy industry, the nominal
+protection of output markets did not appear to rise substantially,
+especially relative to other policies (see Section VI.B).
+
+     3. Post-1979 Liberalization. President Park Chung-hee’s
+assassination in 1979 prompted the withdrawal of his signature
+policy. With the fall of Park’s regime, South Korea dismantled
+heavy-chemical industrial incentives and pursued structural eco-
+nomic reforms. I provide details of the post-1979 liberalization
+in Online Appendix 6. For example, the state-controlled banking
+sector was liberalized, with notable reforms in 1981 and 1983.
+
+     7. Packages included the “Special Tax Treatment for Key Industries” (Tax Ex-
+emption and Reduction Control Law), which gave strategic industries the choice
+of a five-year tax holiday, an 8% tax credit toward machinery investment, or a
+100% special depreciation allowance (Lee 1996, 395).
+1694         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+Special rates on policy loans were eliminated, and they took a
+different form after 1979 (see Online Appendix A.2). Although
+the role of government policy loans shrank (Cho and Cole 1992;
+Nam 1992), fiscal reforms closed the gap in effective marginal
+corporate tax rates between strategic and nonstrategic industries
+(Kwack and Lee 1992). Meanwhile, the post-Park autocracy ac-
+
+
+
+
+                                                                        Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+celerated Korea’s trend toward trade policy liberalization.
+
+II.D. Summary: Features for Empirical Study
+     The policy context informs the research design of this study,
+which I summarize in four points. First, the episode introduced
+sectoral variation over time, as the heavy and chemical indus-
+try drive shifted national policy toward a discrete set of nascent
+industries. This shift began and ended because of external polit-
+ical events: the Nixon doctrine and Park’s assassination, respec-
+tively. The liberalization of HCI is also useful, as theoretical jus-
+tifications often entail temporary policy.
+     Second, policy variation was purposeful. Notably, I consider
+an actual policy and not a random variation mimicking indus-
+trial policy. Given the complications of estimating the effect of in-
+dustrial policies, researchers have used important natural exper-
+iments that mimic policy variations (Juhász 2018; Hanlon 2020;
+Mitrunen 2025). Nevertheless, the case for industrial strategy
+hinges on the policy being intentional (Juhász et al. 2025), and
+it may be difficult to glean insights from random, accidental pol-
+icy variation (Rodrik 2004).
+     Third, although targeted, Korea did not believe HCIs would
+develop without intervention, and financiers doubted the viabil-
+ity of the Korean heavy industry sector. Foreign lenders rejected
+financing for early prototype projects on the grounds of compara-
+tive advantage. Korean planners countered that investment could
+cultivate comparative advantage in targeted sectors.
+     Fourth, the political context of the HCI drive reduces the role
+of political confounders. This setting, including the existential
+threat facing South Korea, meant industrial policies were bind-
+ing and coherent. Clientelism and political demands often divert
+resources to industries with a comparative disadvantage (Rodrik
+2005; Lin 2012), and policy estimates may reflect political fail-
+ures rather than the potential of a given policy. Korea’s heavy and
+chemical industry drive was driven by top-down changes in na-
+tional economic and defense strategy—the sectoral bias was not
+driven by lobbying or heavy industrial constituents.
+                  MANUFACTURING REVOLUTIONS                   1695
+
+        III. CONCEPTUAL CASES     FOR I NDUSTRIAL   POLICY
+     Mainstream neoclassical justifications often rely on the ex-
+istence of externalities (Corden 1997; Juhász, Lane, and Rodrik
+2024). I discuss two externalities relevant to the South Korean
+policy episode: dynamic economies of scale and linkage effects.
+
+
+
+
+                                                                       Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+I consider each in the context of earlier empirical work on East
+Asia.
+
+
+III.A. Dynamic Economies of Scale
+     Dynamic externalities have long guided justifications for
+infant-industry policy (Bardhan 1971; Succar 1987; Young 1991).
+Intra-industry learning-by-doing externalities embody this class
+of justifications, whereby firms accumulate production experience
+over time; in turn, this experience benefits other firms in the same
+industry. Hence, individual firms may not internalize the benefits
+of learning, producing, or underinvesting in a socially beneficial
+activity. Interventions may also be justified even without across-
+firm spillovers, such as when firm-level learning occurs alongside
+other imperfections (Lucas 1984; Corden 1997). For instance, a
+firm may have strong learning-by-doing forces, yet if it faces cap-
+ital constraints, it may be unable to survive turbulent nascent
+periods.
+     Such dynamic economies of scale are the means by which
+industrial policy can, in theory, cultivate a dynamic compara-
+tive trade advantage (Redding 1999). Theoretically, if learning-
+by-doing conditions are suitable (i.e., within-industry learning
+spillovers or firm-level learning combined with imperfections), a
+successful infant industrial policy in a new sector can promote the
+evolution of comparative advantage on the international market.
+     Correlational studies of East Asian industrial policy have
+suggested that interventions may not correspond to industrial
+development or externalities. For Korea, Lee (1996) identi-
+fies a negative relationship between postwar interventions and
+industry-level outcomes, specifically, protection and manufactur-
+ing productivity (see also Dollar and Sokoloff 1990). Beason and
+Weinstein (1996) find that Japanese industrial policy is not posi-
+tively correlated with industry development. Similarly, Yoo (1990)
+argues that HCI may have harmed South Korea’s export develop-
+ment performance relative to its contemporaries.
+1696         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+III.B. Linkage Effects
+     Second, pecuniary externalities through linkages have been
+another justification for implementing a particular industrial pol-
+icy (Krueger and Tuncer 1982; Grossman 1990; Krugman 1993),
+where policies targeting one sector benefit external industries
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+through IO connections. Development economists have long con-
+sidered how industrial interventions impart benefits beyond the
+direct targets of the policies through IO linkages (Scitovsky 1954;
+Rasmussen 1956; Hirschman 1958). They argue that intuitive
+targeting is likely justified where the social benefits conferred
+to others are considerable. These benefits are transmitted in
+two directions. The first is through backward linkages to up-
+stream industries selling inputs to targeted sectors. For exam-
+ple, if an industrial policy increases the size of targeted indus-
+tries, it increases the demand for upstream producers. Second,
+industrial policy can confer benefits through forward linkages to
+downstream industries purchasing inputs from targeted sectors.
+For example, if a policy increases the productivity of a treated
+industry, it may lower prices, which benefits firms using those
+inputs.
+     As with dynamic externalities, tests of industrial policy jus-
+tifications with linkage spillovers have attempted to explore the
+relationship between targeting—or often, policy levers—and the
+existence of linkage spillovers. Incisive studies of East Asia, in
+particular, have rejected industrial policy on the grounds that
+it has not corresponded to these externalities. Noland (2004) ar-
+gues that Korean policy did not target sectors with high linkage
+spillovers. Using measures of IO linkages, Pack (2000) finds that
+industries targeted by South Korea and Japan had low linkages
+with non-targeted industries and questions whether the policy
+targeted externalities. Taken together, Noland and Pack (2003)
+and Pack and Saggi (2006) argue that industrial development
+and targeting seem uncorrelated with growth in key historical
+episodes. A recent applied theoretical study by Liu (2019) reveals
+that common features of IO tables may correspond to optimal tar-
+geting, using evidence for South Korea and China.
+
+
+                            IV. DA T A
+    I use newly assembled industry-level data on industrial
+development during South Korea’s miracle period, 1967–1986.
+                    MANUFACTURING REVOLUTIONS                         1697
+
+Industry-level panels are constructed using digitized data from
+the Economic Planning Board’s (EPB) Mining and Manufacturing
+Surveys and Census (MMS). MMS data are suitable for studying
+the HCI drive, which was fundamentally a sectoral policy. The
+survey is high quality and reports consistent manufacturing cen-
+sus outcomes over the study period. The MMS census data are
+
+
+
+
+                                                                               Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+published nearly every five years, with annual intercensal sur-
+veys. Manufacturing outcomes are published at the five-digit in-
+dustry level and aggregated from establishment (or plant) level
+surveys.8 In addition to industry-level data, I use post-1979 plant-
+level microdata from the MMS. Price data are digitized from his-
+torical and contemporary Bank of Korea producer price index
+publications and yearbooks.
+
+IV.A. Long and Short Industry Panels
+     This study uses two harmonized industry panels. Online
+Appendix Table A.1 presents pre-1973 statistics (mean and stan-
+dard deviation, non-normalized values) for key industrial vari-
+ables. Panel B of Online Appendix Table A.1 reports values from
+the “short” granular five-digit industry panel, harmonized from
+1970 to 1986. Panel A reports values from the “long” more aggre-
+gated four-digit panel, harmonized from 1967 to 1986. The termi-
+nal date of the study is 1986, the year before Korea’s consequen-
+tial democratic transition.
+     Creating these consistent industry panels from MMS data is
+not trivial and requires harmonization across multiple code re-
+visions. Between 1967 and 1986, the EPB updated Korea’s in-
+dustrial codes (KSIC) four times, with a major revision in 1970.
+Thus, harmonizing MMS data alone requires multiple crosswalk
+schemas and their digitization. I describe this process in Online
+Appendix I.2 and the concordance in the MMS and across other
+data series.
+     The harmonization process introduces a trade-off between
+the two panels. The short panel (1970–1986) contains more indus-
+try observations (five-digit level) but covers a more limited time-
+line. The shorter panel requires less harmonization and thus is
+closer to the original MMS publication statistics. In contrast, the
+long panel (1967–1986) contains fewer industries (four-digit level)
+but covers a longer timeline. Thus, the longer panel requires more
+
+    8. I supplement digitized MMS statistics with early machine-readable MMS
+data (1977–1986).
+1698         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+harmonization but encompasses the critical pre-1973 (“pretreat-
+ment”) period. Although the long panel adds three years to the
+pretreatment period, four-digit observations and the harmoniza-
+tion process significantly reduce the number of industry observa-
+tions relative to the short, disaggregated panel.
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+IV.B. Defining Treatment
+     I define treated or targeted industries as those appearing in
+major industry legislation. Section II described the industry scope
+of the HCI drive, which was built from six major sectoral acts. For
+sectors like shipbuilding, aggregate sectors from the acts and cen-
+sus industries are closely aligned. However, care is required for
+more complex industries, such as chemicals, and the relevant leg-
+islation. Consequently, I hand-match the industries in the legisla-
+tion to the harmonized data, both the long and short panels. This
+process entails matching industry labels in legislation to indus-
+tries in the five-digit KSIC industry codes. See Online Appendix 1
+for legislation and matching.
+
+IV.C. Linkages
+     Interindustry linkage data are constructed from the Bank of
+Korea’s 1970 “basic” IO tables, which I digitized. These are the
+most disaggregated tables for the period, covering approximately
+320 sectors. I used these tables to create the measures of exposure
+to industrial policy through linkages, which I detail in Online
+Appendix E.1. However, the Bank of Korea data and MMS sur-
+veys use different coding schemes. Thus, combining IO accounts
+with industry data requires further harmonization (see Online
+Appendix I.2).
+
+IV.D. Trade Flows and Trade Policy
+     I also use international trade-flow and trade policy data. The
+“long” four-digit industry panels are hand-matched to the Stan-
+dard International Trade Classification (SITC, rev.1) four-digit-
+level trade data. The trade-flow data come principally from the
+UN Comtrade database. For trade policy, the product-level mea-
+sures of quantitative restrictions (QRs), for example, tariffs, are
+digitized from Luedde-Neurath (1988) and connected to modern
+nomenclatures. These data are available for 1968, 1974, 1976,
+1978, 1980, and 1982, representing the most disaggregated, read-
+ily available data for the period (Westphal 1990). These statistics
+                  MANUFACTURING REVOLUTIONS                       1699
+
+contain measures of core nontariff barriers, notably QRs. Most
+empirical studies of Korean trade policy use highly aggregated
+data. In terms of QRs, Luedde-Neurath (1988) codes the severity
+of restrictions from least to most severe (0 to 3).
+      I use trade policy data to calculate separate measures for out-
+put and input market protection exposure. Output protection for
+
+
+
+
+                                                                          Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+industry i is simply the average tariff (or quantitative restric-
+tion) score for that sector: output-tariffi . Heavy industry policy
+also used exemptions from import barriers as a policy tool, and I
+calculated measures of input protection. Input tariffs (QRs) faced
+by industry i are calculated as the weighted sum of tariff (QR)
+exposure
+            (Amiti and Konings 2007): for example, input-tariffi =
+   j α ji × output-tariff j , where α ji are cost shares for industry i
+and input j. Cost weights come from the 1970 IO accounts.
+
+
+            V. THE MAIN EFFECTS             OF THE    HCI DRIVE
+    This section considers the empirical effect of the HCI drive
+in three parts. First, I introduce the main estimation strategy
+(Section V.A), which I use to identify how HCI targeting corre-
+sponds to industrial development (Section V.B). Then I report es-
+timates of the average impact of the policy over time and consider
+estimates from the double-robust DD estimator (Section V.E). Fi-
+nally, I use a DDD estimation strategy to study the effect of the
+heavy industry drive using cross-country variation (Section V.F).
+
+V.A. Estimation
+    To estimate the impact of the industrial policy, I use the tem-
+poral and sectoral variation from the HCI drive to employ a DD
+strategy. I take the January 1973 announcement of HCI as the
+start date and the assassination of President Park in 1979 as
+the de facto end date. I compare differences between the set of
+targeted manufacturing industries versus the set of non-targeted
+manufacturing industries relative to 1972. I collect data on the in-
+dustries until 1986, the year before Korea’s formative democratic
+transition. I consider the following baseline specification:
+                                                         
+          ln(yit ) = αi + τt +    β j · Targetedi × Yeartj
+                                  j=1972
+                        
+(1)                +             Xi × Yeartj  j + it ,
+                       j=1972
+1700         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+where yit are (log) industrial development outcomes, i indexes
+each manufacturing industry, and the year is denoted by t, which
+takes the values 1967–1986 for the long panel and 1970–1986
+for the short panel. Equation (1) is a linear TWFE specification
+with industry fixed effects αi and time effects τt . I cluster stan-
+dard errors at the industry level, allowing for within-industry
+
+
+
+
+                                                                       Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+correlation. I also estimate equation (1) using pretreatment vari-
+ables to control for unobserved productivity correlated with the
+intervention, including pre-1973 industry averages: total inter-
+mediate outlays (material costs), average wage bill (total wage
+bill per worker), average plant size (employment per plant), and
+labor productivity (value added per worker). Values are all in real
+terms and are in logs. Since the pretreatment averages Xi are
+time-invariant, I interact them with year effects to estimate their
+impact over time.
+     The effect of the industrial policy drive is estimated using a
+binary variable Targetedi , which is equal to one for a treated in-
+dustry and zero otherwise (for assignment, see Section IV). The
+set of β j ’s is the differences between targeted and non-targeted
+industries for each year j relative to the pretreatment year 1972,
+and coefficients for 1972 are normalized to zero. The binary treat-
+ment term allows me to visually assess counterfactual dynamics
+and pre-trends. I also compare TWFE estimates from equation (1)
+to the double-robust DD estimators below (Section V.E).
+     The coefficients of interest, β j , convey three aspects of how
+targeted sectors evolved. First, estimates after 1972 describe the
+average impact of the targeting for each period after the start of
+the HCI drive. If the industrial policy is associated with short-
+term industrial development during the six-year drive, we should
+observe increasing differences in yit between 1973 and 1979.
+     Second, estimates after 1979 describe the long-term effects
+of the industrial policy drive. In the parlance of the industrial
+policy literature, their longevity indicates the potential dynamic
+effects of industrial policy. This evolution may be realized through
+dynamic economies of scale (Section III). Even where differences
+stabilize in the later period, this may coincide with a permanent
+shift in levels of development between the two types of industries.
+     Third, estimates before 1972 describe average differences
+between targeted and non-targeted industries before the policy.
+Thus, they convey information about the common-trend assump-
+tion of the research design. Before 1972, we should not observe
+systematic differences between treated and control industries:
+                     MANUFACTURING REVOLUTIONS                            1701
+
+βˆ1967 ≈ βˆ1968 ≈ βˆ1972 ≈ 0. For key analyses, I report the full tables
+and plotted estimates, including full tests for the joint significance
+of pre-trends.9
+      Ultimately, the goal of specification (1) is to understand the
+impact of the industrial policy package on treated industries or
+the ATT. This estimand is particularly relevant for industrial pol-
+
+
+
+
+                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+icy, where policy makers are often interested in the effect of a
+policy on targeted units rather than the average unit in an econ-
+omy (ATE); as such, the ATT requires different, less stringent
+assumptions.
+      Theoretically, sectoral industrial policies often target indus-
+tries that are most responsive to the relevant legislation or that
+idiosyncratically gain from interventions. In our setting, targeted
+industries may be those expected to respond the most to poli-
+cies, for example, by having stronger dynamic economies of scale.
+For estimating the ATT, the common-trend assumption accounts
+for this issue under certain assumptions: if selection does not
+change over time (irrespective of policy), the common-trend as-
+sumption addresses this form of selection between targeted and
+non-targeted industries (Heckman et al. 1998; Blundell and Dias
+2009). In other words, if the selection bias remains unchanged be-
+tween the sectors at the time of treatment, then parallel trends
+remove unobserved idiosyncratic gains from estimates. This as-
+sumption is violated if unobserved factors such as productivity
+are expected to accelerate in targeted industries, regardless of
+treatment. Recall, however, that Section II documented how al-
+lies and foreign lenders believed that South Korea could not culti-
+vate dominance in heavy industries without intervention. Never-
+theless, the assumptions above mean that estimating the impact
+(ATT) of the policy drive requires a proper control group. To this
+end, the treatment-effects literature has emphasized the power of
+alternative estimators and reweighting methods (Heckman et al.
+1998; Smith and Todd 2005).
+      I consider alternative estimation procedures and build on my
+baseline TWFE estimator for equation (1) in two ways. First, I use
+a double-robust DD estimator—a method that reweights observa-
+tions in the control group through their propensity score and ad-
+
+    9. Although null results provide information about DD pre-trend assump-
+tions, they cannot validate the pre-trend assumption alone or do so decisively.
+This situation is particularly true for more detailed five-digit estimates, which
+have limited pretreatment periods.
+1702            THE QUARTERLY JOURNAL OF ECONOMICS
+
+                   (A)                                       (B)
+
+
+
+
+                                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                       FIGURE II
+                         Industrial Policy and Industry Output
+  This figure shows the dynamic DD estimates for the relationship between HCI
+and output, measured as (log) real value of gross output shipped. Coefficients in
+the plot are estimated using equation (1). The bottom row shows dynamic DD es-
+timates: Panel A corresponds to estimates for the detailed (short) five-digit level
+panel. Panel B corresponds to estimates for the aggregate (long) four-digit level
+panel. Baseline columns are baseline two-way fixed effects regressions, and Plus
+Controls columns include pretreatment controls. The top row shows the predicted
+outcomes of the fitted model to show group-specific trends; lines correspond to
+predicted values for treated and control industries for each point before and af-
+ter 1972. For specifications with controls, predictions use the mean values of the
+controls. All estimates are relative to 1972, the year before the HCI policy. 1979
+demarcates the end of the Park regime. Standard errors are clustered at the in-
+dustry level. Ninety-five percent confidence intervals are shown in gray.
+
+
+justs the counterfactual outcome using a linear regression model.
+Second, I estimate the takeoff of Korean targeted industries us-
+ing cross-country and cross-industry variation and use a DDD es-
+timation strategy. This strategy attempts to directly address the
+issues discussed above by comparing Korean industries to similar
+international industries. First I consider the baseline estimates.
+
+V.B. Direct Impact on Industrial Development: Results
+     1. Key Patterns and Output Expansion. Figure II plots base-
+line dynamic DD estimates for the effect of HCI on output,
+measured as real value shipped. Panel A provides estimates
+for the detailed (short) five-digit panel, which starts in 1970.
+Panel B presents estimates for the more aggregated (long) four-
+                  MANUFACTURING REVOLUTIONS                     1703
+
+digit panel, which started in 1967. The left columns give esti-
+mates from the baseline fixed-effect specifications, and the right
+columns show estimates with controls. The top row of each
+panel in Figure II presents the average log output for targeted
+(red/gray) and non-targeted (black) industries using the fit model
+from equation (1). The bottom row presents the traditional DD
+
+
+
+
+                                                                         Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+plots of the estimated differences between the two industries.
+     Figure II delivers three key patterns of industrial develop-
+ment associated with the policy drive, and these patterns reap-
+pear across outcomes throughout this study. First, Figure II
+shows that output from targeted and non-targeted industries
+evolved similarly over the pre-HCI period (1967–1972). This re-
+sult is clearest in the longer aggregate four-digit panel, and
+pre-period coefficients are individually and jointly insignificant
+(Online Appendix Table B.1).
+     Second, Figure II shows that marked differences between
+treated and non-treated sectors emerged after the 1973 interven-
+tion. These differences widen and become stark over the policy
+period. This divergence is most pronounced in estimates for the
+five-digit data in Panel A. Panel B reports a similar, though less
+precise, divergence in aggregate four-digit data. The top row of
+Figure II also shows that the estimated differences (bottom) are
+not driven by the decline in the control industries. This finding is
+useful because differences between treated and non-treated in-
+dustries may emerge if policies harm industries in the control
+group (e.g., Cerqua and Pellegrini 2017), for instance, if policy
+crowds out investment for other manufacturing industries. I ex-
+plore this issue in Section VI.A.
+     Third, the effects of the drive were not transitory. In terms of
+real output, in Figure II, the gap between treated and non-treated
+industries persists throughout the post-1979 period. The top row
+of Figure II also reveals that even though differences stabilize or
+diminish, the level effects are sticky. The patterns in Figure II
+are also robust and seen across alternative measures of log out-
+put, data sets (four- versus five-digit panels), and specifications in
+Online Appendix Figure B.1.
+
+     2. Industrial-Development Outcomes. Figure III presents
+the effect of the HCI policy across various industrial-development
+outcomes. Panel A illustrates that the policy drive coincided with
+a significant increase in simple measures of labor productivity
+(log real value added per worker) and relatively lower (log) out-
+1704            THE QUARTERLY JOURNAL OF ECONOMICS
+
+               (A)                                           (B)
+
+
+
+
+                                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                    FIGURE III
+              Industrial Policy: Industrial and Export Development
+  This figure shows the dynamic DD estimates for the relationship between HCI
+and industrial development (log) outcomes (Panel A) and export development out-
+comes (Panel B). Coefficients in the plot are estimated using equation (1). Panel
+A: Left are estimates from long-panel data (four-digit), right are estimates from
+detailed short-panel data (five-digit). Panel A reports estimates for log outcomes:
+total employment; labor productivity (real value added per worker); output prices;
+number of plants; and output (labor) share is industry’s share of total manufac-
+turing output (employment). Panel B presents outcomes for trade data. RCA is
+the plain Balassa index, estimated using PPML; all other trade outcomes are es-
+timated using OLS. RCA (asinh) is transformed using inverse hyperbolic sine.
+Relative export productivity is structurally estimated using CDK. The probability
+of reaching comparative advantage is defined as cases where the RCA index > 1.
+All estimates are relative to 1972, the year before the HCI policy. 1979 demarcates
+the end of the Park regime. Standard errors are clustered at the industry level.
+Ninty-five percent confidence intervals are shown in gray.
+
+
+
+put prices. Like the estimates above, five-digit data estimates are
+more precise than aggregate four-digit ones. Note that these es-
+timates are not driven by a decline in prices for heavy industry.
+Online Appendix B.1 shows that heavy industry prices increased
+less than other industries over the inflationary 1970s.
+     Figure III, Panel A also demonstrates that the policy coin-
+cided with a shift in the share of total manufacturing activity
+                   MANUFACTURING REVOLUTIONS                        1705
+
+toward targeted industries. The log manufacturing share of out-
+put and the log employment share both increase for the targeted
+industry. Moreover, this reallocation of manufacturing activity to-
+ward the heavy and chemical industry is durable. Estimates are
+less precise for aggregate data. Online Appendix Table B.2 jointly
+rejects pre-trends. In addition, Figure III shows a rise in the num-
+
+
+
+
+                                                                             Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+ber of plants operating in HCI markets.
+
+V.C. Direct Impact on Export Development
+     Export performance provides another view of industrial de-
+velopment, and exports were central to the policy program, as it
+was for earlier iterations of South Korean industrial policy. For in-
+stance, a distinct goal of the HCI drive was that heavy-chemical
+products would constitute 50% of exports by 1980 (Hong 1987;
+World Bank 1987). Figure III, Panel B reports the effect of in-
+dustrial policy on export-development outcomes, now using SITC
+(rev. 1) trade-flow data, which are substantially more disaggre-
+gated than harmonized industry data.
+     The analysis in Panel B considers multiple measures of ex-
+port development. First, I calculate a traditional measure of re-
+vealed comparative advantage (e.g., Balassa 1965) for each in-
+dustry. The RCA (Balassa) index is defined as the ratio of Korea’s
+export share of good k relative to the world’s export share of com-
+modity k:
+                                   Korea 
+                                      Xk
+                                       Korea
+                                      XTotal
+                          RCAk =               ,
+                                      XkWorld
+                                        World
+                                      XTotal
+
+where X denotes the value of exports. Korea has a comparative
+advantage in k when RCAk is larger than one.
+        In addition, I estimate the relative export productivity
+(CDK) using the gravity model methods proposed by Costinot,
+Donaldson, and Komunjer (2012). Their estimate provides a the-
+oretically consistent measure of revealed comparative advantage
+beyond the classic calculations. For industry k, I estimate rel-
+ative export productivity for country i, where CDK       k = exp( δik );
+                                                                       θˆ
+the trade elasticity θˆ is taken from Costinot, Donaldson, and
+Komunjer (2012). The δik term is the exporter-commodity fixed ef-
+fect from the bilateral trade regression, ln(Xi jk ) = δi j + δ jk + δik +
+i jk , where X are exports, i is an exporter, j is an importer, and k is
+a commodity. While the traditional RCA measure accommodates
+1706         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+zero trade flows, CDK is estimated from nonzero trade flows and
+takes positive nonzero values.
+     Across measures of export development, Figure III, Panel B
+depicts a strong positive relationship between industrial policy
+and treatment. For the classic RCA index, I use Poisson pseudo-
+maximum likelihood (PPML), given the prevalence of zeros. I also
+
+
+
+
+                                                                         Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+provide linear estimates using transformed RCA for complete-
+ness. Panel B shows a consistent pattern: after 1973, there was
+a marked rise in the relative RCA and the share of manufactur-
+ing exports for targeted SITC industries. Furthermore, the prob-
+ability of attaining comparative advantage grew markedly after
+1973. Second, before 1973, pre-trends were absent across trade
+outcomes, except for RCA, which trended downward. Third, esti-
+mates grew and became highly significant in the post-policy pe-
+riod. Hence, RCA emerged during the drive and was fully articu-
+lated after the policy period. The ascent of heavy-chemical exports
+is also shown below (Section V.F) using cross-country trade data.
+
+V.D. Direct Impact: Robustness
+    1. TFP: Plant-Level Persistence and Industry-Level Trends.
+Section V.B presented indirect productivity measures. I now turn
+to TFP. However, features of the data and the historical context
+pose constraints for estimating TFP (e.g., microdata availability).
+Nevertheless, I consider the persistence of plant-level TFP using
+microdata (which are available after 1979). Specifically, I study
+the correlation between targeting and plant-level TFP after the
+end of HCI in 1979 using a simple pooled panel regression:
+(2)             TFP pit = αit + βTargeted p +  pit ,
+where p denotes plant, and t are years after 1979. The term
+Targeted p indicates plants operating in industries targeted by
+the HCI drive. Given that treatment is time invariant, I include
+(four-digit) industry-year effects, αit . For completeness, I consider
+multiple estimates of TFP pit (Olley and Pakes 1996; Levinsohn
+and Petrin 2003; Wooldridge 2009; Ackerberg, Caves, and Frazer
+2015). I use two-way clustered standard errors to allow for within-
+industry and plant correlation.
+     Table I reports the relationship between plant-level produc-
+tivity and plants in treated heavy industry. For the period imme-
+diately after the HCI drive (1980–1986), treated establishments
+have significantly higher TFP than do non-treated establish-
+ments. Across specifications and measures of TFP, estimates in
+                                                                         TABLE I
+                         DIFFERENCES        IN   PLANT-LEVEL T OTAL FACTOR PRODUCTIVITY,                      BY   TREATMENT STATUS (1980–1986)
+
+                                                                                                   Outcomes: Total factor productivity
+
+                                                                   (1)                       (2)                        (3)                        (4)                       (5)
+
+Targeted                                                       0.043∗∗∗                   0.010                     0.054∗∗∗                   0.042∗∗∗                   0.003
+                                                               (0.015)                   (0.014)                    (0.015)                   (0.014)                    (0.013)
+Industry × Year                                                  Yes                       Yes                        Yes                       Yes                        Yes
+ R2                                                             0.368                     0.446                      0.342                     0.234                      0.117
+Observations                                                  272,150                   272,150                    272,150                   272,150                    272,150
+Two-way cluster (industry plant)                            488 × 91,094              488 × 91,094               488 × 91,094              488 × 91,094               488 × 91,094
+Estimation type (TFP)                                             W                       ACF                         LP                        OP                        OLS
+
+   Notes. This table shows the relationship between plant-level TFP and HCI (targeted industries) for the post-HCI period (1980–1986). TFP is estimated using Ackerberg-Caves-
+Frazer (ACF), Levinsohn-Petrin (LP), Olley-Pakes (OP), and Wooldridge (W) methods.
+                                                                                                                                                                                            MANUFACTURING REVOLUTIONS
+
+
+
+
+   TFP is estimated using a log-transformed, value-added production function. I include TFP estimated using OLS as a baseline estimate. The Targeted indicator is defined by the
+plant’s main industry. All regressions control for year-by-industry (four-digit level) fixed effects. Regressions use two-way clustered standard errors at the plant and industry levels.
+Standard errors are in parentheses. ∗ p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+                                                                                                                                                                                            1707
+
+
+
+
+                            Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+1708         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+Table I are significant and imply that heavy industry plants in the
+1980s have 0%–6% higher productivity than non-targeted plants.
+These correlational results are compatible with the industry-level
+dynamics shown in Section V.B.
+     Next I turn to industry-level dynamics using aggregate TFP,
+which I present in Online Appendix 1. These industry-level es-
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+timates also reveal a gentle upward trend in total productivity
+for targeted industries relative to non-targeted industries. Dif-
+ferences in productivity became significant after 1979. This up-
+ward trajectory is compatible with the relatively high TFP in the
+cross section of post-1979 heavy industry plants (Table I). For
+further robustness, Online Appendix B.1 provides dynamic esti-
+mates for plant-level TFP, showing gentle upward trends over the
+limited post-1979 period. Together, the industry and plant-level
+estimates appear consistent with the slow emergence of policy ef-
+fects. Perhaps equally important, I do not find a salient relative
+decline in TFP for the treated industries, which may be commonly
+associated with poorly performing industrial policy.
+
+
+     2. Continuous Treatment and Limited “Horizontal”
+Spillovers. For robustness, Online Appendix J.1 explores the
+patterns of industrial development using a more continuous
+industry-level measure of exposure to HCI. This measure cap-
+tures the extent to which plants in HCI product markets produce
+output in other (non-HCI) markets. Dynamic estimates using
+this continuous measure (Online Appendix Figure B.2) track the
+binary estimates in Section V.B. Broadly, however, multiproduct
+plants in heavy industry tend not to produce significant output
+in control industries. Consequently, there is minimal variation
+in this type of continuous measure and limited potential for this
+form of horizontal spillover.
+
+
+V.E. Direct Impact: Double-Robust DD and Average Effects
+     1. Double-Robust Estimator. I now use the double-robust
+DD estimator proposed by Sant’Anna and Zhao (2020) and
+Callaway and Sant’Anna (2021). This allows me to consider the
+policy bundle’s overall effect (ATT) and provides a robustness
+check on the TWFE estimates. In particular, this procedure re-
+laxes some of the constraints of the traditional DD estimators
+and coherently adjusts counterfactuals. I consider the following
+                     MANUFACTURING REVOLUTIONS                           1709
+
+specification:
+                 ⎡                                          ⎤
+                                    π (X )(1−Targeted )
+                  Targeted                1−π (X )
+      ATTt = E ⎣            −                               ⎦ (Yt − Y1972 )
+                 E Targeted           π (X )(1−Targeted )
+                              E             1−π (X )
+
+
+
+
+                                                                                Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+(3)         − f0,Yt −Y1972 (X ),
+
+which refers to the weighted average differences in industry out-
+comes. More precisely, equation (3) is the difference in outcomes
+between targeted industries (Targeted) and non-targeted indus-
+tries (1 − Targeted). Weights in equation (3) are defined as follows
+(Sant’Anna and Zhao 2020; Callaway and Sant’Anna 2021): the
+term π (X ) ≡ E[Targeted|X ] is the propensity score for the treated
+industries. The term f0,Yt −Y1972 (X ) ≡ E[Yt − Y1972 |Targeted = 0, X ]
+is a regression for the change in outcomes for non-treated indus-
+tries between post-period t and the baseline, pretreatment period,
+t = 1972. Propensity scores π (X ) and regression f0,Yt −Y1972 (X ) are
+estimated by logit and OLS, respectively. The estimator in equa-
+tion (3) is doubly robust in that if either component is correctly
+specified, it provides a consistent estimate of the ATT.
+     The double-robust estimator ensures a balance between tar-
+geted and non-targeted industries. The two-step procedure re-
+laxes some of the functional-form assumptions of the evolution
+of potential outcomes. The pre-trend assumptions are also less
+stringent than those of other DD estimators. The average ef-
+fects in equation (3) do not rely on zero pre-trends over all pre-
+treatment periods, instead using a long-difference (between post-
+period t and the last pretreatment period, 1972). Confidence inter-
+vals for equation (3) are calculated using a bootstrap procedure,
+which allows industry-level clustering (Callaway and Sant’Anna
+2021). I use the same controls as the TWFE estimates above. Note
+that equation (3) requires a binary treatment and is not used for
+cases of continuous treatment, such as the indirect analysis in
+Section VII.
+
+
+      2. Results: Average Effects. I first consider the overall aver-
+age impact of the policy before and after 1972. Table II reports
+the ATTs, comparing double-robust and OLS estimates. Columns
+(1) and (3) list the doubly robust results, and columns (2) and (4)
+list the linear TWFE results. Because the double-robust estimator
+uses controls, I compare them only with TWFE estimates using
+1710                 THE QUARTERLY JOURNAL OF ECONOMICS
+
+                                                 TABLE II
+    THE AVERAGE EFFECT              OF I NDUSTRIAL   POLICY: INDUSTRIAL DEVELOPMENT
+
+                                     Five-digit panel                           Four-digit panel
+
+                             Double robust              TWFE            Double robust             TWFE
+Outcomes (log)                    (1)                    (2)                 (3)                   (4)
+
+
+
+
+                                                                                                                   Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+Output (shipm.)                0.8378∗∗∗             0.8235∗∗∗             0.5923∗∗∗            0.5452∗∗
+                                (0.1764)              (0.1846)               (0.217)            (0.2223)
+Value added                    0.7426∗∗∗             0.7292∗∗∗             0.5063∗∗             0.4586∗∗
+                                (0.1696)              (0.1742)              (0.1973)             (0.209)
+Gross output                   0.8383∗∗∗             0.8236∗∗∗             0.5962∗∗∗            0.5481∗∗
+                                (0.1718)              (0.1852)              (0.2033)            (0.2217)
+Employment                      0.504∗∗∗             0.4972∗∗∗               0.2941              0.2679
+                                (0.1451)              (0.1509)               (0.204)            (0.1915)
+Prices                         −0.1002∗∗∗            −0.1012∗∗∗           −0.1154∗∗∗           −0.1152∗∗∗
+                                (0.0207)              (0.0205)              (0.0305)            (0.0304)
+Labor prod.                     0.1608∗∗              0.1548∗∗             0.1602∗∗             0.1371∗
+                                (0.0654)               (0.068)              (0.0688)            (0.0829)
+Output share                   0.0996∗∗∗             0.0993∗∗∗              0.1072∗               0.097
+                                (0.0258)              (0.0261)              (0.0551)            (0.0599)
+Labor share                    0.0979∗∗∗             0.0967∗∗∗             0.1254∗∗              0.116∗∗
+                                (0.0284)               (0.028)              (0.0534)            (0.0495)
+Num. plants                     0.297∗∗∗             0.2908∗∗∗               0.1986              0.1831
+                                (0.0977)              (0.1018)              (0.1419)            (0.1549)
+
+   Notes. This table shows the ATT for industrial policy. Average DD estimates are shown for double-robust
+and TWFE estimators. Outcomes are log: output is the real value of gross output shipped (shipments), along-
+side other measures of real output: value added and gross output. Employment is the total number of work-
+ers. Prices are industry output prices. Labor prod. is real value added per employee. Output share is the
+manufacturing share of industry output. Labor share is the manufacturing share of industry employment.
+Specifications include controls for pre-1973 industry averages (log): average wages, average plant size, inter-
+mediate outlays, and labor productivity. Standard errors, clustered at the industry level, are in parentheses.
+Double-robust DD estimates come from equation (3). Double-robust estimators use bootstrapped standard
+errors (10,000 iterations) and are adjusted to allow for within-industry correlation. ∗ p < .10; ∗∗ p < .05; ∗∗∗
+p < .01.
+
+
+controls. Estimates are presented for the five-digit and four-digit
+panels.
+     The estimates in Table II reveal that the overall average ef-
+fect of HCI targeting was meaningful and significant. The pre-
+ferred estimates in column (1) indicate 128% growth in output
+for targeted manufacturers relative to non-targeted manufactur-
+ers.10 Similarly, linear TWFE estimates in column (2) suggest
+124% output growth, significant at the 1% level. The average
+effect on labor productivity (column (1)) translates into a 17.2%
+increase in value added per worker for targeted industries af-
+ter 1973. Labor productivity growth ranges from 14.3% to 17.2%
+                                                      
+     10. Calculated using 100 × exp βˆ − 0.5 × (SE )2 − 1 .
+                            MANUFACTURING REVOLUTIONS                                               1711
+
+                                               TABLE III
+       THE AVERAGE EFFECT             OF I NDUSTRIAL  POLICY: EXPORT DEVELOPMENT
+
+                                                             Type of Estimator
+
+                                        Double robust                  TWFE                    PPML
+Outcomes                                     (1)                        (2)                     (3)
+
+
+
+
+                                                                                                                Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+RCA                                        0.4853∗∗∗                 0.4701∗∗∗               0.9142∗∗∗
+                                            (0.1841)                  (0.1806)                 (0.26)
+RCA (log)                                  0.1251∗∗∗                 0.1192∗∗∗               0.5939∗∗∗
+                                            (0.0419)                   (0.042)                (0.1535)
+RCA (asinh)                                0.1633∗∗∗                 0.1557∗∗∗               0.6059∗∗∗
+                                            (0.0513)                  (0.0537)                (0.1577)
+RCA (CDK)                                  0.0502∗∗∗                 0.0498∗∗∗                 0.0302
+                                            (0.0182)                  (0.0176)                (0.0189)
+Prob. comparative adv.                     0.1057∗∗∗                 0.1021∗∗∗               0.6486∗∗∗
+                                            (0.0281)                  (0.0307)                (0.1945)
+Export share                                 0.071∗∗                 0.0727∗∗                0.8346∗∗∗
+                                            (0.0299)                  (0.0293)                (0.2582)
+Export share (log)                         0.0481∗∗∗                  0.048∗∗∗               0.7658∗∗∗
+                                            (0.0145)                  (0.0147)                (0.1991)
+Export share (asinh)                       0.0596∗∗∗                 0.0599∗∗∗               0.7998∗∗∗
+                                            (0.0196)                  (0.0191)                (0.2166)
+
+   Notes. This table shows the ATT for industrial policy. Average DD estimates are shown for double-robust,
+PPML TWFE, and linear TWFE estimators. RCA is the standard Balassa index measure of revealed compar-
+ative advantage. RCA (CDK) is relative productivity estimated using CDK. See the text for their calculation.
+              1
+The indicator [RCA > 1] is a binary dummy variable equal to one when an industry has achieved com-
+parative advantage, zero otherwise. I also show transformed versions of RCA (asinh and log). Specifications
+include controls for pre-1973 industry averages (log): avg. wages, avg. plant size, intermediate outlays, and
+labor productivity. Standard errors, clustered at the industry level, are in parentheses. Double-robust DD
+estimates come from equation (3). Double-robust estimators use bootstrapped standard errors (10,000 itera-
+tions) and are adjusted to allow for within-industry correlation. ∗ p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+
+
+
+across four-digit and five-digit panels. Table II shows relatively
+lower prices, implying prices were −9.55% (column (1)) lower rel-
+ative to other industries over the period. The average employment
+effects of HCI in Table II are also substantial. Preferred double-
+robust DD estimates imply a 63.8% increase in employment in
+column (1), or a 31.4% increase for four-digit data in column (3).
+The reallocation of labor share is also positive and significant
+across specifications.
+     Table III shows substantial development in the heavy export
+industry. These results are significant and similar across mea-
+sures of export development. Before 1973, the mean RCA index
+for targeted sectors was 0.4, whereas the average RCA for non-
+targeted Korea was 1.27 (refer to Online Appendix Table A.1).
+Table III, column (1) reports a significant increase in (log) RCA.
+These estimates translate into a 13.2% rise in RCA for targeted
+1712           THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+industry products. Column (1) implies that targeted industries
+saw a 10.6 percentage point increase in the probability of attain-
+ing comparative advantage, or, alternatively, a 4.92% increase in
+the (log) share of manufacturing exports (over non-targeted sec-
+tors).11 The grand export target of the original heavy industry
+plan (50% of manufacturing exports) was surpassed by 1983 (Kim
+
+
+
+
+                                                                                 Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+and Leipziger 1993; Cho and Kim 1995).
+
+    3. Results: Robust Dynamic Estimates. Double-robust
+event-study estimates show similar patterns to the direct effects
+discussed in Section V.B. Online Appendix 2 records and provides
+the dynamic DD estimates using the reweighting estimator. Here,
+the patterns (Online Appendix Figures B.4–B.6) are qualitatively
+similar to the linear TWFE estimates (Section V.B), although
+the double-robust DD relaxes some assumptions relative to the
+traditional TWFE DD. The general dynamic pattern associated
+with HCI is robust across estimators. Do these same patterns
+hold when using cross-country variation? I turn to this next using
+a DDD estimation strategy.
+
+V.F. Direct Effect on Trade Development: Cross-Country Evidence
+     1. Cross-Country Variation and DDD Estimation. How did
+heavy-chemical industries in South Korea fare relative to the rest
+of the world? Cross-country data allow me to move beyond the
+within-country comparisons. I use a DDD estimation strategy to
+expand on the DD analysis—intuitively, I compare the original
+DD estimates between HCI and control manufacturers in Korea
+to placebo DDs across international markets. I start with the fol-
+lowing baseline specification:
+                                                   
+        Yict = αi + τt + σc +   β1 j · HCIi × Yeartj
+                                    j=1972
+                                                     
+                +             β2 j · Koreac × Yeartj
+                    j=1972
+                                                         
+(4a)            +             β3 j · Koreac × HCIi × Yeartj + ict ,
+                    j=1972
+
+
+
+    11. The World Bank calculated that for HCI industries, the export share of
+output tripled during the period (Kim and Leipziger 1993; Cho and Kim 1995).
+                       MANUFACTURING REVOLUTIONS                         1713
+
+where c denotes country, i denotes industry, and t denotes time.
+I estimate equation (4a) using cross-country trade data (based
+on the SITC four-digit level). I focus on the triple interaction,
+Koreac × HCIi × Yeart , where Koreac is a dummy indicator for
+Korean observations. The simplest specification (4a) includes in-
+dustry, time, and country effects: αi , τt , and σc , respectively. How-
+
+
+
+
+                                                                                  Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+ever, using cross-country trade data allows me to control for a
+rich set of higher-dimensional fixed effects. Hence, I also consider
+a more stringent specification:
+                                                                 
+    Yict = αit + τct + σci +    β3 j · Koreac × HCIi × Yeartj
+                               j=1972
+
+(4b)        + ict ,
+which controls for aggregate industry-year shocks (αit ), aggre-
+gate country-year shocks (τct ), and time-invariant country-by-
+industry factors (σic ). The effects in equation (4b) thus subsume
+the Koreac × Yeart and HCIi × Yeart interactions from equation
+(4a).
+     DDD estimates (equations (4a) and (4b)) capture the effect
+of Korea’s industrial policy on industrial development. The coef-
+ficients of interest are β3 j , estimated from the three-way interac-
+tion term Koreac × HCIi × Yeart . In effect, I compare the conven-
+tional DD for Korea to placebo DDs over the same period. The
+identifying assumptions of DDD require differences in targeted
+and non-targeted outcomes for Korea to have trended similarly to
+differences in targeted and non-targeted industries (elsewhere)
+before the intervention.12 DDD estimates use two-way standard
+errors clustered at the industry and country level. I follow the
+empirical trade literature and estimate DDD specifications using
+PPML (Santos Silva and Tenreyro 2006) for RCA outcomes, given
+the preponderance of zeros. I also show alternative transforma-
+tions and estimators for completeness.
+
+     2. Results: Cross-Country Trade Development. Figure IV
+presents the DDD estimates for the effect of Korean HCI on com-
+parative advantage. The panels plot the coefficient from the inter-
+action Koreac × HCIi × Yeart . I present multiple specifications:
+one using individual country, year, and industry effects; one us-
+
+    12. Note that the difference between two biased DD estimators is considered
+unbiased when the bias is similar in both (Olden and Møen 2022).
+1714           THE QUARTERLY JOURNAL OF ECONOMICS
+
+    (A)
+
+
+
+
+    (B)
+
+
+
+
+                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+     (C)
+
+
+
+
+    (D)
+
+
+
+
+                                    FIGURE IV
+           Cross-Country Triple Differences and Export Development
+   This figure plots DDD estimates for the effect of the Korean HCI drive using
+SITC-level trade data. Specifically, plots show the interaction, Korea × Targeted
+× Year, estimated from equations (4a) and (4b). Fixed effects are shown in the
+legend. RCA (Balassa) specifications are estimated using PPML. Alternatively,
+RCA is transformed using inverse hyperbolic sine to accommodate zeros and is
+estimated using OLS. Relative export productivity (CDK) specifications are esti-
+mated using OLS. Estimates are relative to 1972, the year before the HCI policy
+intervention. The line at 1979 demarcates the end of the Park regime. All spec-
+ifications use two-way clustering at the country and industry level. Ninety-five
+percent confidence intervals are shown.
+
+
+ing industry-year and country-year effects; and one that adds ad-
+ditional country-industry effects.
+     The DDD estimates in Figure IV show a substantial policy
+effect on Korean heavy industry exports across trade outcomes.
+These outcomes include RCA (standard and normalized inverse
+hyperbolic sine), measures of CDK, and the probability of achiev-
+ing comparative advantage. RCA estimates use PPML to accom-
+modate zeros; all others use OLS. The four plots in Figure IV show
+similar patterns across the export development measures: muted
+differences before 1973 and a post-1973 shift in comparative ad-
+vantage for the targeted Korean industry, which continued to as-
+cend after the end of the drive.
+     These cross-country patterns are robust even when using
+alternative, aggregate industry data, which I show in Online
+                  MANUFACTURING REVOLUTIONS                   1715
+
+Appendix K. Online Appendix Figure C.2 also shows a DD ver-
+sion of Figure IV, comparing only targeted Korean industries to
+targeted placebo industries in “non-treated” counties. These re-
+sults show a qualitatively similar pattern to those in Figure IV.
+     How unusual is it for a country to cultivate an export advan-
+tage in targeted industries? Perhaps it is inevitable that countries
+
+
+
+
+                                                                       Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+naturally cultivate a comparative advantage in heavy or chemical
+industries. I assess the probability that an HCI achieves compara-
+tive advantage on the world market, p(RCA > 1), in Korea versus
+foreign controls in Online Appendix C. Online Appendix Table C.1
+shows that Korea had a significantly higher probability (between
+11% and 13.1%) of achieving comparative advantage in HCI prod-
+ucts after 1972 when compared with countries with similar levels
+of development (OLS estimates in Online Appendix Table C.1).
+
+V.G. Direct Impact: Discussion
+     The empirical relationship between industrial policies and
+industrial development is not a foregone conclusion. For many
+reasons, we may anticipate a negative relationship between an
+industrial policy and development outcomes (see Harrison and
+Rodríguez-Clare 2010; Lane 2020; Juhász, Lane, and Rodrik
+2024). Historically, there is no shortage of failures (Pack 2000).
+I showed a positive relationship between an industrial policy and
+industrial-development outcomes from output growth to export
+development. The impact of these policies is seen throughout the
+HCI period (1973–1979) and continued through the 1980s. These
+results are robust across data sets (short-term and long-term
+panels), the type of estimator (TWFE versus double-robust), and
+cross-country variation (DDD). Next I turn to the forces underly-
+ing these results.
+
+
+                  VI. POLICY   AND   MECHANISMS
+VI.A. Policy: Credit Expansion, Investment, and Input Use
+     The HCI drive aimed to promote investment and expand the
+sector through directed credit and investment incentives. This
+section examines the role and effects of these policies. However,
+observing an explicit effect of these policy levers is challeng-
+ing. Industrial statistics rarely capture such policy details, and
+these issues of observability are common in studies of industrial
+policy (Kalouptsidi 2018; Juhász et al. 2025). The HCI drive is
+1716            THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+         (A)                        (B)                          (C)
+
+
+
+
+                                                                                       Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+        (D)                           (E)
+
+
+
+
+                                     FIGURE V
+                      Changes in Input Use and Investment
+  This figure plots dynamic DD estimates for responses to investment incentives.
+The coefficients in the plot are estimated using equation (1). All outcomes are real
+log values: real total intermediate outlays (material costs), intermediate outlays
+per worker, total investment, investment per worker, and capital stock. Panels
+report baseline estimates from the five-digit industry panel (1970–1986). The es-
+timates are relative to 1972, the year before the HCI drive. The line at 1979 de-
+marcates the end of the Park regime. Standard errors are clustered at the industry
+level. Ninety-five percent confidence intervals are shown in gray.
+
+
+no exception. Given these limitations, I examine indirect out-
+comes related to investment policy, following approaches in the
+credit-policy literature (Banerjee and Duflo 2014; Manova, Wei,
+and Zhang 2015). First, I demonstrate that intermediate outlays
+and investments responded differentially for treated industries.
+Then, drawing on Bau and Matray (2022), I show that input use
+responded in ways consistent with credit policy, specifically in
+treated sectors.
+
+     1. Baseline Results: Input Use and Policy Variations.
+Figure V presents baseline DD estimates (equation (1)) for input-
+related outcomes at the five-digit level. Panels A and B show
+that this divergence is starkest for intermediate outlays (total
+and per worker) beginning in 1973 and widening throughout the
+drive. Panels C–E report estimates related to investment and cap-
+ital formation. These estimates grow significantly different be-
+tween the treated and non-treated industries soon after the start
+of the industrial policy drive. In addition, I observe similar in-
+vestment patterns across asset classes, especially those targeted
+                            MANUFACTURING REVOLUTIONS                                               1717
+
+                                               TABLE IV
+   THE AVERAGE EFFECT             OF I NDUSTRIAL   POLICY: INPUT USE              AND I NVESTMENT
+
+
+                                                    Five-digit panel               Four-digit panel
+
+                                                  Double                         Double
+                                                  robust          TWFE           robust          TWFE
+
+
+
+
+                                                                                                                Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+Outcomes (log)                                      (1)            (2)             (3)            (4)
+
+                                                 0.7544∗∗∗      0.7408∗∗∗      0.5606∗∗        0.5147∗∗
+Intermediate outlays                              (0.1878)       (0.1894)       (0.2374)        (0.2428)
+                                                  0.213∗∗∗      0.2074∗∗∗      0.2823∗∗∗       0.2659∗∗∗
+Intermediate outlays (per worker)                  (0.069)       (0.0719)       (0.0923)        (0.0975)
+                                                 0.6198∗∗∗      0.6089∗∗∗        0.2445           0.21
+Investment                                        (0.2211)       (0.2205)       (0.2136)        (0.2186)
+                                                   0.134∗∗      0.1316∗∗         0.1124          0.1048
+Investment (per worker)                           (0.0596)       (0.0612)       (0.0855)        (0.0901)
+
+   Notes. This table shows the ATT for industrial policy. Average DD estimates are shown for double-robust
+and TWFE estimators. Intermediate outlays (log) are real intermediate input costs. Investment total (log) is
+real total gross capital formation. I also show outcomes in per worker terms. Specifications include controls
+for pre-1973 industry averages (log): average wages, average plant size, intermediate outlays, and labor pro-
+ductivity. Standard errors, clustered at the industry level, are in parentheses. Double-robust DD estimates
+come from equation (3). Double-robust estimators use bootstrapped standard errors (10,000 iterations) and
+are adjusted to allow for within-industry correlation. ∗ p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+
+
+
+by investment incentives (e.g., machinery equipment; see Online
+Appendix Table D.2).
+     The increase in intermediate outlays and investment for
+heavy industry was substantial. Table IV provides double-robust
+and TWFE DD estimates of the ATT. Preferred estimates in col-
+umn (1) translate into a 109% relative increase in total interme-
+diate outlays for treated over non-treated manufacturers. DD es-
+timates for materials are highly significant for five-digit data and
+noisily estimated in four-digit panels. Similarly, for investment,
+double-robust DD estimates translate into an 81.4% increase in
+total investment for treated over non-treated industries, as shown
+in Table IV, column (1). Investment estimates for four-digit data
+are imprecise, and investment per worker is negative, given the
+high employment growth. In light of industrial policy history, it
+is not obvious that we should expect positive effects on invest-
+ment and input outlays (e.g., if lending leads to crowding out; see
+Online Appendix D.1).
+
+    2. Policy Mechanisms: Changes in Investment and Input
+Wedges. In theory, directed credit should reduce wedges on in-
+puts for the treated industry during the heavy industry drive.
+Capital market policies that expand credit should disproportion-
+1718         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+ately affect firms with high wedges, and these wedges can be
+captured through the pretreatment marginal revenue product of
+capital (MRPK) (Bau and Matray 2022). In other words, a policy
+should disproportionately affect investment in high-MRPK indus-
+tries and increase the marginal revenue of other inputs.
+     I find evidence consistent with investment policy operating in
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+HCI sectors, reducing wedges for high-MRPK industries, specifi-
+cally among targeted producers. I analyze the differential impact
+of industrial policy targeting on high-MRPK versus low-MRPK
+industries, using a basic measure of industry-level MRPK à la
+Bau and Matray (2022). I present these calculations and details
+in Online Appendix D.2 and show a marked increase in input
+use across intermediate inputs (intermediate materials, invest-
+ment, and labor) for high-MRPK industries relative to low-MRPK
+industries (see: Online Appendix Figure D.2). Importantly, this
+change is only seen in targeted industries—no such effect is seen
+for non-treated industries. These results suggest that credit ex-
+pansion differentially affected the heavy-chemical sector.
+
+     3. Robustness: Investment and Crowding Out. Was the pol-
+icy deleterious for investment in non-targeted industries? Al-
+though higher in treated industries, investment did not decline
+for non-HCI industries. Before formal tests, it is worth consid-
+ering the evidence in favor of crowding out. Section II demon-
+strated that although biased toward HCIs, lending continued for
+the non-treated sectors throughout the drive. Recall that commer-
+cial banks continued to lend to non-targeted industries and re-
+mained a major source of financial support during the period (see
+Online Appendix A.2 for details). Trends in non-targeted indus-
+try growth support this finding. Recall that Section V.B suggested
+that the relative ascent of heavy industry was not driven by the
+absolute contraction of non-targeted industries.
+     I consider whether investment dynamics were different
+across treated versus untreated industries. I do so by regressing
+investment outcomes on time effects separately for each class of
+industry, as shown in Online Appendix D.3. I find that investment
+was high in targeted relative to non-targeted industries during
+the time period, though it generally increased across both sec-
+tors. These results are consistent with the patterns of lending and
+growth already described.
+     Furthermore, although the heavy industry drive altered in-
+vestment patterns, it did not reduce absolute investment in
+                   MANUFACTURING REVOLUTIONS                 1719
+
+non-targeted industries. The analysis in Online Appendix D.3
+shows that investment was not crowded out in untreated, capital-
+intensive industries. Although less striking than investment in
+heavy industry, investment in the light industry sector contin-
+ued, as non–heavy industry companies had access to domestic
+commercial credit and credit from countries like Japan (Castley
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+1997).
+
+VI.B. Policy: Trade Policy and the Weak Case for Nominal
+      Protection
+     Scholars have emphasized the role of trade policy, and some
+have characterized it as overtly protectionist (Lall 1997). Evi-
+dence for the latter claim is weak, as shown in Online Appendix D.
+4. Instead, I posit that targeted cuts on import duties for inter-
+mediates could have been advantageous. Using a simple fixed-
+effects regression and five periods of disaggregated protection
+data, I find that the average level of output protection was sig-
+nificantly lower for treated versus non-treated industries during
+the policy drive (see Online Appendix Table D.3, Panel A). Online
+Appendix Table D.3 also suggests that nominal output protection
+fell more for non-treated than treated industries. Similarly, as-
+suming that trade policy allowed for discounts on imported in-
+puts (Section II.C), many heavy industrial producers enjoyed sig-
+nificantly lower duties on foreign inputs (Online Appendix Table
+D.3, Panel B). Together, the evidence does not suggest a surge in
+overt, nominal protectionism over the period.
+
+VI.C. Mechanisms: Targeted Industry and Learning
+     Did the industrial policy promote industries with strong
+learning-by-doing forces? I examine the potential learning-by-
+doing effects in treated industries. If learning-by-doing forces
+were at work, we would expect increased cumulative experience
+to correspond to higher productivity or a lower unit cost. To as-
+sess whether learning was particularly strong in treated sectors,
+I use a simple, reduced-form regression for the post-1972 period.
+Specifically, I consider the following equation:
+                                                    
+  Yit = β1 Experienceit + β2 Experienceit × Targetedi + θ Sizeit
+(5)    + αi + τt + Xit  + it ,
+where Yit represents industry (or plant) log prices, log unit cost,
+or TFP, following Gruber (1998), Barrios and Strobl (2004), and
+1720          THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+Fernandes and Isgut (2005). I measure unit cost as total inter-
+mediate costs per unit of real gross output. Equation (5) exam-
+ines a reduced-form relationship between these outcomes and
+log Experienceit , measured as real cumulative gross output up
+to time t. All baseline regressions control for measures of plant
+size (Sizeit ) to account for conventional scale effects. In addition, I
+
+
+
+
+                                                                           Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+control for the effects of technological progress embodied in input
+use, Xit (e.g., total input outlays, capital intensity). These (log)
+covariates are normalized by the number of workers to further
+account for scale effects. I include year effects (τt ) and industry
+effects (αi ) in industry-level regressions or plant effects in micro-
+level regressions.
+     The correlations in equation (5) indicate potential learning
+externalities over the policy period. The coefficient β1 is the gen-
+eral impact of cumulative output (Experienceit ), and β2 is the dif-
+ferential effect of Experienceit for the treated industries. Hence,
+estimates from equation (5) examine whether dynamic external-
+ities are present in targeted industries and their strength in
+treated sectors relative to non-treated sectors (see Beason and
+Weinstein 1996; Pons-Benaiges 2017). These estimates are in-
+dicative and not causal.
+     First, consider the industry-level estimates of equation (5).
+Table V, columns (1)–(4) demonstrate that experience is positively
+related to reductions in prices and unit costs, with the effect being
+significantly stronger for targeted sectors. Estimates for the in-
+teraction Targetedi × Experienceit are negative and highly signif-
+icant. Similarly, columns (5)–(10) show a positive relationship be-
+tween experience and productivity using three measures of TFP.
+In these cases, the correlation between experience and TFP is
+stronger for targeted industries, with interactions being signif-
+icant for Levinsohn-Petrin (LP) measures of TFP. Furthermore,
+the combined effect of experience for treated industries (shown at
+the bottom of Table V) is strong and significant across all speci-
+fications. Online Appendix Table D.1 confirms that these results
+are robust to alternative measures of experience, unit cost, and
+TFP.
+     Second, I analyze microdata to investigate the correlation be-
+tween learning and targeting after 1979, when microdata first
+became available. Expanding on equation (5), I regress plant TFP
+and log unit cost on two types of log cumulative experience: plant-
+level and industry-level (four-digit), both measured from the be-
+ginning of the sample period. All regressions include plant and
+                                                                                   TABLE V
+                                                       INDUSTRY-LEVEL LEARNING                 BY   TREATMENT STATUS
+
+                                                                                                                          Total factor productivity
+
+                                                 Prices (log)             Unit cost (log)                    ACF                         LP                          W
+
+                                                (1)           (2)          (3)           (4)           (5)          (6)           (7)          (8)           (9)           (10)
+
+Experience                                  −0.011 −0.195∗∗∗            0.015∗∗∗ −0.109∗∗∗           0.182∗∗∗    0.369∗∗∗       0.053       0.360∗∗∗        0.060        0.348∗∗∗
+                                            (0.008)   (0.029)            (0.004)  (0.014)             (0.065)     (0.059)      (0.083)       (0.060)       (0.081)        (0.064)
+Targeted × Experience                      −0.042∗∗∗ −0.044∗∗∗            0.005 −0.035∗∗∗              0.014       0.033       0.087∗∗      0.120∗∗∗      0.094∗∗∗       0.125∗∗∗
+                                            (0.008)   (0.012)            (0.007)  (0.009)             (0.031)     (0.022)      (0.039)       (0.025)       (0.036)        (0.024)
+Controls for size-scale                       Yes       Yes                Yes      Yes                 Yes         Yes          Yes           Yes           Yes            Yes
+Controls for capital intensity                No        Yes                No       Yes                 No          Yes          No            Yes           No             Yes
+Controls for intermediates                    No        Yes                No       Yes                 No          Yes          No            Yes           No             Yes
+Controls for investment                       No        Yes                No       Yes                 No          Yes          No            Yes           No             Yes
+Industry effects                              Yes       Yes                Yes      Yes                 Yes         Yes          Yes           Yes           Yes            Yes
+Year effects                                  Yes       Yes                Yes      Yes                 Yes         Yes          Yes           Yes           Yes            Yes
+R2                                           0.951     0.961              0.845    0.900               0.823       0.877        0.976         0.985         0.983          0.990
+Observations                                 3,890     3,429              3,890    3,429               3,512       3,428        3,512         3,428         3,512          3,428
+Clusters                                      278       263                278      263                 264         263          264           263           264            263
+                                                                                                                                                                                       MANUFACTURING REVOLUTIONS
+
+
+
+
+Linear combination                          −0.053 −0.239                 0.020   −0.143               0.196       0.402        0.140         0.480         0.154          0.474
+(std. err.)                                 (0.009)   (0.029)            (0.007)  (0.016)             (0.060)     (0.054)      (0.073)       (0.059)       (0.072)        (0.062)
+
+   Notes. This table shows the industry-level relationship between industrial outcomes and (log) experience in targeted versus non-targeted industries. Estimates come from equation
+(5). The analysis is for the post-1972 period, using the five-digit industry panel. The outcomes are log unit cost (total intermediate costs per unit of real gross output) and TFP,
+estimated using Ackerberg-Caves-Frazer (ACF), Levinsohn-Petrin (LP), and Wooldridge (W) methods. (log) Experience is measured as cumulative output (the sum of real gross
+output until the current year). All equations control for size/scale, measured as (log) industry employment and (log) average plant size. Additional controls include log: capital
+intensity, investment per worker, and intermediate input intensity per worker. Linear combination, at the bottom, gives the combined effects. All specifications are estimated using
+industry and year fixed effects. Standard errors, clustered at the industry level, are in parentheses. ∗ p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+                                                                                                                                                                                       1721
+
+
+
+
+                           Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+1722         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+industry-level fixed effects to account for time-invariant factors
+(micro and sectoral) that influence learning. As before, I control
+for year effects. I employ two-way clustered standard errors to
+allow for sectoral and plant-level correlation.
+     The plant-level estimates in Table VI provide evidence of
+learning, even in the period after infant-industry policy. Sim-
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+ilar to the industry estimates (Table V), columns (1)–(3) of
+Table VI show a negative relationship between experience and
+unit cost reduction, now decomposing learning into plant and
+industry levels. The estimates for plant-level experience are
+differentially stronger among targeted establishments (columns
+(1)–(3)). Moreover, the estimates for industry-level experience
+are also significant—and significantly stronger—for targeted in-
+dustries (columns (2) and (3)). Similarly, industry-level experi-
+ence has a positive effect on TFP (columns (5) and (6)). Includ-
+ing the industry learning reduces estimates for the Targeted ×
+(Plant Experience) interaction; however, the effect of Targeted ×
+(Industry Experience) remains significant.
+     These micro estimates indicate that plant- and industry-
+level learning may be more pronounced for treated establish-
+ments. The combined effects of plant and industry-level estimates
+are substantial for HCI establishments, as shown at the bot-
+tom of Table VI. Predictably, plant-level experience generally ex-
+erts a larger effect than does industry-level experience. Online
+Appendix Table D.2 demonstrates the robustness of these results
+across alternative measures of experience, unit costs, and TFP.
+However, it is important to note that the plant-level estimates
+only cover the post-1979 period, thereby excluding potentially
+steep learning curves during the earlier stages of the industrial
+drive.
+     The correlational results in this section indicate that learn-
+ing externalities plausibly affect targeted industries. Of course,
+this analysis cannot definitively identify the strength of the ex-
+ternalities or whether they originate from plant-level learning
+or industry-wide learning. Even so, taken together, the industry-
+and plant-level analyses suggest the potential for learning-by-
+doing spillovers operating in heavy and chemical industries.
+
+
+        VII. INDIRECT EFFECTS     OF I NDUSTRIAL   POLICY
+    I consider how the industrial policy drive may have affected
+industries outside of the targeted sectors through linkages. I use
+                                                                TABLE VI
+                                    PLANT-   AND I NDUSTRY-L EVEL   LEARNING   BY   TREATMENT STATUS
+
+                                                            Unit cost (log)                                     TFP
+
+                                                 (1)              (2)               (3)          (4)            (5)            (6)
+
+Plant experience                              −0.072∗∗∗      −0.072∗∗∗         −0.069∗∗∗       0.479∗∗∗       0.485∗∗∗       0.484∗∗∗
+                                               (0.002)         (0.002)           (0.002)        (0.011)        (0.011)        (0.011)
+Targeted × plant experience                   −0.009∗∗∗      −0.008∗∗∗         −0.005∗∗∗       0.032∗∗∗        0.014∗        0.018∗∗
+                                               (0.001)         (0.001)           (0.001)        (0.007)        (0.008)        (0.007)
+Industry experience                                          −0.008∗∗∗          −0.006∗∗                        0.022         0.026∗
+                                                               (0.003)           (0.003)                       (0.014)        (0.015)
+Targeted × industry experience                                −0.002∗∗         −0.003∗∗∗                      0.030∗∗∗       0.030∗∗∗
+                                                               (0.001)           (0.001)                       (0.009)        (0.009)
+Control for plant size                           Yes             Yes               Yes           Yes             Yes            Yes
+Control for capital                              Yes             Yes               Yes           Yes             Yes            Yes
+Control for skill ratio                          Yes             Yes               Yes           Yes             Yes            Yes
+Control for investment                           Yes             Yes               Yes           Yes             Yes            Yes
+Control for intermediates                        Yes             Yes               Yes           Yes             Yes            Yes
+Polynomial controls                               No             No                Yes            No             No             Yes
+Plant effect                                     Yes             Yes               Yes           Yes             Yes            Yes
+                                                                                                                                          MANUFACTURING REVOLUTIONS
+
+
+
+
+Year effect                                      Yes             Yes               Yes           Yes             Yes            Yes
+Industry effect                                  Yes             Yes               Yes           Yes             Yes            Yes
+R2                                              0.882           0.882             0.890         0.691           0.691          0.694
+Observations                                   250,989        250,989           250,989        235,940        235,940        235,940
+Clusters (industry and plant)                489 × 60,009   489 × 60,009      489 × 60,009   489 × 57,942   489 × 57,942   489 × 57,942
+                                                                                                                                          1723
+
+
+
+
+                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                                                                                                                                                                             1724
+
+
+
+
+                                                                                    TABLE VI
+                                                                                    CONTINUED
+
+                                                                                Unit cost (log)                                                        TFP
+
+                                                                  (1)                  (2)                   (3)                   (4)                  (5)                   (6)
+
+Linear combination (plant level)                               −0.081               −0.080                −0.073                 0.510                 0.499                0.502
+(std. err.)                                                    (0.002)              (0.002)               (0.002)               (0.013)               (0.013)              (0.013)
+Linear combination (industry level)                                                 −0.010                −0.009                                       0.052                0.056
+(std. err.)                                                                         (0.003)               (0.003)                                     (0.014)              (0.015)
+
+   Notes. This table shows the plant-level relationship between industrial development and (log) experience in targeted versus non-targeted industries. Estimates come from a plant-
+level version of equation (5). Outcomes are the following: log unit cost (total intermediate costs per unit of real gross output) and TFP (estimated using Ackerberg-Caves-Frazer).
+Experience is measured as cumulative output (the sum of real gross output until the current year). Plant experience refers to plant-level cumulative learning, and industry experience
+refers to industry-level learning, calculated at the four-digit industry level. All equations control for log plant size (employment). Additional controls include log: capital intensity,
+skill ratio, investment per worker, and intermediate input intensity per worker. Linear combination, at the bottom, gives the combined effects. All specifications are estimated using
+plant, industry, and year fixed effects. Polynomial controls adds cubic polynomials in the control variables. Two-way standard errors are clustered at the industry and plant levels
+and are in parentheses. ∗ p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+                                                                                                                                                                                             THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+
+
+                            Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                  MANUFACTURING REVOLUTIONS                     1725
+
+the terms “backward” and “forward” from the vantage point of
+the targeted industry. When the impact of industrial policy prop-
+agates from the treated HCI to upstream suppliers, suppliers are
+affected through backward linkages. When the effect of industrial
+policy propagates downstream to users of HCI products, buyers
+are affected through forward linkages. I refer to both as linkage
+
+
+
+
+                                                                         Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+effects. The following analysis draws on the empirical study of
+foreign direct investment (FDI) spillovers, particularly Javorcik
+(2004), and empirical work on the propagation of policy shocks
+(e.g., Acemoglu et al. 2016).
+     I measure an industry’s linkage exposure to industrial policy
+using South Korea’s 1970 IO accounts, which predate the HCI
+drive. Specifically, I calculate industry i’s exposure to industrial
+policy through backward and forward linkages as follows:
+                                           
+(6a)               Backward Linkagei =          αi j ,
+                                          j∈HCI
+                                          
+(6b)               Forward Linkagei =            α ji ,
+                                         j∈HCI
+
+where j represents the treated HCIs. For industry i, its
+Backward Linkagei (equation (6a)) equals the weighted sum of
+output supplied to treated industries j. The weight αi j denotes
+the value of i’s output used by j as a share of j’s total output
+and comes from the IO accounts. For industry i, Forward Linkagei
+(equation (6b)) equals the weighted sum of inputs sourced from
+treated industries j. The weights α ji denote the value of j’s out-
+put sold to i as a share of i’s total value of output in the IO ac-
+counts. For further details on these calculations, refer to Online
+Appendix E.1.
+     The measures above (equations (6a) and (6b)) capture di-
+rect spillovers to industries one degree away from the heavy-
+chemical sector. To account for both direct and indirect effects,
+I extend this analysis using the Leontief inverse, which cap-
+tures the full network of linkages (first, second, . . . and n-
+degree) between Korean industries. For industry i, I construct
+Total Backward Linkagesi and Total Forward Linkagesi using a
+method analogous to equations (6a) and (6b), but now us-
+ing weights derived from the Leontief inverse calculated from
+ 1970 IO accounts. For example, Total Backward Linkagesi =
+the
+   j∈HCI i j , where i j is an element of the Leontief inverse matrix.
+See Online Appendix E.1 for details.
+1726         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+      To study the impact of linkages, I compare outcomes across
+industries with strong versus weak linkages to treated industries
+relative to 1972. In the spirit of the main DD analysis (equation
+(1)), I consider the following specification:
+                                                             
+     ln(yit ) = αi + τt +     γ j · Backward Linkagei × Yeartj
+
+
+
+
+                                                                          Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                            j=1972
+                                                         
+(7)           +             δ j · Forward Linkagei × Yeartj + it ,
+                  j=1972
+
+where Yit is an outcome and i indexes each five-digit (or four-digit)
+industry. Subscript t denotes the years, which are 1967–1986 for
+the four-digit panel and 1970–1986 for the five-digit panel. As
+before, equation (7) uses two-way fixed effects for time τt and in-
+dustry αi . I first estimate equation (7) using only non-treated in-
+dustries. I show these estimates alongside estimates from the full
+sample, which provide additional power. For the full-sample es-
+timation, I control separately for the direct effect of policy using
+the interaction term Targetedi × Yeart .
+     The coefficients of interest, γ j and δ j , reflect the differ-
+ential evolution of industries with strong versus weak expo-
+sure to treated industries, measured by Backward Linkagei and
+Forward Linkagei . The set of estimates, γj (δj ), captures the dif-
+ferential development of industries with strong backward (for-
+ward) linkages to targeted industries relative to those with
+weaker linkages. Note that specification (7) uses a continuous
+treatment, whereas estimates in Section V used a binary treat-
+ment. I estimate the model using the baseline linear TWFE esti-
+mator.
+     Before 1972, the set of coefficients should be zero, reflecting
+no prior differences between industries with stronger linkages.
+Estimates over the policy period suggest the potential strength
+and direction of linkage spillovers to non-treated industries. For
+instance, if the industrial policy increases the cost of key in-
+puts over the policy period, we may expect negative estimates for
+δ1973 , ..., 
+            δ1979 . Estimates for the post-1979 period indicate, among
+other things, longer-term spillovers from the policy. The identify-
+ing assumption is that differences in industrial development be-
+tween stronger or weaker backward (forward) linked industries
+would have evolved similarly in the absence of the heavy and
+chemical industry policy.
+                      MANUFACTURING REVOLUTIONS                               1727
+
+     (A)                  (B)                   (C)                  (D)
+
+
+
+
+                                                                                        Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                     FIGURE VI
+           Forward-Linkages Exposure: Value Added and Output Prices
+  This figure plots dynamic DD estimates for the relationship between direct
+forward-linkage exposure and log outcomes: real output (value shipped; top) and
+output prices (bottom). The coefficients in the plot are estimated from equation (7).
+Linkages are calculated from the 1970 IO tables; see the text for details. All esti-
+mates are relative to 1972, the year before HCI. The year 1979 corresponds to the
+collapse of the Park regime. Years are on the x-axis. Estimates for the main link-
+age interaction (forward) are on the y-axis: for example, linkage × year. These es-
+timates come from the DD specification that includes the impact of both measures.
+Full-sample regressions control for the main Targeted × Year effect. Ninety-five
+percent confidence intervals are shown in gray.
+
+
+VII.A. Indirect Effects: Results
+     I find that industries with relatively strong forward linkages
+with targeted industries developed more robustly over the policy
+period. Specifically, downstream industries that were more de-
+pendent on inputs from targeted sectors showed greater indus-
+trial development. In contrast, the effect of backward linkages—
+where industries supply inputs to targeted sectors—appears to
+have been more limited.
+
+    1. Downstream Industrial Development. Figure VI plots
+the relationship between the strength of forward linkages and
+downstream output (equation (7))). Rows in Figure VI correspond
+to estimates for real value added (top) and output prices (bot-
+tom). For this analysis, I consider output measured in terms of
+the value added, given different stages of production and input
+intensity. The panels in Figure VI present estimates across differ-
+1728                 THE QUARTERLY JOURNAL OF ECONOMICS
+
+                                              TABLE VII
+          LINKAGE EXPOSURE             AND   VALUE ADDED, BEFORE               AND   AFTER 1973
+
+                                                          Outcome: Value added (log)
+
+                                                Five-digit panel                    Four-digit panel
+                                                  (1970–1986)                         (1967–1986)
+
+
+
+
+                                                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                             Full            Non-HCI             Full            Non-HCI
+                                            sample            sample            sample            sample
+                                              (1)               (2)               (3)               (4)
+
+Post × forward linkage                      2.832∗∗∗          4.405∗∗∗          2.095∗∗          2.906∗∗
+                                             (0.914)           (1.504)          (0.802)          (1.174)
+Post × backward linkage                     −0.0167             0.176           −0.693           −2.163∗
+                                             (0.334)           (0.375)          (0.559)          (1.279)
+Industry effects                               Yes               Yes              Yes              Yes
+Year effects                                   Yes               Yes              Yes              Yes
+Targeted × year                                Yes               No               Yes              No
+R2                                            0.776             0.763            0.847            0.819
+Observations                                  4,720             2,986            1,750            1,096
+Clusters                                       278               176               88               55
+
+   Notes. Average DD estimates, before and after 1973. Estimates correspond to equation (7). Regressions in-
+teract linkage measures with a Post indicator. The outcome is real log value added. Both linkage interactions
+(forward and backward) are shown. Analysis is performed for the sample of only non-treated industries and
+the full sample of industries. Estimates for the full sample separately control for the Targeted × Year effects
+to account for the main effect of policy. Standard errors, clustered at the industry level, are in parentheses. ∗
+p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+
+
+ent data sets (four-digit versus five-digit) and samples (full sam-
+ple versus only non-treated). Panels B and D restrict the sample
+to non-targeted industries, which significantly reduces the sam-
+ple size and power, especially in aggregate four-digit data. Al-
+ternatively, Panels A and C provide estimates using the entire
+sample of industries and flexibly control for targeted industries
+(Targetedi × Yeart ).
+     Figure VI shows that industries with stronger forward-
+linkage exposure expanded more often following the policy drive.
+Before 1973, differences among the industries were noisy, trend-
+ing upward in the 1960s, and centered on zero.13 Table VII re-
+ports the average pre-post version of equation (7) and presents
+forward-linkage estimates and backward-linkage estimates. For
+output, average forward-linkage estimates imply that a 1% rise
+in the share of links (between zero and one) from a treated in-
+dustry is associated with 4.4% more output (column (2)) for the
+
+    13. Online Appendix Table E.1 rejects pre-trends across specifications, except
+those for the non-HCI sample in the four-digit data.
+                             MANUFACTURING REVOLUTIONS                                                1729
+
+                                            TABLE VIII
+         LINKAGE EXPOSURE            AND   OUTPUT PRICES, BEFORE              AND    AFTER 1973
+
+                                                      Outcome: Output prices (log)
+
+                                            Five-digit panel                     Four-digit panel
+                                              (1970–1986)                          (1967–1986)
+
+
+
+
+                                                                                                                  Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                          Full            Non-HCI              Full            Non-HCI
+                                         sample            sample             sample            sample
+                                           (1)               (2)                (3)               (4)
+
+Post × forward linkage                 −0.359∗∗∗         −0.459∗∗∗           −0.483∗∗         −0.510∗∗∗
+                                         (0.128)           (0.144)            (0.184)          (0.176)
+Post × backward linkage                0.103∗∗∗          0.0880∗∗∗             0.251          0.673∗∗∗
+                                        (0.0213)          (0.0142)            (0.154)          (0.226)
+Industry effects                           Yes               Yes                Yes              Yes
+Year effects                               Yes               Yes                Yes              Yes
+Targeted × year                            Yes               No                 Yes              No
+R2                                        0.957             0.942              0.962            0.956
+Observations                              4,721             2,987              1,751            1,097
+Clusters                                   278               176                 88               55
+
+   Notes. Average DD estimates, before and after 1973. Regressions interact linkage measures with a Post
+indicator. Estimates correspond to equation (7). The outcome variable is log output price. Both linkage inter-
+actions (forward and backward) are shown. Analysis is performed for the sample of only non-treated indus-
+tries and the full sample of industries. Estimates for the full sample separately control for the Targeted ×
+Year effects to account for the main effect of policy. Standard errors, clustered at the industry level, are in
+parentheses. ∗ p < .10; ∗∗ p < .05; ∗∗∗ p < .01.
+
+
+
+
+non-treated industry; estimates for the full sample imply a semi-
+elasticity of 2.83 (column (1)). Estimates across specifications are
+positive and significant for direct forward linkages. A similar pat-
+tern holds for the total forward linkages (see Online Appendix E.2
+and Table E.1).
+     Similarly, Table VIII shows that greater exposure to forward
+linkages is associated with reduced output prices. Column (2) im-
+plies that a 1% rise in the share of direct HCI linkages is as-
+sociated with −0.459% lower output prices of non-HCI industry
+(−0.359 for the full sample, column (1)). Online Appendix Table
+E.2 shows a similar strong negative relationship for total forward
+linkages. Dynamic estimates plotted in Figure VI demonstrate
+that industries using more treated inputs had relatively low out-
+put prices during and after the drive. However, prices were rel-
+atively higher and began converging before the policy introduc-
+tion. Thus, the price effects in Figure VI may have already been
+in motion before HCI. Nevertheless, the policy is associated with
+declining output prices in the downstream industry. This result
+1730         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+contrasts with arguments that similar industrial policies are as-
+sociated with increased prices for downstream firms (Blonigen
+2016).
+     There is also a positive relationship between forward-linkage
+exposure and development outcomes. This relationship is partic-
+ularly strong and significant for relative employment and plant
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+entry in downstream industries using large shares of treated in-
+puts. This finding holds across datasets and applies to direct-
+and total-linkage measures (see average DD estimates in Online
+Appendix Tables E.3 and E.4). I provide a more detailed analysis
+of these effects in Online Appendix E.2. The results show weakly
+positive estimates between forward linkages and labor productiv-
+ity, wages, and TFP.
+
+     2. Evolution of Downstream Comparative Advantage. What
+was the relationship between forward linkages and trade develop-
+ment? To explore this question, I combine information on linkages
+with the SITC-level trade data and consider the same regressions
+as before. I use a PPML estimator for trade-flow outcomes.
+     Like output, Figure VII shows a positive relation-
+ship between the strength of forward-linkage exposure and
+improved export development in downstream industries
+(Online Appendix Table E.4 shows full estimates). Before 1973,
+forward-linked sectors did not demonstrate a relative export
+advantage or export productivity over other downstream sectors.
+After 1973, Figure VII shows a shift in comparative advantage
+that emerged over the 1973–1979 period. However, it took time
+for a comparative advantage to manifest, and estimates appear
+strongest in the 1980s. These patterns hold across traditional and
+modern measures of RCA. These effects are also seen in measures
+of total forward linkages, reported in Online Appendix Figure
+E.2.
+     The previous section presented evidence of positive, contem-
+poraneous spillovers from industrial policy. Other spillovers may
+take time to materialize. Furthermore, the positive relationship
+between forward linkages and export development further sup-
+ports the direct main effects of policy shown in Section V. Had the
+policy been unsuccessful, it may well have harmed downstream
+exports.
+
+    3. Downstream Linkages: Mechanisms, Investment, and In-
+termediates. Where the industrial policy affected downstream
+                       MANUFACTURING REVOLUTIONS                             1731
+
+                 (A)                                     (B)
+
+
+
+
+                                                                                       Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+                                    FIGURE VII
+                Forward-Linkages Exposure: Export Development
+  This figure plots dynamic DD estimates for the relationship between direct
+forward-linkage exposure and export-development outcomes. The coefficients in
+the plot are estimated from equation (7). Top row shows estimates using the
+raw RCA (Balassa) index, estimated using PPML. The middle row shows alter-
+native RCA, transformed using inverse hyperbolic sine to account for zeros, and
+estimated using OLS. The bottom row shows OLS estimates for the relative ex-
+port productivity (CDK) outcome. Linkage measures are calculated from the 1970
+input-output tables (zero to one); see the text for details. All estimates are rela-
+tive to 1972, the year before HCI. The year 1979 corresponds to the collapse of the
+Park regime. Years are on the x-axis. Estimates for the main linkage interaction
+(forward) are on the y-axis: for example, linkage × year. These estimates come
+from the DD specification that includes the impact of both measures. Full sample
+regressions control for the main HCI × year effect. Ninety-five percent confidence
+intervals are shown in gray.
+
+
+industries, it likely did so by supplying domestic inputs for their
+benefit. I analyze this in Online Appendix E.3 and find that mate-
+rial outlays expanded relatively more for downstream users (both
+direct and indirect) of heavy industrial goods. This finding is il-
+lustrated in Online Appendix Figure E.3 (Panels A and B).
+
+     4. Backward Linkage: Weak Relationship with Industrial De-
+velopment. The expansion of a targeted sector may promote up-
+stream suppliers by increasing the demand for their goods. How-
+ever, for this episode, the spillovers from the heavy industry drive
+to upstream suppliers appear to have been limited. This minimal
+effect may be because policy planners (Section II) chose relatively
+1732         THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+upstream industries (Liu 2019), potentially constraining the ex-
+tent of spillovers through backward linkages.
+     For instance, Table VII shows that an upstream indus-
+try with high backward-linkage exposure is not associated
+with a differential increase in output, unlike the positive ef-
+fect of forward-linkage exposure. The same pattern is seen for
+
+
+
+
+                                                                        Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+similar DD estimates using total backward-linkage measures
+(Online Appendix Table E.1). Similarly, the relationship be-
+tween backward-linkage exposure is undetectable for employ-
+ment, plant entry, and other development outcomes, seen in
+Online Appendix Table E.3. I discuss the muted estimates of back-
+ward linkages further in Online Appendix F.
+
+
+VII.B. Robustness and the Stable Unit Treatment Value
+       Assumption
+     The indirect effects (Section VII.A) pose a dilemma in light of
+the direct effects of the policy highlighted in Section V.A. That
+is, the network effects of the policy may contaminate the con-
+trol group by virtue of linkage spillovers, violating the stable unit
+treatment value assumption (SUTVA). For robustness, I demon-
+strate that the pattern of direct effects largely survives after ac-
+counting for the indirect effects in three analyses.
+     First, I examine how the main effects change when limiting
+the control group to industries with lower exposure to forward
+linkages from treated industries. Specifically, I restrict control
+sectors to industries with below-median linkage measures. For
+output and labor productivity, estimates using the “limited ex-
+posure” group (for direct and total linkages) do not significantly
+alter the main policy effect (Online Appendix Figure G.1).
+     Second, I report the main effects while controlling for linkage
+exposure in the control group. Online Appendix G.2 shows that af-
+ter controlling for positive downstream spillovers in non-treated
+industries, the main impact of HCI becomes more pronounced.
+This finding is intuitive, as positive spillovers may cause the con-
+trol group to benefit, slightly biasing estimates downward. While
+controlling for linkages increases the standard errors, the main
+effects persist.
+     Third, Online Appendix G.3 provides additional evidence
+that investment is not crowded out when accounting for linkages.
+                 MANUFACTURING REVOLUTIONS                   1733
+
+VII.C. Indirect Impact: Discussion
+     The analysis demonstrates policy spillovers through linkages
+to and from treated HCIs. I find that non-treated industries with
+high exposure to policy through forward linkages are associated
+with higher development outcomes and increased use of inter-
+
+
+
+
+                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+mediates. This positive relationship extends to the later export
+development of downstream sectors. However, the effect of back-
+ward linkages appears to have been limited and ambiguous, pos-
+sibly because treated sectors were, by design, upstream. Although
+indirect effects, even if weak, may influence the control group,
+Section VII.B shows that these linkage effects do not significantly
+alter the qualitative pattern observed in the main policy effects.
+
+
+                       VIII. CONCLUSION
+     This article shows that Korea’s heavy and chemical industry
+drive promoted industrial development in the manufacturing sec-
+tors targeted by the policy. I find that this intervention had wide
+ramifications. First, the drive created positive effects in treated
+industries long after its major elements had been retrenched. In
+the case of export performance, policy effects took time and fully
+materialized after the policy had ended. I provide cursory evi-
+dence that the dynamic effects may correspond to learning mech-
+anisms. Moreover, the regime’s policy likely affected the develop-
+ment of industries not targeted by the policy in the short and long
+run. Thus, this study takes a multidimensional view of industrial
+development, demonstrating that HCI targeting corresponded to
+improvements across an array of outcomes, from export perfor-
+mance to the labor market.
+     Aspects of these findings correspond to arguments proposed
+by Wade (1990) and Amsden (1992), mainly that active policy may
+have contributed to Korea’s industrialization and its shift in com-
+parative advantage to more advanced industries. My results em-
+phasize conventional policy forces rather than miraculous ones.
+These included using directed credit to facilitate investment, pur-
+chasing key intermediates, and promoting sectors with dynamic
+economies and linkage spillovers.
+     History is not a clean laboratory, and South Korea’s experi-
+ence is no exception. Like many transformations, this one was
+tumultuous and multifaceted. Nevertheless, this study tries to
+decipher a key episode of industrial policy using the contempo-
+1734           THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+rary econometric toolbox. The goal is to structure coherent in-
+sights around a key historical case of industrial transformation.
+I hope to extract more coherent workings of the policy—those
+that are useful more broadly—and emphasize a more empirically
+grounded narrative around East Asian interventions. The find-
+ings here are not final, nor could they be. They point to a potential
+
+
+
+
+                                                                                  Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+direction for further empirical work.
+     The limitations of this study are manifold and show the ne-
+cessity of further work. Although heavy industrial policy may
+have promoted forms of industrial development, it did so at a
+cost that cannot be accounted for in the scope of this article. Nor
+have I examined the aggregate or allocative consequences of the
+episode. I leave those questions to future quantitative and em-
+pirical work. Importantly, the context of this study suggests that
+successful industrial policy likely hinges on bureaucratic capacity
+and political incentive compatibility (Haggard 1990; Evans 1995;
+Robinson 2010; Juhász and Lane 2024). Such factors highlight
+the importance of future research on the political economy of in-
+dustrial policy.
+
+
+                      SUPPLEMENT ARY MA TERIAL
+   An Online Appendix for this article can be found at The
+Quarterly Journal of Economics online.
+
+
+                           DA T A AVAILABILITY
+    The data underlying this article are available in the Harvard
+Dataverse, https://doi.org/10.7910/DVN/VJECHN (Lane 2025).
+
+UNIVERSITY     OF   OXFORD, UNITED KINGDOM           AND   CESIFO,
+GERMANY
+
+
+                               REFERENCES
+Acemoglu, Daron, David Autor, David Dorn, Gordon H. Hanson, and Brendan
+   Price, “Import Competition and the Great US Employment Sag of the 2000s,”
+   Journal of Labor Economics, 34 (2016), 141–198. https://doi.org/10.1086/6823
+   84
+Ackerberg, Daniel A., Kevin Caves, and Garth Frazer, “Identification Properties
+   of Recent Production Function Estimators,” Econometrica, 83 (2015), 2411–
+   2451. https://doi.org/10.3982/ECTA13408
+Aghion, Philippe, Jing Cai, Mathias Dewatripont, Luosha Du, Ann Harrison,
+   and Patrick Legros, “Industrial Policy and Competition,” American Economic
+                     MANUFACTURING REVOLUTIONS                            1735
+
+    Journal: Macroeconomics, 7 (2015), 1–32. https://doi.org/10.1257/mac.201201
+    03
+Amiti, Mary, and Jozef Konings, “Trade Liberalization, Intermediate Inputs,
+    and Productivity: Evidence from Indonesia,” American Economic Review, 97
+    (2007), 1611–1638. https://doi.org/10.1257/aer.97.5.1611
+Amsden, Alice H., Asia’s Next Giant: South Korea and Late Industrialization, 2nd
+    ed., (New York: Oxford University Press, 1992).
+Balassa, Bela, “Trade Liberalisation and ‘Revealed’ Comparative Advantage,”
+
+
+
+
+                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+    Manchester School, 33 (1965), 99–123.
+Baldwin, Richard, and Paul Krugman, “Market Access and International Compe-
+    tition: A Simulation Study of 16k Random Access Memories,” in Empirical
+    Methods for International Trade, Robert Feenstra, ed. (Cambridge, MA: MIT
+    Press, 1988), 171–197.
+Baldwin, Robert E., “The Case against Infant Industry Tariff Protection,” Journal
+    of Political Economy, 77 (1969), 295–305. https://doi.org/10.1086/259517
+Banerjee, Abhijit V., and Esther Duflo, “Do Firms Want to Borrow More? Testing
+    Credit Constraints Using a Directed Lending Program,” Review of Economic
+    Studies, 81 (2014), 572–607. https://doi.org/10.1093/restud/rdt046
+Bardhan, Pranab K., “On Optimum Subsidy to a Learning Industry: An Aspect
+    of the Theory of Infant-Industry Protection,” International Economic Review,
+    12 (1971), 54–70. https://doi.org/10.2307/2525496
+Barrios, Salvador, and Eric Strobl, “Learning by Doing and Spillovers: Evidence
+    from Firm-Level Panel Data,” Review of Industrial Organization, 25 (2004),
+    175–203. https://doi.org/10.1007/s11151- 004- 3536- y
+Barwick, Panle Jia, Myrto Kalouptsidi, and Nahim Bin Zahur, “China’s Industrial
+    Policy: An Empirical Evaluation,” Working Paper no. 26075, National Bureau
+    of Economic Research, Cambridge, MA, 2019. https://doi.org/10.3386/w26075
+Bau, Natalie, and Adrien Matray, “Misallocation and Capital Market Integra-
+    tion: Evidence from India,” Working Paper no. 27955, National Bureau of
+    Economic Research, Cambridge, MA, 2022. https://doi.org/10.3386/w27955
+Beason, Richard, and David E. Weinstein, “Growth, Economies of Scale, and Tar-
+    geting in Japan (1955–1990),” Review of Economics and Statistics, 78 (1996),
+    286–295. https://doi.org/10.2307/2109930
+Becker, Sascha O., Peter H. Egger, and Maximilian von Ehrlich, “Going NUTS:
+    The Effect of EU Structural Funds on Regional Performance,” Journal of Pub-
+    lic Economics, 94 (2010), 578–590. https://doi.org/10.1016/j.jpubeco.2010.06.
+    006
+Blonigen, Bruce A., “Industrial Policy and Downstream Export Performance,”
+    Economic Journal, 126 (2016), 1635–1659. https://doi.org/10.1111/ecoj.12223
+Blonigen, Bruce A., and Thomas J. Prusa, “Dumping and Antidumping Duties,” in
+    Handbook of Commercial Policy, vol. 1B, Kyle Bagwell and Robert W. Staiger,
+    eds. (Amsterdam: North-Holland, 2016), 107–159. https://doi.org/10.1016/bs
+    .hescop.2016.04.008
+Blundell, Richard, and Monica Costa Dias, “Alternative Approaches to Evaluation
+    in Empirical Microeconomics,” Journal of Human Resources, 44 (2009), 565–
+    640. https://doi.org/10.3368/jhr.44.3.565
+Callaway, Brantly, and Pedro H. C. Sant’Anna, “Difference-in-Differences with
+    Multiple Time Periods,” Journal of Econometrics, 225 (2021), 200–230. https:
+    //doi.org/10.1016/j.jeconom.2020.12.001
+Castley, Robert, Korea’s Economic Miracle: The Crucial Role of Japan, (Bas-
+    ingstoke, UK: Palgrave Macmillan, 1997). https://doi.org/10.1007/978- 1- 349-
+    25833-8
+Cerqua, Augusto, and Guido Pellegrini, “Industrial Policy Evaluation in the Pres-
+    ence of Spillovers,” Small Business Economics, 49 (2017), 671–686. https:
+    //doi.org/10.1007/s11187- 017- 9855- 9
+Chang, Ha-Joon, “The Political Economy of Industrial Policy in Korea,” Cam-
+    bridge Journal of Economics, 17 (1993), 131–157. https://doi.org/10.1093/ox
+    fordjournals.cje.a035227
+1736           THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+Cho, Yoon Je, and Joon-Kyung Kim, “Credit Policies and the Industrialization of
+    Korea,” Discussion Paper no. 286, World Bank, Washington, DC, 1995.
+Cho, Yoon-Je, and David C. Cole, “The Role of the Financial Sector in Korea’s
+    Structural Adjustment,” in Structural Adjustment in a Newly Industrializ-
+    ing Country, Vittoria Corbo and Sang-mok Sŏ, eds. (Baltimore: John Hopkins
+    University Press for the World Bank, 1992).
+Corden, W. Max, Trade Policy and Economic Welfare, 2nd ed., (Oxford: Oxford
+    University Press, 1997).
+
+
+
+
+                                                                                    Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+Costinot, Arnaud, Dave Donaldson, and Ivana Komunjer, “What Goods Do Coun-
+    tries Trade? A Quantitative Exploration of Ricardo’s Ideas,” Review of Eco-
+    nomic Studies, 79 (2012), 581–608. https://doi.org/10.1093/restud/rdr033
+Criscuolo, Chiara, Ralf Martin, Henry G. Overman, and John Van Reenen, “Some
+    Causal Effects of an Industrial Policy,” American Economic Review, 109
+    (2019), 48–85. https://doi.org/10.1257/aer.20160034
+Cushman, John H., “The Military Balance in Korea,” Asian Affairs: An American
+    Review, 6 (1979), 359–369. https://doi.org/10.1080/00927678.1979.10553986
+Dollar, David, and Kenneth Sokoloff, “Patterns of Productivity Growth in South
+    Korean Manufacturing Industries, 1963–1979,” Journal of Development Eco-
+    nomics, 33 (1990), 309–327. https://doi.org/10.1016/0304- 3878(90)90026- 8
+Eberstadt, Nick, The End of North Korea, (Washington, DC: AEI Press, 1999).
+Evans, Peter B, Embedded Autonomy: States and Industrial Transformation,
+    (Princeton, NJ: Princeton University Press, 1995).
+Fernandes, Ana M., and Alberto E. Isgut, “Learning-by-Doing, Learning-by-
+    Exporting, and Productivity: Evidence from Colombia,” Research Working
+    Paper no. 3544, World Bank, Washington, DC, 2005.
+Frank, Charles R., Jr., Kwang Suk Kim, and Larry E. Westphal, “Economic
+    Growth in South Korea since World War II,” in Foreign Trade Regimes and
+    Economic Development: South Korea Charles R. Frank, Jr. and Kwang Suk
+    Kim, ed. (Cambridge, MA: NBER, 1975), 6–24.
+Giorcelli, Michela, “The Long-Term Effects of Management and Technology
+    Transfers,” American Economic Review, 109 (2019), 121–152. https://doi.or
+    g/10.1257/aer.20170619
+Grossman, Gene M., “Promoting New Industrial Activities: A Survey of Recent
+    Arguments and Evidence,” OECD Economic Studies, (1990), 87–125.
+Gruber, Harald, “Learning by Doing and Spillovers: Further Evidence for the
+    Semiconductor Industry,” Review of Industrial Organization, 13 (1998), 697–
+    711.
+Haggard, Stephan, Pathways from the Periphery: The Politics of Growth in
+    the Newly Industrializing Countries, (Ithaca, NY: Cornell University Press,
+    1990).
+Hamm, Taik-Young, Arming the Two Koreas: State, Capital and Military Power,
+    (London: Routledge, 1999).
+Hanlon, W. Walker, “The Persistent Effect of Temporary Input Cost Advantages in
+    Shipbuilding, 1850 to 1911,” Journal of the European Economic Association,
+    18 (2020), 3173–3209. https://doi.org/10.1093/jeea/jvz067
+Harris, Richard, Ian Keay, and Frank Lewis, “Protecting Infant Industries: Cana-
+    dian Manufacturing and the National Policy, 1870–1913,” Explorations in
+    Economic History, 56 (2015), 15–31. https://doi.org/10.1016/j.eeh.2015.01.001
+Harrison, Ann, and Andrés Rodríguez-Clare, “Trade, Foreign Investment, and In-
+    dustrial Policy for Developing Countries,” in Handbook of Development Eco-
+    nomics, vol. 5, Dani Rodrik and Mark Rosenzweig, eds. (Amsterdam: North-
+    Holland, 2010), 4039–4214. https://doi.org/10.1016/B978- 0- 444- 52944- 2.000
+    01-X
+Head, Keith, “Infant Industry Protection in the Steel Rail Industry,” Journal of
+    International Economics, 37 (1994), 141–165. https://doi.org/10.1016/0022-1
+    996(94)90043-4
+                     MANUFACTURING REVOLUTIONS                             1737
+
+Heckman, James, Hidehiko Ichimura, Jeffrey Smith, and Petra Todd, “Charac-
+    terizing Selection Bias Using Experimental Data,” Econometrica, 66 (1998),
+    1017–1098. https://doi.org/10.2307/2999630
+Hirschman, Albert O., The Strategy of Economic Development, 3rd ed., (New
+    Haven, CT: Yale University Press, 1958).
+Hong, Wontack, Trade, Distortions and Employment Growth in Korea: Studies
+    in the Modernization of the Republic of Korea, (Seoul: Korea Development
+    Institute, 1979).
+
+
+
+
+                                                                                     Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+———, “Export-Oriented Growth and Trade Patterns of Korea,” in Trade and
+    Structural Change in Pacific Asia, Colin I. Bradford, Jr. and William H. Bran-
+    son, eds. (Chicago: University of Chicago Press, 1987), 273–306.
+Horikane, Yumi, “The Political Economy of Heavy Industrialisation: The Heavy
+    and Chemical Industry (HCI) Push in South Korea in the 1970s,” Modern
+    Asian Studies, 39 (2005), 369–397. https://doi.org/10.1017/S0026749X04001
+    60X
+Inwood, Kris, and Ian Keay, “Trade Policy and Industrial Development: Iron
+    and Steel in a Small Open Economy, 1870–1913,” Canadian Journal of
+    Economics/Revue Canadienne d’Économique, 46 (2013), 1265–1294. https:
+    //doi.org/10.1111/caje.12048
+Irwin, Douglas A., “Retrospectives: Challenges to Free Trade,” Journal of Eco-
+    nomic Perspectives, 5 (1991), 201–208. https://doi.org/10.1257/jep.5.2.201
+Javorcik, Beata Smarzynska, “Does Foreign Direct Investment Increase the Pro-
+    ductivity of Domestic Firms? In Search of Spillovers Through Backward Link-
+    ages,” American Economic Review, 94 (2004), 605–627. https://doi.org/10.125
+    7/0002828041464605
+Jaworski, Taylor, and Andrew Smyth, “Shakeout in the Early Commercial Air-
+    frame Industry,” Economic History Review, 71 (2018), 617–638. https://doi.or
+    g/10.1111/ehr.12430
+Johnson, Chalmers, MITI and the Japanese Miracle: The Growth of Industrial
+    Policy: 1925–1975, (Stanford, CA: Stanford University Press, 1982).
+Juhász, Réka, “Temporary Protection and Technology Adoption: Evidence from
+    the Napoleonic Blockade,” American Economic Review, 108 (2018), 3339–
+    3376. https://doi.org/10.1257/aer.20151730
+Juhász, Réka, and Nathan Lane, “The Political Economy of Industrial Policy,”
+    Journal of Economic Perspectives, 38 (2024), 27–54. https://doi.org/10.1257/je
+    p.38.4.27
+Juhász, Réka, Nathan Lane, and Dani Rodrik, “The New Economics of Industrial
+    Policy,” Annual Review of Economics, 16 (2024), 213–242. https://doi.org/10.1
+    146/annurev- economics- 081023- 024638
+Juhász, Réka, Nathan Lane, Emily Oehlsen, and Véronica C. Pérez, “Measuring
+    Industrial Policy: A Text-Based Approach,” Working Paper, SocArxiv, 2025.
+    https://doi.org/10.31235/osf.io/uyxh9
+Kalouptsidi, Myrto, Detection and Impact of Industrial Subsidies: The Case of
+    Chinese Shipbuilding,” Review of Economic Studies, 85 (2018), 1111–1158.
+    https://doi.org/10.1093/restud/rdx050
+Kim, Byung-Kook, “The Leviathan: Economic Bureaucracy under Park,” in The
+    Park Chung Hee Era: The Transformation of South Korea, Byung-Kook Kim
+    and Ezra F. Vogel, eds. (Cambridge, MA: Harvard University Press, 2011,
+    200–232.
+Kim, Chung-Yum, From Despair to Hope: Economic Policymaking in Korea, 1945–
+    1979, (Seoul: Korea Development Institute, 2011).
+Kim, Eun Mee, Big Business, Strong State: Collusion and Conflict in South Ko-
+    rean Development, 1960-1990, (Albany: State University of New York Press,
+    1997).
+Kim, Hyung-A., Heavy and Chemical Industrialization, 1973–1979: South Korea’s
+    Homeland Security Measures, Hyung-A. Kim and Clark W. Sorensen, eds.
+    (Seattle: University of Washington Press, 2011).
+1738            THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+Kim, Ji Hong, “Korean Industrial Policy in the 1970’s: The Heavy and Chemi-
+     cal Industry Drive,” Working Paper no. 9015, Korea Development Institute,
+     Seoul, 1990.
+Kim, Kihwan, and Danny M. Leipziger, “Korea: A Case of Government-Led Devel-
+     opment,” in The Lessons of East Asia, 3rd ed., (Washington, DC: World Bank
+     Publications, 1993).
+Kim, Se Jin, “South Korea’s Involvement in Vietnam and Its Economic and Polit-
+     ical Impact,” Asian Survey, 10 (1970), 519–532. https://doi.org/10.2307/2642
+
+
+
+
+                                                                                      Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+     884
+Kong, Tat Yan, The Politics of Economic Reform in South Korea: A Fragile Miracle,
+     (London: Routledge, 2000).
+Koo, Bohn-Young, “The Role of the Government in Korea’s Industrial Devel-
+     opment,” Working Paper no. 8407, Korea Development Institute, Sejong-si,
+     1984.
+Krueger, Anne O., The Developmental Role of the Foreign Sector and Aid, (Cam-
+     bridge, MA: Council on East Asian Studies Harvard University, 1979). https:
+     //doi.org/10.1353/book75556
+———, “East Asian Experience and Endogenous Growth Theory,” in Growth Theo-
+     ries in Light of the East Asian Experience, Takatoshi Ito and Anne O. Krueger,
+     eds. (Chicago: University of Chicago Press, 1995), 9–36.
+———, “Government Failures in Development,” Journal of Economic Perspectives,
+     4 (1990), 9–23. https://doi.org/10.1257/jep.4.3.9
+Krueger, Anne O., and Baran Tuncer, “An Empirical Test of the Infant Industry
+     Argument,” American Economic Review, 72 (1982), 1142–1152.
+Krugman, Paul R., “The Current Case for Industrial Policy,” in Protectionism and
+     World Welfare, Dominick Salvatore, ed. (Cambridge: Cambridge University
+     Press, 1993, 160–179. https://doi.org/10.1017/CBO9780511521997.008
+Kwack, Taewon, “Industrial Restructuring Experience and Policies in Korea in
+     the 1970s,” Working Paper no. 8408, Korea Development Institute, Sejong-si,
+     1984.
+———. “Depreciation and Taxation of Income from Capital”. Korea Development
+     Institute Research Report No. 85-01, 1985.
+Kwack, Taewon, and Kye-Sik Lee, “Tax Reform in Korea,” in The Political Econ-
+     omy of Tax Reform, Takatoshi Ito and Anne O. Krueger, eds. (Chicago: Uni-
+     versity of Chicago Press, 1992), 117–136. https://www.nber.org/books- and- c
+     hapters/political- economy- tax- reform.
+Kwak, Tae Yang, “The Nixon Doctrine and the Yusin Reforms: American Foreign
+     Policy, the Vietnam War, and the Rise of Authoritarianism in Korea, 1968–
+     1973,” Journal of American-East Asian Relations, 12 (2003), 33–34. https:
+     //doi.org/10.1163/187656103793645315
+Kwang-Mo, Kim, The Spirit of Park Chung-Hee Lives on in the Heavy and Chem-
+     ical Industry: A Record of History, (Seoul: Guiparang Publishing, 2015).
+Lall, Sanjaya, “Selective Policies for Export Promotion Lessons from Asian
+     Tigers,” Research for Action no. 43, United Nations University WIDER,
+     Helsinki, 1997, https://ageconsearch.umn.edu/record/295338/files/RFA43.p
+     df.
+Lane, Nathan, “The New Empirics of Industrial Policy,” Journal of Industry, Com-
+     petition and Trade, 1 (2020), 1–26.
+———, “Replication Data for: ‘Manufacturing Revolutions: Industrial Policy and
+     Industrialization in South Korea’,” (2025), Harvard Dataverse. https://doi.or
+     g/10.7910/DVN/VJECHN
+Lee, Jong-Wha, “Government Interventions and Productivity Growth,” Journal of
+     Economic Growth, 1 (1996), 391–414. https://doi.org/10.1007/BF00141045
+Lee, Suk-Chae, “The Heavy and Chemical Industries Promotion Plan (1973–
+     1979),” in Economic Development in the Republic of Korea: A Policy Perspec-
+     tive, Lee-Jay Cho and Yoon Hyung Kim, eds. (Honolulu: East-West Center,
+     University of Hawai‘i Press, 1991), 431–471.
+                     MANUFACTURING REVOLUTIONS                             1739
+
+Levinsohn, James, and Amil Petrin, “Estimating Production Functions Using In-
+    puts to Control for Unobservables,” Review of Economic Studies, 70 (2003),
+    317–341. https://doi.org/10.1111/1467-937X.00246
+Lim, Youngil, Government Policy and Private Enterprise: Korean Experience in
+    Industrialization, (Berkeley, CA: Center for Korean Studies, UC Berkeley,
+    1981).
+Lin, Justin Yifu, New Structural Economics: A Framework for Rethinking Devel-
+    opment and Policy(Washington, DC: World Bank, 2012). http://documents.wo
+
+
+
+
+                                                                                     Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+    rldbank.org/curated/en/991771468155733696
+Liu, Ernest, “Industrial Policies in Production Networks,” Quarterly Journal of
+    Economics, 134 (2019), 1883–1948. https://doi.org/10.1093/qje/qjz024
+Lucas, Robert E. B., “An Empirical Test of the Infant Industry Argument: Com-
+    ment,” American Economic Review, 74 (1984), 1110–1111.
+Luedde-Neurath, Richard, “State Intervention and Export-Oriented Development
+    in South Korea,” in Developmental States in East Asia, Gordon White, ed.
+    (Basingstoke, UK: Springer, 1988), 68–112.
+Manova, Kalina, Shang-Jin Wei, and Zhiwei Zhang, “Firm Exports and Multina-
+    tional Activity Under Credit Constraints,” Review of Economics and Statis-
+    tics, 97 (2015), 574–588. https://doi.org/10.1162/REST_a_00480
+Martin, Leslie A., Shanthi Nataraj, and Ann E. Harrison, “In with the Big, Out
+    with the Small: Removing Small-Scale Reservations in India,” American Eco-
+    nomic Review, 107 (2017), 354–386. https://doi.org/10.1257/aer.20141335
+Mitrunen, Matti, “War Reparations, Structural Change, and Intergenerational
+    Mobility,” The Quarterly Journal of Economics, 140 (2025), 521–584. https:
+    //doi.org/10.1093/qje/qjae036
+Moon, Chung-In, and Byung-Joon Jun, “Modernization Strategy: Ideas and In-
+    fluences,” in The Park Chung Hee Era: The Transformation of South Korea,
+    Byung-Kook Kim and Ezra F. Vogel, eds. (Cambridge, MA: Harvard Univer-
+    sity Press, 2011), 115–139.
+Moon, Chung-In, and Sangkeun Lee, “Military Spending and the Arms Race on
+    the Korean Peninsula,” Asian Perspective, 33 (2009), 69–99. https://doi.org/10
+    .1353/apr.2009.0003
+Nam, Chong-Hyun, “Trade and Industrial Policies, and the Structure of Protec-
+    tion in Korea,” Working Paper, Korea Development Institute, Sejong-si, 1980.
+Nam, Sang-Woo, “Korea’s Financial Reform since the Early 1980s,” in Financial
+    Reform: Theory and Experience, Gerard Caprio, Izak Atiyas, and James A.
+    Hanson, eds. (Cambridge: Cambridge University Press, 1992), 184–222.
+Nelson, Richard R., and Howard Pack, “The Asian Miracle and Modern Growth
+    Theory,” Economic Journal, 109 (1999), 416–436. https://doi.org/10.1111/14
+    68-0297.00455
+Nixon, Richard M., “Letter from President Nixon to Korean President Park,” in
+    Foreign Relations of the United States, 1969–1976, vol. 19, Edward C. Keefer
+    and Carolyn Yee, eds. (Washington, DC: U.S. Government Printing Office,
+    1970), 152–154.
+Noland, Marcus, “Selective Intervention and Growth: The Case of Korea,” in
+    Empirical Methods in International Trade: Essays in Honor of Mordechai
+    Kreinin, Michael G. Plummer, ed. (Cheltenham, UK: Edward Elgar, 2004),
+    229–246.
+Noland, Marcus, and Howard Pack, Industrial Policy in an Era of Globalization:
+    Lessons from Asia, (Washington, DC: Institute for International Economics,
+    2003).
+Nunn, Nathan, and Daniel Trefler, “The Structure of Tariffs and Long-Term
+    Growth,” American Economic Journal: Macroeconomics, 2 (2010), 158–194.
+    https://doi.org/10.1257/mac.2.4.158
+Nurkse, Ragnar, Problems of Capital Formation in Underdeveloped Countries,
+    (Oxford: Oxford University Press, 1953).
+Olden, Andreas, and Jarle Møen, “The Triple Difference Estimator,” Econometrics
+    Journal, (2022), 531–553. https://doi.org/10.1093/ectj/utac010
+1740           THE QUARTERLY JOURNAL OF ECONOMICS
+
+
+Olley, G. Steven, and Ariel Pakes, “The Dynamics of Productivity in the Telecom-
+    munications Equipment Industry,” Econometrica, 64 (1996), 1263–1297. http
+    s://doi.org/10.2307/2171831
+Pack, Howard, “Industrial Policy: Growth Elixir or Poison?,” World Bank Research
+    Observer, 15 (2000), 47–67. https://doi.org/10.1093/wbro/15.1.47
+Pack, Howard, and Kamal Saggi, “Is There a Case for Industrial Policy? A Critical
+    Survey,” World Bank Research Observer, 21 (2006), 267–297. https://doi.org/
+    10.1093/wbro/lkl001
+
+
+
+
+                                                                                     Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+Park, Tong-Ho, “A Study on the Industry Tariff System of Korea—with Refer to
+    Heavy & Chemical Industry Development Industry Development, 4 (1977),
+    173–214.
+Perkins, Dwight H., East Asian Development: Foundations and Strategies (the
+    Edwin O. Reischauer Lectures)(Cambridge, MA: Harvard University Press,
+    2013). https://doi.org/10.4159/harvard.9780674726130
+Pons-Benaiges, Oriol, “Did Government Intervention Target Technological Exter-
+    nalities? Industrial Policy and Economic Growth in Postwar Japan, 1964–
+    1983,” Working Paper, Stanford University, Palo Alto, 2017.
+Rasmussen, Poul Nørregaard, Studies in Inter-Sectoral Relations, (Copenhagen:
+    E. Harck, 1956).
+Redding, Stephen, “Dynamic Comparative Advantage and the Welfare Effects of
+    Trade,” Oxford Economic Papers, 51 (1999), 15–39. https://doi.org/10.1093/oe
+    p/51.1.15
+Rhyu, Sang-Young, and Seok-Jin Lew, “Pohang Iron & Steel Company,” in The
+    Park Chung Hee Era: The Transformation of South Korea, Byung-Kook Kim
+    and Ezra Vogel, eds. (Cambridge, MA: Harvard University Press, 2011), 322–
+    344.
+Robinson, James A., “Industrial Policy and Development: A Political Economy
+    Perspective,” in Annual World Bank Conference on Development Economics
+    2010 - Global: Lessons from East Asia and the Global Financial Crisis, Justin
+    Yifu Lin and Boris Pleskovic, eds. (Washington, DC: World Bank, 2010), 61–
+    79.
+Rodrik, Dani, “Industrial Policy for the Twenty-First Century,” Faculty Research
+    Working Paper no. RWP04-047, John F. Kennedy School of Government,
+    Cambridge, MA, 2004.
+———, “Growth Strategies,” in Handbook of Economic Growth, vol. 1A, Philippe
+    Aghion and Steven N. Durlauf, eds. (Amsterdam: North-Holland, 2005), 967–
+    1014. https://doi.org/10.1016/S1574- 0684(05)01014- 2
+———, “Getting Interventions Right: How South Korea and Taiwan Grew Rich,”
+    Economic Policy, 10 (1995), 53–107. https://doi.org/10.2307/1344538
+Rosenstein-Rodan, Paul N., “Problems of Industrialisation of Eastern and South-
+    Eastern Europe,” Economic Journal, 53 (1943), 202–211. https://doi.org/10.2
+    307/2226317
+Rotemberg, Martin, “Equilibrium Effects of Firm Subsidies,” American Economic
+    Review, 109 (2019), 3475–3513. https://doi.org/10.1257/aer.20171840
+Sant’Anna, Pedro H. C., and Jun Zhao, “Doubly Robust Difference-in-Differences
+    Estimators,” Journal of Econometrics, 219 (2020), 101–122. https://doi.org/10
+    .1016/j.jeconom.2020.06.003
+Scitovsky, Tibor, “Two Concepts of External Economies,” Journal of Political
+    Economy, 62 (1954), 143–151. https://doi.org/10.1086/257498
+Santos Silva, João M. C., and Silvana Tenreyro, “The Log of Gravity,” Review of
+    Economics and Statistics, 88 (2006), 641–658. https://doi.org/10.1162/rest.88.
+    4.641
+Smith, Jeffrey, and Petra E. Todd, “Does Matching Overcome Lalonde’s Critique
+    of Nonexperimental Estimators?,” Journal of Econometrics, 125 (2005), 305–
+    353. https://doi.org/10.1016/j.jeconom.2004.04.011
+Stern, Joseph J., Ji-Hong Kim, Dwight H. Perkins, and Jung-Ho Yoo, Industrial-
+    ization and the State: The Korean Heavy and Chemical Industry Drive, (Cam-
+    bridge, MA: Harvard Institute for International Development, 1995).
+                        MANUFACTURING REVOLUTIONS                                    1741
+
+Succar, Patricia, “The Need for Industrial Policy in LDC’s—A Restatement of the
+    Infant Industry Argument,” International Economic Review, 28 (1987), 521–
+    534. https://doi.org/10.2307/2526741
+Wade, Robert H., Governing the Market: Economic Theory and the Role of Gov-
+    ernment in East Asian Industrialization, 2nd ed., (Princeton, NJ: Princeton
+    University Press, 1990).
+Weinstein, David E., “Evaluating Administrative Guidance and Cartels in Japan
+    (1957–1988),” Journal of the Japanese and International Economies, 9 (1995),
+
+
+
+
+                                                                                               Downloaded from https://academic.oup.com/qje/article/140/3/1683/8152916 by guest on 29 May 2026
+    200–223. https://doi.org/10.1006/jjie.1995.1011
+Westphal, Larry E., “Industrial Policy in an Export-Propelled Economy: Lessons
+    from South Korea’s Experience,” Journal of Economic Perspectives, 4 (1990),
+    41–59. https://doi.org/10.1257/jep.4.3.41
+Westphal, Larry E., and Kwang Suk Kim, “Fostering Technological Mastery by
+    Means of Selective Infant Industry Protection,” in Development Strategies
+    in Semi-Industrial Economies, Bela Balassa, ed. (Baltimore: Johns Hopkins
+    University Press, 1982), 212–279.
+Woo, Jung-En, Race to the Swift: State and Finance in Korean Industrialization,
+    (New York: Columbia University Press, 1991).
+Woo-Cumings, Meredith Jung-En, “National Security and the Rise of the Develop-
+    mental State in South Korea and Taiwan,” in Behind East Asian Growth: The
+    Political and Social Foundations of Prosperity, Henry S. Rowen, ed. (London:
+    Routledge, 1998), 319.
+Wooldridge, Jeffrey M., “On Estimating Firm-Level Production Functions Using
+    Proxy Variables to Control for Unobservables,” Economics Letters, 104 (2009),
+    112–114. https://doi.org/10.1016/j.econlet.2009.04.026
+World Bank, Korea: Managing the Industrial Transition: The Conduct of Indus-
+    trial Policy, (Washington, DC: World Bank, 1987.
+———, The East Asian Miracle: Economic Growth and Public Policy: A World
+    Bank Policy Research Report, (Oxford: Oxford University Press, 1993).
+Yoo, Jung-Ho, “The Industrial Policy of the 1970s and the Evolution of the Man-
+    ufacturing Sector in Korea,” Working Paper no. 9017, Korea Development
+    Institute, Sejong-si, 1990.
+Young, Alwyn, “Learning by Doing and the Dynamic Effects of International
+    Trade,” Quarterly Journal of Economics, 106 (1991), 369–405. https://doi.or
+    g/10.2307/2937942
+
+
+
+
+
+C The Author(s) 2025. Published by Oxford University Press on behalf of President and Fel-
+lows of Harvard College. This is an Open Access article distributed under the terms of the
+Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which
+permits unrestricted reuse, distribution, and reproduction in any medium, provided the orig-
+inal work is properly cited.
+CALL FOR NOMINATIONS
+
+$300,000 Nemmers Prize in Economics
+
+Northwestern University invites nominations for the Erwin Plein Nemmers Prize in Economics, to be
+awarded during the 2026–27 academic year. The prize pays the recipient $300,000. Recipients of the
+Nemmers Prize present lectures, participate in department seminars, and engage with Northwestern faculty
+and students in other scholarly activities.
+
+Details about the prize and the nomination process can be found at nemmers.northwestern.edu. Candidacy
+for the Nemmers Prize is open to those with careers of outstanding achievement in their disciplines as
+demonstrated by major contributions to new knowledge or the development of significant new modes of
+analysis.Individuals of all nationalities and institutional affiliations are eligible except current or recent
+members of the Northwestern University faculty and past recipients of the Nemmers or Nobel Prize.
+Nominations will be accepted until January 14, 2026.
+
+The Nemmers prizes are made possible by a generous gift to Northwestern University by the late Erwin Esser
+Nemmers and the late Frederic Esser Nemmers.
+
+
+
+
+                                           Nemmers Prizes • Office of the Provost • Northwestern University • Evanston, Illinois 60208
+                                           nemmers.northwestern.edu
+
