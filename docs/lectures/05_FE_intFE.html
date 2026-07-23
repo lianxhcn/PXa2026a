@@ -455,10 +455,15 @@ window.Quarto = {
   <li><a href="#固定效应模型从虚拟变量到组内去心" id="toc-固定效应模型从虚拟变量到组内去心" class="nav-link" data-scroll-target="#固定效应模型从虚拟变量到组内去心"><span class="header-section-number">5.3</span> 固定效应模型：从虚拟变量到组内去心</a>
   <ul class="collapse">
   <li><a href="#三类变量三个下标" id="toc-三类变量三个下标" class="nav-link" data-scroll-target="#三类变量三个下标"><span class="header-section-number">5.3.1</span> 三类变量、三个下标</a></li>
-  <li><a href="#组内去心不用观测也能控制" id="toc-组内去心不用观测也能控制" class="nav-link" data-scroll-target="#组内去心不用观测也能控制"><span class="header-section-number">5.3.2</span> 组内去心：不用观测，也能控制</a></li>
+  <li><a href="#组内去心不可观测的因素也能控制" id="toc-组内去心不可观测的因素也能控制" class="nav-link" data-scroll-target="#组内去心不可观测的因素也能控制"><span class="header-section-number">5.3.2</span> 组内去心：不可观测的因素也能控制</a></li>
   <li><a href="#个体时间与双向固定效应" id="toc-个体时间与双向固定效应" class="nav-link" data-scroll-target="#个体时间与双向固定效应"><span class="header-section-number">5.3.3</span> 个体、时间与双向固定效应</a></li>
   </ul></li>
-  <li><a href="#高维固定效应的基本思想" id="toc-高维固定效应的基本思想" class="nav-link" data-scroll-target="#高维固定效应的基本思想"><span class="header-section-number">5.4</span> 高维固定效应的基本思想</a></li>
+  <li><a href="#高维固定效应更多维度与更窄的比较" id="toc-高维固定效应更多维度与更窄的比较" class="nav-link" data-scroll-target="#高维固定效应更多维度与更窄的比较"><span class="header-section-number">5.4</span> 高维固定效应：更多维度与更窄的比较</a>
+  <ul class="collapse">
+  <li><a href="#三维加性固定效应" id="toc-三维加性固定效应" class="nav-link" data-scroll-target="#三维加性固定效应"><span class="header-section-number">5.4.1</span> 三维加性固定效应</a></li>
+  <li><a href="#交互固定效应" id="toc-交互固定效应" class="nav-link" data-scroll-target="#交互固定效应"><span class="header-section-number">5.4.2</span> 交互固定效应</a></li>
+  <li><a href="#高维固定效应的基本思想" id="toc-高维固定效应的基本思想" class="nav-link" data-scroll-target="#高维固定效应的基本思想"><span class="header-section-number">5.4.3</span> 高维固定效应的基本思想</a></li>
+  </ul></li>
   <li><a href="#双向固定效应与-did" id="toc-双向固定效应与-did" class="nav-link" data-scroll-target="#双向固定效应与-did"><span class="header-section-number">5.5</span> 双向固定效应与 DID</a>
   <ul class="collapse">
   <li><a href="#每加一组固定效应就换一次比较对象" id="toc-每加一组固定效应就换一次比较对象" class="nav-link" data-scroll-target="#每加一组固定效应就换一次比较对象"><span class="header-section-number">5.5.1</span> 每加一组固定效应，就换一次比较对象</a></li>
@@ -520,7 +525,7 @@ window.Quarto = {
 <li>控制变量、遗漏变量、坏控制和过度控制；</li>
 <li>虚拟变量、分类变量、基准组和虚拟变量陷阱；</li>
 <li>个体固定效应、时间固定效应和双向固定效应；</li>
-<li>高维固定效应的基本思想；</li>
+<li>高维固定效应与交互固定效应的基本思想；</li>
 <li>DID 中的组别、时间和处理交乘项；</li>
 <li>如何理解带固定效应和交乘项模型中的系数。</li>
 <li>本讲用到的 skills：<a href="../appendix/B_skills_index.html"><code>core/05-regression-interpreter</code></a>；</li>
@@ -565,13 +570,13 @@ Y_i = \alpha + \beta X_i + u_i
 Y_i - \bar{Y} = (X_i - \bar{X})\beta + (u_i - \bar{u})
 \tag{5.2}\]</span></span></p>
 <p>这说明一件事：<strong>带常数项的回归，等价于先把 <span class="math inline">\(Y\)</span> 和 <span class="math inline">\(X\)</span> 都减去各自的均值，再做一次不带常数项的回归</strong>。常数项在这里扮演的角色，就是「把样本均值这一层信息吸走」。换句话说，<span class="math inline">\(\beta\)</span> 度量的从来不是 <span class="math inline">\(X\)</span> 和 <span class="math inline">\(Y\)</span> 的绝对水平关系，而是<strong>两者相对各自均值的偏离</strong>之间的关系。</p>
-<p>常数项还有几件不显眼却要紧的活儿：吸收 <span class="math inline">\(X\)</span>、<span class="math inline">\(Y\)</span> 量纲与平移缩放带来的影响，保证 <span class="math inline">\(R^2\in[0,1]\)</span>；在 DID 和 RDD 里，常数项本身还带明确的经济含义。这里先记住最核心的一点：<strong>回归系数度量的是「去掉某个基准之后」的比较</strong>。</p>
+<p>常数项还有几件不显眼却要紧的活儿：它会随变量的平移而调整，并保证常规 OLS 回归中的 <span class="math inline">\(R^2\in[0,1]\)</span>。在 DID 和 RDD 里，常数项本身还可能带明确的经济含义。这里先记住最核心的一点：<strong>回归系数度量的是「去掉某个基准之后」的比较</strong>。</p>
 </section>
 <section id="fwl-定理先剔除再回归" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="fwl-定理先剔除再回归"><span class="header-section-number">5.2.2</span> FWL 定理：先剔除，再回归</h3>
 <p>把上面「减均值」的操作一般化，就是 Frisch-Waugh-Lovell(FWL) 定理。考虑一个多元回归：</p>
 <p><span id="eq-fe-fwl"><span class="math display">\[
-Y = X_1{\color{red}{\beta_1}} + X_2\beta_2 + u
+Y = \alpha + X_1\beta_1 + X_2\beta_2 + u
 \tag{5.3}\]</span></span></p>
 <p>我们只关心 <span class="math inline">\(X_1\)</span> 的系数 <span class="math inline">\(\beta_1\)</span>。FWL 定理说，要得到 <span class="math inline">\(\hat\beta_1\)</span>，不必把 <span class="math inline">\(X_1\)</span>、<span class="math inline">\(X_2\)</span> 一起放进回归，可以分三步走：</p>
 <ol type="1">
@@ -591,9 +596,51 @@ Y = X_1{\color{red}{\beta_1}} + X_2\beta_2 + u
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>FWL 不只是一个理论性质。Stata 里处理高维固定效应的 <code>reghdfe</code>、<code>ivreg2</code>/<code>lasso2</code> 里的 <code>partial()</code> 选项、以及画部分回归图的 <code>avplot</code>、<code>binscatter</code> 等命令，其底层原理都是 FWL。理解了「剔除—回归」，本讲后面的固定效应和 DID 就都是它的应用。</p>
+<p>FWL 不只是一个理论性质。Stata 里处理高维固定效应的 <code>reghdfe</code>、<code>ivreg2</code>／<code>lasso2</code> 里的 <code>partial()</code> 选项，以及画部分回归图的 <code>avplot</code> 等命令，都可以从残差化的角度理解。理解了「剔除—回归」，后面的固定效应就是它的直接应用。</p>
+<p>双重／去偏机器学习 (DML／DDML) 也保留了这一骨架：分别用控制变量预测结果和处理变量，取两边残差后再估计核心关系。不过，DML 还要处理高维、非线性和机器学习过拟合的问题，通常需要样本分割与交叉拟合；它不能替代识别策略本身。<a href="https://doi.org/10.1111/ectj.12097">Chernozhukov et al.&nbsp;(2018)</a> 给出了系统讨论，进阶读者可继续阅读<a href="https://lianxhcn.github.io/ci-policy/lectures/07_ddml.html">双重机器学习：DDML</a>。</p>
 </div>
 </div>
+<p><a href="#fig-FE_intFE-ddml-fwl-venn" class="quarto-xref">图&nbsp;<span>5.2</span></a> 用韦恩图把这个过程画了出来。这是一张帮助理解残差化的示意图，不是严格的集合或方差分解。<span class="math inline">\(Y\)</span>、<span class="math inline">\(X_1\)</span>、<span class="math inline">\(X_2\)</span> 三个圆的重叠部分，代表彼此能够解释的方差。把 <span class="math inline">\(Y\)</span> 圆内部按字母拆开：</p>
+<p><span class="math display">\[
+Y=A+B+C+D
+\]</span></p>
+<p>其中，<span class="math inline">\(A\)</span> 是 <span class="math inline">\(Y\)</span> 里谁也没有解释的部分，<span class="math inline">\(B\)</span> 只被 <span class="math inline">\(X_1\)</span> 解释，<span class="math inline">\(D\)</span> 只被 <span class="math inline">\(X_2\)</span> 解释，<span class="math inline">\(C\)</span> 被 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 共同解释。所谓「把 <span class="math inline">\(X_2\)</span> partial out」，直观上就是拿一把剪刀，把 <span class="math inline">\(X_2\)</span> 那个圆整个剪掉：<span class="math inline">\(Y\)</span> 里凡是和 <span class="math inline">\(X_2\)</span> 重叠的部分 (也就是 <span class="math inline">\(C\)</span> 和 <span class="math inline">\(D\)</span>) 都被剪走，只剩下：</p>
+<p><span class="math display">\[
+\widetilde{Y}=A+B
+\]</span></p>
+<p>同样地，<span class="math inline">\(X_1\)</span> 剪掉与 <span class="math inline">\(X_2\)</span> 重叠的部分后得到残差 <span class="math inline">\(\widetilde{X}_1\)</span>。再用 <span class="math inline">\(\widetilde{Y}\)</span> 对 <span class="math inline">\(\widetilde{X}_1\)</span> 回归，两者真正共享的只有区域 <span class="math inline">\(B\)</span>——也就是「<span class="math inline">\(X_1\)</span> 里扣掉了 <span class="math inline">\(X_2\)</span>、<span class="math inline">\(Y\)</span> 里也扣掉了 <span class="math inline">\(X_2\)</span>」之后，两边还共同拥有的那块方差。<span class="math inline">\(\beta_1\)</span> 就是从区域 <span class="math inline">\(B\)</span> 里估出来的。</p>
+<div id="fig-FE_intFE-ddml-fwl-venn" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-FE_intFE-ddml-fwl-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/OLS-venn-01.png" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-FE_intFE-ddml-fwl-venn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+图&nbsp;5.2: FWL 定理的方差韦恩图：<span class="math inline">\(\beta_1\)</span> 只用到区域 <span class="math inline">\(B\)</span>——把 <span class="math inline">\(X_2\)</span> 从 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(Y\)</span> 中同时剪掉之后，两者还共同解释的那部分方差
+</figcaption>
+</figure>
+</div>
+<p>这个定理看似只是一个计算技巧，实际上是一整套方法的理论基础。例如，在 Stata 中，<code>xtreg</code> 命令的 <code>fe</code> 选项、<code>reghdfe</code> 命令的 <code>absorb()</code> 选项、<code>ivreg2</code> 和 <code>lasso2</code> 命令的 <code>partial()</code> 选项，都是 FWL 的直接应用——它们先把固定效应或一部分控制变量 partial out，再对核心变量做回归。</p>
+<p>此处要特别注意：<strong>要得到干净的 <span class="math inline">\(\beta_1\)</span>，必须把控制变量从核心解释变量和结果变量两边都剔除，而不是只从结果变量一边剔除。</strong> 只处理 <span class="math inline">\(Y\)</span> 而不处理 <span class="math inline">\(X_1\)</span>，得到的并不是原多元回归中 <span class="math inline">\(\beta_1\)</span> 的 FWL 表达。</p>
+<!-- ### FWL 的应用：DDML 模型
+
+先看一个熟悉的设定。研究某项处理 $D$ 对结果 $Y$ 的影响，我们几乎总会加一组控制变量 $X$：
+
+$$
+Y_i=\alpha+\theta D_i+X_i'\beta+\varepsilon_i
+$$ {#eq-cipolicy-ddml-linear-control}
+
+@eq-cipolicy-ddml-linear-control 里，我们假设 $X$ 进入模型的方式是线性的。然而，在很多情况下，我们 $X$ 对 $Y$ 的影响可能是复杂的非线性关系。举一个直观的例子。研究「课堂上增加助教」对学生成绩的影响，控制变量包括每天学习时间、作业完成率、出勤率。学习时间和成绩之间是线性的吗？显然不是：学习时间增加会提高成绩，但过长又会因为疲惫、睡眠不足而拉低效率。如果我们用一个线性的「学习时间」项去控制它，就没有真正把这个混淆因素扣干净，残留的部分会漏进 $D$ 的系数。
+
+这里的关键在于，我们**并不关心**学习时间对成绩的影响本身，我们只想干净地估计处理效应 $\theta$。学习时间只是一个需要被「控制掉」的混淆变量。但只要它以非线性方式进入，线性控制就控制不干净。
+
+一个自然的想法是：既然线性不够，就用更灵活的方法去拟合控制关系——随机森林、梯度提升、神经网络、Lasso 都可以逼近复杂的非线性函数。这个思路是对的，但直接套用会引申出新的问题。
+
+@fig-FE_intFE-ddml-fwl-partial-out 展示使用 FWL 定理估计如下模型的处理思路。
+
+
+图中 $\hat E(Y\mid X)$、$\hat E(D\mid X)$ 就是分别用 $X$ 去拟合 $Y$ 和 $D$ 得到的预测值；把它们从 $Y$ 和 $D$ 中减掉，得到两个残差 $\tilde Y$ 和 $\tilde D$，再用 $\tilde Y$ 对 $\tilde D$ 回归，斜率就是干净的处理效应 $\theta$。无论用 OLS 还是机器学习来做「用 $X$ 解释」这一步，只要两边都剔除，逻辑都一样。记住这个「两边同时剔除」的骨架，下一节 DDML 的全部逻辑就水到渠成——也会看到，一旦省掉 $D$ 那一边，估计立刻出问题。完整的手算验证 (三种回归给出同一个系数) 放在附录 H.2。
+
+![FWL 的核心是「两边同时剔除 $X$」：先用 $X$ 分别解释 $Y$ 和 $D$，取残差 $\tilde Y=Y-\hat E(Y\mid X)$、$\tilde D=D-\hat E(D\mid X)$，再用残差对残差回归，$\theta$ 就来自两个残差之间的关系](https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/ch07_fig01_fwl_partial_out_pen.png){#fig-FE_intFE-ddml-fwl-partial-out fig-align="center" width="82%"} -->
 </section>
 <section id="遗漏变量坏控制与过度控制" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="遗漏变量坏控制与过度控制"><span class="header-section-number">5.2.3</span> 遗漏变量、坏控制与过度控制</h3>
@@ -609,6 +656,15 @@ Y = X_1{\color{red}{\beta_1}} + X_2\beta_2 + u
 <li><strong>过度控制 (over-control)</strong>：控制了处理效应必经的中介，或控制了与 <span class="math inline">\(X_1\)</span> 高度共线、几乎不含独立信息的变量，识别变异被抽干，系数变得不稳、方差飙升。</li>
 </ul>
 <p>判断的标准不是「显著与否」「<span class="math inline">\(R^2\)</span> 高不高」，而是<strong>这个变量是原因还是结果</strong>。识别策略层面的深入讨论超出本讲范围，这里只需记住一句：控制变量要控在混淆上，不要控在结果或中介上。</p>
+<p>有关控制变量的讨论，参见如下推文：</p>
+<ul>
+<li>付一帆, 2022, <a href="https://www.lianxh.cn/details/1019.html">Stata：控制变量与核心解释变量地位对等吗？</a>.</li>
+<li>张雪娇, 2022, <a href="https://www.lianxh.cn/details/1011.html">控制变量如何选？大牛们的10条建议</a>.</li>
+<li>曹昊煜, 2022, <a href="https://www.lianxh.cn/details/1037.html">A-理论部分：控制变量！控制变量！Good-Controls-Bad-Controls</a>.</li>
+<li>李烨阳, 2022, <a href="https://www.lianxh.cn/details/1056.html">B-Stata模拟：控制变量！控制变量！Good-Controls-Bad-Controls</a>.</li>
+<li>秦利宾, 2021, <a href="https://www.lianxh.cn/details/713.html">控制变量！控制变量！</a>.</li>
+<li>连玉君, 张静瑶, 2020, <a href="https://www.lianxh.cn/details/135.html">加入控制变量后结果悲催了！</a>.</li>
+</ul>
 </section>
 <section id="虚拟变量基准组与虚拟变量陷阱" class="level3" data-number="5.2.4">
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="虚拟变量基准组与虚拟变量陷阱"><span class="header-section-number">5.2.4</span> 虚拟变量、基准组与虚拟变量陷阱</h3>
@@ -620,14 +676,14 @@ y_i = \alpha + {\color{blue}{\gamma}}\,M_i + \beta x_i + u_i
 <p><span class="math display">\[
 E[y_i\mid M=0]=\alpha+\beta x_i,\qquad E[y_i\mid M=1]=(\alpha+\gamma)+\beta x_i
 \]</span></p>
-<p>图 <a href="#fig-fe-dummy" class="quarto-xref">图&nbsp;<span>5.2</span></a> 里，两组是两条平行线 (斜率同为 <span class="math inline">\(\beta\)</span>)，<span class="math inline">\(\gamma\)</span> 就是两条线的垂直间距。这时「女性组」被当作<strong>基准组</strong> (base group)，它的截距是 <span class="math inline">\(\alpha\)</span>，其余各组的虚拟变量系数都是「相对基准组」的差。</p>
+<p>图 <a href="#fig-fe-dummy" class="quarto-xref">图&nbsp;<span>5.3</span></a> 里，两组是两条平行线 (斜率同为 <span class="math inline">\(\beta\)</span>)，<span class="math inline">\(\gamma\)</span> 就是两条线的垂直间距。这时「女性组」被当作<strong>基准组</strong> (base group)，它的截距是 <span class="math inline">\(\alpha\)</span>，其余各组的虚拟变量系数都是「相对基准组」的差。</p>
 <div id="fig-fe-dummy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fe-dummy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/FWL_Dummy_a01.png" class="img-fluid figure-img" style="width:55.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fe-dummy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;5.2: 虚拟变量 = 变截距：两组共用斜率 <span class="math inline">\(\beta\)</span>，虚拟变量系数 <span class="math inline">\(\gamma\)</span> 是两条平行线的垂直间距
+图&nbsp;5.3: 虚拟变量 = 变截距：两组共用斜率 <span class="math inline">\(\beta\)</span>，虚拟变量系数 <span class="math inline">\(\gamma\)</span> 是两条平行线的垂直间距
 </figcaption>
 </figure>
 </div>
@@ -694,8 +750,8 @@ E[y_i\mid M=0]=\alpha+\beta x_i,\qquad E[y_i\mid M=1]=(\alpha+\gamma)+\beta x_i
 \]</span></p>
 <p>只要国企普遍规模更大、杠杆更高 (<span class="math inline">\(Corr(SOE_i,Size_{it})\neq 0\)</span>)，<span class="math inline">\(\hat\theta\)</span> 就把所有权的贡献混了进来。这就是上一节遗漏变量偏误的面板版本。</p>
 </section>
-<section id="组内去心不用观测也能控制" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="组内去心不用观测也能控制"><span class="header-section-number">5.3.2</span> 组内去心：不用观测，也能控制</h3>
+<section id="组内去心不可观测的因素也能控制" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="组内去心不可观测的因素也能控制"><span class="header-section-number">5.3.2</span> 组内去心：不可观测的因素也能控制</h3>
 <p>固定效应模型的办法直接而漂亮：把所有不随时间变化的因素——无论能不能观测——统统打包进一个个体截距 <span class="math inline">\(\alpha_i\)</span>，再用 FWL 的减均值把它剔除掉：</p>
 <p><span id="eq-fe-demean"><span class="math display">\[
 \begin{aligned}
@@ -710,8 +766,12 @@ y_{it}-\bar{y}_i &amp;= (x_{it}-\bar{x}_i)\beta + ({\color{red}{\alpha_i-\alpha_
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span>   <span class="fu">y</span> x, <span class="kw">fe</span> <span class="kw">vce</span>(<span class="kw">cluster</span> id)              <span class="co">// [1] 组内估计量</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span>    <span class="fu">y</span> x, absorb(id) <span class="kw">vce</span>(<span class="kw">cluster</span> id)      <span class="co">// [2]</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x, absorb(id) <span class="kw">vce</span>(<span class="kw">cluster</span> id)      <span class="co">// [3]</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> id: <span class="bn">center</span> <span class="fu">y</span> x, <span class="kw">prefix</span>(c_)            <span class="co">// [4] 手动去心</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> c_y c_x, <span class="kw">vce</span>(<span class="kw">cluster</span> id)                 <span class="co">//     系数同上，标准误需另行调整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> id: <span class="kw">egen</span> y_bar = <span class="kw">mean</span>(<span class="fu">y</span>)              <span class="co">// [4] 手动去心</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> id: <span class="kw">egen</span> x_bar = <span class="kw">mean</span>(x)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> c_y = <span class="fu">y</span> - y_bar</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> c_x = x - x_bar</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> c_y c_x, <span class="kw">noconstant</span> <span class="kw">vce</span>(<span class="kw">cluster</span> id)      <span class="co">//     斜率同上</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>四种方法的 <span class="math inline">\(\hat\beta\)</span> 完全相同。差别只在于：它用的是每家公司<strong>内部</strong>的变化，而不是公司<strong>之间</strong>的差异。</p>
 </section>
 <section id="个体时间与双向固定效应" class="level3" data-number="5.3.3">
@@ -724,7 +784,24 @@ Y_{it}=x_{it}'\beta+\alpha_i+\lambda_t+\varepsilon_{it}
 <p><span class="math display">\[
 Y_{it}=x_{it}'\beta+\sum_{i=1}^N\alpha_i A_i+\sum_{t=1}^T\lambda_t B_t+\varepsilon_{it}
 \]</span></p>
-<p><span class="math inline">\(\alpha_i\)</span> 吸收「不随时间变的个体差异」，<span class="math inline">\(\lambda_t\)</span> 吸收「当年对所有个体一致的宏观冲击」。也可以只放 <span class="math inline">\(\lambda_t\)</span>(<strong>时间固定效应</strong>)，控制共同的时间趋势而不管个体差异。放哪几组、怎么放，取决于你想控制什么。命令上，<code>reghdfe y x, absorb(id year)</code> 或 <code>xtreg y x i.year, fe</code> 都能实现双向固定效应。</p>
+<p><span class="math inline">\(\alpha_i\)</span> 吸收「不随时间变的个体差异」，<span class="math inline">\(\lambda_t\)</span> 吸收「当年对所有个体一致的宏观冲击」。也可以只放 <span class="math inline">\(\lambda_t\)</span> (<strong>时间固定效应</strong>)，控制共同的时间趋势而不管个体差异。放哪几组、怎么放，取决于你想控制什么。</p>
+<p>在完整的平衡面板中，可以把 <a href="#eq-fe-demean" class="quarto-xref">式&nbsp;<span>5.5</span></a> 的思路再推进一步：对每个变量同时减去个体均值和年份均值，再加回总体均值。以 <span class="math inline">\(y\)</span> 为例：</p>
+<p><span id="eq-fe-twfe-demean"><span class="math display">\[
+\widetilde{y}_{it}=y_{it}-\bar{y}_i-\bar{y}_t+\bar{y}
+\tag{5.7}\]</span></span></p>
+<p>其中，<span class="math inline">\(\bar{y}_i\)</span> 是个体 <span class="math inline">\(i\)</span> 的时间均值，<span class="math inline">\(\bar{y}_t\)</span> 是年份 <span class="math inline">\(t\)</span> 的截面均值，<span class="math inline">\(\bar{y}\)</span> 是总体均值。</p>
+<p>对 <span class="math inline">\(x_1,x_2,\ldots\)</span> 做相同变换后，用 <span class="math inline">\(\widetilde{y}_{it}\)</span> 对 <span class="math inline">\(\widetilde{\mathbf{x}}_{it}\)</span> 做不含常数项的 OLS，得到的斜率与 <a href="#eq-fe-twfe" class="quarto-xref">式&nbsp;<span>5.6</span></a> 中的双向固定效应估计一致。这个公式适合帮助理解和核对一个小型、完整的平衡面板。实证数据常常是不平衡面板，或者还要吸收交互固定效应；这时不应把逐次减均值当成通用算法，而应直接使用固定效应估计命令。</p>
+<p>实证分析中，下面两种写法在斜率上等价。第一种显式放入年份虚拟变量；第二种把个体和年份固定效应交给 <code>reghdfe</code> 吸收：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>xtset id <span class="fu">year</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> <span class="fu">y</span> x1 <span class="kw">x2</span> i.<span class="fu">year</span>, <span class="kw">fe</span> <span class="kw">vce</span>(<span class="kw">cluster</span> id)       <span class="co">// 显式加入年份效应</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, absorb(id <span class="fu">year</span>) <span class="co">///</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> id)                             <span class="co">// 吸收两组固定效应</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>下面的手工代码只用于与命令结果核对。它要求每个个体在每一年都有观测；真实项目中不要据此替代 <code>reghdfe</code>：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>xtset id <span class="fu">year</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>* 仅用于完整平衡面板；`center` 为 SSC 外部命令。</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> id: <span class="bn">center</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, inplace</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> <span class="fu">year</span>: <span class="bn">center</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, inplace</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, <span class="kw">noconstant</span> <span class="kw">vce</span>(<span class="kw">cluster</span> id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-warning callout-titled" title="常见问题：为什么固定效应放不进性别和种族">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -737,22 +814,101 @@ Y_{it}=x_{it}'\beta+\sum_{i=1}^N\alpha_i A_i+\sum_{t=1}^T\lambda_t B_t+\varepsil
 <div class="callout-body-container callout-body">
 <p>初学者常犯的一个错，是想在个体固定效应模型里加入性别、种族、出生地这类变量，结果 Stata 报告它们被 <code>(omitted)</code> 了。原因就在 <a href="#eq-fe-demean" class="quarto-xref">式&nbsp;<span>5.5</span></a>：个体效应 <span class="math inline">\(\alpha_i\)</span> 不随时间变，而性别、种族在样本期内也不随时间变，二者完全共线——组内去心把 <span class="math inline">\(\alpha_i\)</span> 减掉的同时，也把所有时不变变量一起减成了 0，Stata 只能删掉它们。</p>
 <p><strong>一句话：固定效应能「控制」个体的一切时不变特征，却无法「估计」这些特征各自的系数。</strong> 若研究问题恰恰是「种族对工资的影响」这类时不变变量的效应，就不能用固定效应，需要改用组间估计、加控制变量的混合回归，或 Hausman–Taylor(<code>xthtaylor</code>)、<code>xtseqreg</code> 等专门方法。</p>
+<p>按此逻辑，大家也不难理解，在 TWFE 模型中也无法加入只随时间变化的宏观变量，如 M2 增速 (<span class="math inline">\(M2_t\)</span>)、经济政策不确定性 (<span class="math inline">\(EPU_t\)</span>) 等。</p>
 </div>
 </div>
 </section>
 </section>
-<section id="高维固定效应的基本思想" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="高维固定效应的基本思想"><span class="header-section-number">5.4</span> 高维固定效应的基本思想</h2>
-<p>固定效应的组数和维度一旦上去，直接放虚拟变量在计算上就不可行了。两个典型场景：一是国际贸易的引力模型，出口国 × 年份、进口国 × 年份、国家对，三组固定效应动辄上万个虚拟变量；二是劳动经济学的「雇主—雇员」匹配数据，要同时估计百万级的工人效应和几十万个企业效应。<code>reg y x i.id i.firm i.year</code> 这样硬放虚拟变量，内存和时间都撑不住。</p>
-<p><code>reghdfe</code> 的解决办法是<strong>交替去心</strong>：轮流对每一组固定效应做组内变换，反复迭代直到收敛——本质上还是 FWL 定理的反复应用。对使用者来说，只需要把要吸收的固定效应写进 <code>absorb()</code>：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, absorb(exp#year imp#year exp#imp) <span class="kw">vce</span>(<span class="kw">cluster</span> <span class="fu">exp</span> imp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>高维固定效应只需记住三点基本思想：</p>
+<section id="高维固定效应更多维度与更窄的比较" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="高维固定效应更多维度与更窄的比较"><span class="header-section-number">5.4</span> 高维固定效应：更多维度与更窄的比较</h2>
+<p>在教育经济、移民和公司金融等领域，经常需要使用高维固定效应模型。其中尤以国际贸易领域的「引力模型」影响最大：研究者常在模型中同时放入三维甚至四维固定效应及其交互项。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 若允许经济变量的影响具有异质性，还可以把固定效应与解释变量交乘。</p>
+<p>下面以三维固定效应模型为例说明。更一般的情形在原理上与此相似；多维变换的矩阵推导可参见 Balazsi, Matyas and Wansbeek (2018)。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<section id="三维加性固定效应" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="三维加性固定效应"><span class="header-section-number">5.4.1</span> 三维加性固定效应</h3>
+<p>假设我们研究全国 31 个省份在一段时间内的行业产出。数据有三个维度：省份 (<span class="math inline">\(i=1,\ldots,N\)</span>)、行业 (<span class="math inline">\(j=1,\ldots,G\)</span>) 和年份 (<span class="math inline">\(t=1,\ldots,T\)</span>)。一个三维加性固定效应模型可写为：</p>
+<p><span id="eq-fe-hdfe-additive"><span class="math display">\[
+y_{ijt}=\mathbf{x}_{ijt}'\boldsymbol{\beta}+\alpha_i+\gamma_j+\lambda_t+\varepsilon_{ijt}
+\tag{5.8}\]</span></span></p>
+<p>沿袭个体固定效应和双向固定效应的思路，在完整平衡面板中，可以用下面的变换同时去除三组固定效应：</p>
+<p><span id="eq-fe-hdfe-balanced"><span class="math display">\[
+\begin{aligned}
+\widetilde{y}_{ijt}
+  &amp;=y_{ijt}-\bar{y}_{i\cdot\cdot}
+    -\bar{y}_{\cdot j\cdot}-\bar{y}_{\cdot\cdot t}\\
+  &amp;\quad+2\bar{y}_{\cdot\cdot\cdot}.
+\end{aligned}
+\tag{5.9}\]</span></span></p>
+<p>这里的点号表示对相应维度取均值。例如，<span class="math inline">\(\bar{y}_{i\cdot\cdot}\)</span> 是省份 <span class="math inline">\(i\)</span> 跨行业和年份的均值，<span class="math inline">\(\bar{y}_{\cdot\cdot\cdot}\)</span> 是全样本均值。对解释变量作同样变换后回归残差，斜率与直接放入三组虚拟变量相同。需要说明的是，多维去均值的写法并不唯一；上式是完整平衡面板下最直观的教学表达。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>经过组内变换后的系数与包含多组虚拟变量的 OLS 回归在斜率上相同，但标准误仍须按误差相关结构处理。实际估计交给 <code>reghdfe</code> 更稳妥。<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, absorb(province industry <span class="fu">year</span>) <span class="co">///</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> province)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>若只是想把 <a href="#eq-fe-hdfe-balanced" class="quarto-xref">式&nbsp;<span>5.9</span></a> 的操作逐步看一遍，可以在完整平衡面板中使用 <code>center</code>。这段代码只用于教学核对；不平衡面板、嵌套固定效应和交互固定效应都应直接交给 <code>reghdfe</code>：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>* `center` 为 SSC 外部命令；下列三次去心会原地替换变量。</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> province: <span class="bn">center</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, inplace</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> industry: <span class="bn">center</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, inplace</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> <span class="fu">year</span>: <span class="bn">center</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, inplace</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> <span class="fu">y</span> x1 <span class="kw">x2</span>, <span class="kw">noconstant</span> <span class="kw">vce</span>(<span class="kw">cluster</span> province)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="交互固定效应" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="交互固定效应"><span class="header-section-number">5.4.2</span> 交互固定效应</h3>
+<p>国际贸易领域的引力模型通常会包含交互固定效应。<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> 例如，Egger and Pfaffermayr (2003) 使用双边固定效应来反映贸易双方的交互影响。<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> 以贸易数据为例，<code>exporter#importer</code> 吸收的是每一对贸易伙伴长期不变的双边差异，例如距离、共同语言和历史联系。最简单的设定为：</p>
+<p><span id="eq-fe-pair"><span class="math display">\[
+y_{ijt}=\mathbf{x}_{ijt}'\boldsymbol{\beta}+\gamma_{ij}+\varepsilon_{ijt}
+\tag{5.10}\]</span></span></p>
+<p>其中，<span class="math inline">\(\gamma_{ij}\)</span> 是双边固定效应。若只需观察它的去均值含义，可以写成 <span class="math inline">\(\widetilde{y}_{ijt}=y_{ijt}-\bar{y}_{ij\cdot}\)</span>；但估计时仍应直接吸收该交互项：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, absorb(exporter#importer) <span class="co">///</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> exporter importer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>实证分析中应用更为广泛的是在 <a href="#eq-fe-pair" class="quarto-xref">式&nbsp;<span>5.10</span></a> 中进一步加入时间固定效应：</p>
+<p><span id="eq-fe-pair-time"><span class="math display">\[
+y_{ijt}=\mathbf{x}_{ijt}'\boldsymbol{\beta}+\gamma_{ij}+\lambda_t+\varepsilon_{ijt}
+\tag{5.11}\]</span></span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, absorb(exporter#importer <span class="fu">year</span>) <span class="co">///</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> exporter importer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Matyas (2017) 归纳了更多设定方式。<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> 例如，有时只需要控制「行业 × 年份」效应；有时则要同时控制「省份 × 年份」与「行业 × 年份」效应：</p>
+<p><span id="eq-fe-hdfe-variants"><span class="math display">\[
+\begin{aligned}
+y_{ijt}&amp;=\boldsymbol{\beta}'\mathbf{x}_{ijt}
+    +\alpha_{jt}+\varepsilon_{ijt},\\
+y_{ijt}&amp;=\boldsymbol{\beta}'\mathbf{x}_{ijt}
+    +\alpha_{it}+\delta_{jt}+\varepsilon_{ijt}.
+\end{aligned}
+\tag{5.12}\]</span></span></p>
+<p>如果把各个两两交互效应都考虑在内，得到的完整设定是：</p>
+<p><span id="eq-fe-gravity-full"><span class="math display">\[
+y_{ijt}=\boldsymbol{\beta}'\mathbf{x}_{ijt}+\gamma_{ij}+\alpha_{it}+\delta_{jt}+\varepsilon_{ijt}
+\tag{5.13}\]</span></span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, <span class="co">///</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    absorb(exporter#importer exporter#year importer#year) <span class="co">///</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> exporter importer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>在完整平衡面板中，这一设定对应的去均值公式也可以明确写出：</p>
+<p><span id="eq-fe-gravity-demean"><span class="math display">\[
+\begin{aligned}
+\widetilde{y}_{ijt}
+  &amp;=y_{ijt}-\bar{y}_{ij\cdot}
+    -\bar{y}_{\cdot jt}-\bar{y}_{i\cdot t}\\
+  &amp;\quad+\bar{y}_{\cdot\cdot t}
+    +\bar{y}_{\cdot j\cdot}+\bar{y}_{i\cdot\cdot}
+    -\bar{y}_{\cdot\cdot\cdot}.
+\end{aligned}
+\tag{5.14}\]</span></span></p>
+<p>这个公式的价值在于帮助我们看清每一组固定效应吸收了什么；实际数据很少整齐到适合手工处理，因此实务上仍应使用 <code>reghdfe</code>。</p>
+<p>这类设定并不意味着「固定效应越多越好」。每增加一组固定效应，得到的比较对象就更窄；如果核心解释变量只在「行业 × 年份」层面变化，又吸收了 <code>industry#year</code>，它会被完全吸收并显示为 <code>omitted</code>。这表示模型中没有可用于估计该变量系数的剩余变异，而不是软件故障。</p>
+</section>
+<section id="高维固定效应的基本思想" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="高维固定效应的基本思想"><span class="header-section-number">5.4.3</span> 高维固定效应的基本思想</h3>
+<p>固定效应的组数和维度一旦上去，直接放入虚拟变量在计算上就不再现实。两个典型场景是：国际贸易的引力模型需要同时控制出口国 × 年份、进口国 × 年份和国家对；劳动经济学的雇主—雇员匹配数据则可能同时包含百万级的工人效应和数十万个企业效应。把这些效应逐一写成 <code>reg y x i.id i.firm i.year</code> 这样的虚拟变量，内存和计算时间都可能难以承受。</p>
+<p><code>reghdfe</code> 的基本做法是交替去心：轮流对每一组固定效应做组内变换，反复迭代直到收敛。本质上仍是 FWL 定理的反复应用；对使用者来说，只需要把要吸收的固定效应写进 <code>absorb()</code>：</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>reghdfe <span class="fu">y</span> x1 <span class="kw">x2</span>, <span class="co">///</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    absorb(exporter#year importer#year exporter#importer) <span class="co">///</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> exporter importer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>使用时，应同时记住下面三个判断：</p>
 <ol type="1">
-<li><strong><code>absorb()</code> 吸什么，和 <code>vce(cluster)</code> 聚类到哪，是两个独立的决定</strong>。前者由「要控制哪些混淆」决定，后者由「残差在哪个维度上相关」决定，二者经常不同。</li>
-<li><strong>吸收得越多，剩下的识别变异越少</strong>。每加一组固定效应，被控制的混淆更多，但用来估计 <span class="math inline">\(\beta\)</span> 的变异也更少——不是加得越多越好。</li>
-<li><strong>处理变量不能和固定效应处在同一变异层级</strong>。若政策变量本身就在「行业 × 年份」层面变动，再放行业 × 年份固定效应，处理变量会被吸收殆尽、被 Stata 直接 <code>omitted</code>。这不是软件出错，而是你既要控制这一层的一切共同变动、又要估计只在这一层变动的变量，自相矛盾。</li>
+<li><strong><code>absorb()</code> 与 <code>vce(cluster)</code> 是两项不同的决定。</strong> 前者由需要控制哪些未观测因素决定；后者由误差可能在哪个层面相关决定。二者可以相同，也经常不同。</li>
+<li><strong>不要把手工逐次去均值当成通用算法。</strong> 对完整平衡面板，上面的公式可以用于教学核对；对不平衡面板和多组交互效应，应让 <code>reghdfe</code> 的迭代算法完成残差化。</li>
+<li><strong>先检查核心变量的变异层级。</strong> 固定效应吸收之后，核心解释变量还必须保留足够的组内变异；否则，即使程序能运行，研究问题也已经无法由该模型回答。</li>
 </ol>
-<p>高维固定效应的更细致内容 (奇异值观测的剔除、非负因变量为何不宜用 <span class="math inline">\(\log(1+y)\)</span>、交互固定效应等) 留给进阶专题，本讲点到为止。</p>
+<p>关于三维与交互固定效应的矩阵推导，可参见 Balazsi, Matyas and Wansbeek (2018)。<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> 引力模型中常见的设定整理见 Matyas (2017)。<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+</section>
 </section>
 <section id="双向固定效应与-did" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="双向固定效应与-did"><span class="header-section-number">5.5</span> 双向固定效应与 DID</h2>
@@ -811,7 +967,7 @@ Y_{it}=x_{it}'\beta+\sum_{i=1}^N\alpha_i A_i+\sum_{t=1}^T\lambda_t B_t+\varepsil
 <p>DID 是政策评估里最干净的一个设定。最基本的情形是「两组两期」：处理组在政策后受处理，对照组始终不受处理。用 <span class="math inline">\(Treat_i=1\)</span> 标记处理组，<span class="math inline">\(Post_t=1\)</span> 标记政策后，基础回归是：</p>
 <p><span id="eq-fe-did"><span class="math display">\[
 y_{it}=\alpha+\theta_1 Treat_i+\theta_2 Post_t+{\color{blue}{\gamma}}\,(Treat_i\times Post_t)+\varepsilon_{it}
-\tag{5.7}\]</span></span></p>
+\tag{5.15}\]</span></span></p>
 <p>真正关心的是<strong>交乘项</strong> <span class="math inline">\(\gamma\)</span>。把四个「组别—时期」的均值写出来 (<span class="math inline">\(C_0,C_1\)</span> 是对照组政策前后，<span class="math inline">\(Y_0,Y_1\)</span> 是处理组政策前后)：</p>
 <div id="tbl-fe-did" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -860,7 +1016,7 @@ y_{it}=\alpha+\theta_1 Treat_i+\theta_2 Post_t+{\color{blue}{\gamma}}\,(Treat_i\
 </ul>
 <p><span id="eq-fe-did-gamma"><span class="math display">\[
 \gamma=(Y_1-C_1)-(Y_0-C_0)=(Y_1-Y_0)-(C_1-C_0)
-\tag{5.8}\]</span></span></p>
+\tag{5.16}\]</span></span></p>
 <p>两种写法等价：左边是「政策后组间差」减「政策前组间差」，右边是「处理组前后变化」减「对照组前后变化」。<strong>DID 的精髓，是用对照组的同期变化，替处理组扣掉它本来也会经历的共同趋势</strong>：处理组若没有政策，本会从 <span class="math inline">\(Y_0\)</span> 沿对照组的趋势走到 <span class="math inline">\(Y_0+(C_1-C_0)\)</span>；实际到了 <span class="math inline">\(Y_1\)</span>，二者之差正是政策效应。这里的三个虚拟变量——组别 <span class="math inline">\(Treat_i\)</span>、时间 <span class="math inline">\(Post_t\)</span>、以及二者的交乘 <span class="math inline">\(Treat_i\times Post_t\)</span>——就是大纲说的「DID 中的组别、时间和处理交乘项」。</p>
 <div id="fig-fe-did" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -868,7 +1024,7 @@ y_{it}=\alpha+\theta_1 Treat_i+\theta_2 Post_t+{\color{blue}{\gamma}}\,(Treat_i\
 <img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/DID-two-period-03-base_C0.png" class="img-fluid figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fe-did-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;5.3: 2×2 DID 的四个均值与处理组反事实：对照组斜率给出共同趋势，处理组偏离这条趋势的部分就是政策效应
+图&nbsp;5.4: 2×2 DID 的四个均值与处理组反事实：对照组斜率给出共同趋势，处理组偏离这条趋势的部分就是政策效应
 </figcaption>
 </figure>
 </div>
@@ -876,10 +1032,10 @@ y_{it}=\alpha+\theta_1 Treat_i+\theta_2 Post_t+{\color{blue}{\gamma}}\,(Treat_i\
 </section>
 <section id="从两期到多期事件研究与平行趋势" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="从两期到多期事件研究与平行趋势"><span class="header-section-number">5.5.3</span> 从两期到多期：事件研究与平行趋势</h3>
-<p>真实的政策评估几乎总是多期面板：政策前有若干期、政策后也有若干期。把 <a href="#eq-fe-did" class="quarto-xref">式&nbsp;<span>5.7</span></a> 沿「相对政策时间」展开，就得到多期 DID(事件研究) 设定。设政策在 <span class="math inline">\(t^*\)</span> 期实施，令 <span class="math inline">\(k=t-t^*\)</span> 为相对时间：</p>
+<p>真实的政策评估几乎总是多期面板：政策前有若干期、政策后也有若干期。把 <a href="#eq-fe-did" class="quarto-xref">式&nbsp;<span>5.15</span></a> 沿「相对政策时间」展开，就得到多期 DID(事件研究) 设定。设政策在 <span class="math inline">\(t^*\)</span> 期实施，令 <span class="math inline">\(k=t-t^*\)</span> 为相对时间：</p>
 <p><span id="eq-fe-event"><span class="math display">\[
 Y_{it}=\alpha_i+\lambda_t+\sum_{k\neq -1}\delta_k\big(Treat_i\times\mathbf{1}\{t-t^*=k\}\big)+\varepsilon_{it}
-\tag{5.9}\]</span></span></p>
+\tag{5.17}\]</span></span></p>
 <p>以政策前一期 <span class="math inline">\(k=-1\)</span> 作基准 (系数归一化为 0)。两组系数含义要分开看：</p>
 <ul>
 <li><strong>事前系数</strong> <span class="math inline">\(\delta_k\,(k&lt;-1)\)</span>：政策来临<strong>之前</strong>处理组相对对照组的差异。若平行趋势成立，这些系数应当<strong>不显著</strong>——政策还没来，两组不该有系统性差异。</li>
@@ -891,7 +1047,7 @@ Y_{it}=\alpha_i+\lambda_t+\sum_{k\neq -1}\delta_k\big(Treat_i\times\mathbf{1}\{t
 <img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/DID-multi-period-01.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fe-multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-图&nbsp;5.4: 标准的多期 DID：事前若干期用于判断平行趋势，事后若干期用于估计动态效应
+图&nbsp;5.5: 标准的多期 DID：事前若干期用于判断平行趋势，事后若干期用于估计动态效应
 </figcaption>
 </figure>
 </div>
@@ -910,7 +1066,7 @@ Y_{it}=\alpha_i+\lambda_t+\sum_{k\neq -1}\delta_k\big(Treat_i\times\mathbf{1}\{t
 <li><strong>对照组的选择</strong>：对照组要能代表处理组「假如没有政策会怎样」。若处理组和对照组本就走在不同的趋势上 (比如处理组是高增长地区、对照组是停滞地区)，DID 会把趋势差误当成政策效应。</li>
 <li><strong>平行趋势的检验</strong>：主要靠事件研究图看事前系数是否接近零、是否平坦。要强调的是，事前系数不显著只是一个<strong>直观的、不严谨</strong>的检验——它是必要条件而非充分条件，通不过基本可以否掉平行趋势，通过了也不能算证明。</li>
 </ul>
-<p>至于分批推进的政策 (不同个体在不同年份进入处理) 会给双向固定效应带来的麻烦——TWFE 的系数会变成一堆 2×2 比较的加权平均、甚至混入负权重——以及 CSDID 等现代 DID 估计量如何修正，属于高级班内容，本讲不展开，仅在延伸阅读给出入口。</p>
+<p>至于分批推进的政策 (不同个体在不同年份进入处理) 会给双向固定效应带来的麻烦——TWFE 的系数会变成一堆 2×2 比较的加权平均、甚至混入负权重——以及 CSDID 等现代 DID 估计量如何修正，属于高级班内容，本讲不展开。有兴趣的读者可以参考 <a href="https://lianxhcn.github.io/ci-policy/lectures/06_did_design.html">双重差分：从 TWFE 到 CSDID</a>。</p>
 </div>
 </div>
 </section>
@@ -931,63 +1087,64 @@ Y_{it}=\alpha_i+\lambda_t+\sum_{k\neq -1}\delta_k\big(Treat_i\times\mathbf{1}\{t
 <h2 data-number="5.7" class="anchored" data-anchor-id="代码实操"><span class="header-section-number">5.7</span> 代码实操</h2>
 <p>本节用四段可复现的 Stata 代码，把前面的直觉落到命令上。完整脚本见伴生文件 <code>examples/ch05/ch05_main.do</code>(<code>**#</code> 大纲与本讲各节标题一一对应，可在 VS Code 中按节导航运行)；真实财务数据 <code>xtcs.dta</code>(中国上市公司资本结构面板) 随本讲提供。代码为静态展示、输出为本机运行后冻结，不在渲染时执行。</p>
 <p><strong>其一，辛普森悖论与组内去心</strong>：真实斜率 <span class="math inline">\(\beta=0.5\)</span>，但三家公司的个体效应与初始规模负相关。</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>*----------------- 模拟：辛普森悖论</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 20260706</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 3</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> id    = <span class="dt">_n</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> a_i   = 12 - 3*id            <span class="co">// 个体效应 9,6,3，与规模负相关</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> size0 = 2  + 3*id            <span class="co">// 初创规模 5,8,11</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>expand 100</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> x = size0 + runiform(0, 4)          <span class="co">// Size</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">y</span> = a_i + 0.5*x + rnormal(0, 0.8)   <span class="co">// DGP: beta = 0.5</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span>  <span class="fu">y</span> x                 <span class="co">// 混合回归：斜率为负</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span> <span class="fu">y</span> x, absorb(id)     <span class="co">// 个体固定效应：斜率回到 0.5 附近</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>xtset id</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> <span class="fu">y</span> x, <span class="kw">be</span>            <span class="co">// 对照：组间关系，就是那条负斜率的来源</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>   混合回归      <span class="kw">reg</span> <span class="fu">y</span> x            :  x = -0.305   被公司间差异污染，符号翻负</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   个体固定效应  <span class="kw">areg</span> <span class="fu">y</span> x, absorb(id):  x =  0.562   只用公司内部变异，还原真值 0.5</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   组间关系      <span class="kw">xtreg</span> <span class="fu">y</span> x, <span class="kw">be</span>      :  x = -0.500   公司之间的关系，正是负斜率来源</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>*----------------- 模拟：辛普森悖论</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 20260706</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 3</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> id    = <span class="dt">_n</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> a_i   = 12 - 3*id            <span class="co">// 个体效应 9,6,3，与规模负相关</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> size0 = 2  + 3*id            <span class="co">// 初创规模 5,8,11</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>expand 100</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> x = size0 + runiform(0, 4)          <span class="co">// Size</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">y</span> = a_i + 0.5*x + rnormal(0, 0.8)   <span class="co">// DGP: beta = 0.5</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span>  <span class="fu">y</span> x                 <span class="co">// 混合回归：斜率为负</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">areg</span> <span class="fu">y</span> x, absorb(id)     <span class="co">// 个体固定效应：斜率回到 0.5 附近</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>xtset id</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> <span class="fu">y</span> x, <span class="kw">be</span>            <span class="co">// 对照：组间关系，就是那条负斜率的来源</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>   混合回归      <span class="kw">reg</span> <span class="fu">y</span> x            :  x = -0.305   被公司间差异污染，符号翻负</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   个体固定效应  <span class="kw">areg</span> <span class="fu">y</span> x, absorb(id):  x =  0.562   只用公司内部变异，还原真值 0.5</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   组间关系      <span class="kw">xtreg</span> <span class="fu">y</span> x, <span class="kw">be</span>      :  x = -0.500   公司之间的关系，正是负斜率来源</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>其二，固定效应命令族的等价与时不变变量被 omit</strong>：</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">webuse</span> nlswork, <span class="kw">clear</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>xtset idcode <span class="fu">year</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="bn">black</span> = 2.race                              <span class="co">// 种族虚拟变量（时不变）</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> ln_wage tenure hours, <span class="kw">fe</span>                  <span class="co">// 个体 FE</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> ln_wage tenure hours i.<span class="fu">year</span>, <span class="kw">fe</span>           <span class="co">// 双向 FE（加时间效应）</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>reghdfe ln_wage tenure hours, absorb(idcode <span class="fu">year</span>) <span class="kw">cluster</span>(idcode)  <span class="co">// 等价的双向 FE</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> ln_wage <span class="bn">black</span> tenure hours, <span class="kw">fe</span>            <span class="co">// 试图加入时不变变量 black</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>       <span class="bn">black</span> |      0.000  (omitted)      ← 时不变变量与个体效应共线，被自动剔除</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">webuse</span> nlswork, <span class="kw">clear</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>xtset idcode <span class="fu">year</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="kw">byte</span> <span class="bn">black</span> = race == 2                      <span class="co">// 种族虚拟变量（时不变）</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> ln_wage tenure hours, <span class="kw">fe</span>                  <span class="co">// 个体 FE</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> ln_wage tenure hours i.<span class="fu">year</span>, <span class="kw">fe</span>           <span class="co">// 双向 FE（加时间效应）</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>reghdfe ln_wage tenure hours, absorb(idcode <span class="fu">year</span>) <span class="co">///</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">vce</span>(<span class="kw">cluster</span> idcode)                          <span class="co">// 等价的双向 FE</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span> ln_wage <span class="bn">black</span> tenure hours, <span class="kw">fe</span>            <span class="co">// 试图加入时不变变量 black</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>       <span class="bn">black</span> |      0.000  (omitted)      ← 时不变变量与个体效应共线，被自动剔除</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>其三，2×2 DID 还原政策效应</strong>：真实政策效应设为 <span class="math inline">\(+3\)</span>，看交乘项能否还原、三个系数是否各归其位。</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>*----------------- 模拟：2×2 DID</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 20260708</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 200</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> id    = <span class="dt">_n</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> treat = id &gt; 100                    <span class="co">// 后 100 个为处理组</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>expand 2</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> id: <span class="kw">gen</span> <span class="kw">post</span> = <span class="dt">_n</span> - 1            <span class="co">// 0=政策前, 1=政策后</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>* DGP: 基线 10 + 组间差 2 + 时间趋势 4 + 政策效应 3</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">y</span> = 10 + 2*treat + 4*<span class="kw">post</span> + 3*(treat*<span class="kw">post</span>) + rnormal(0,1)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">table</span> <span class="kw">post</span> treat, stat(<span class="kw">mean</span> <span class="fu">y</span>) nformat(%6.2f)   <span class="co">// 四格均值</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> <span class="fu">y</span> i.treat##i.<span class="kw">post</span>, <span class="kw">vce</span>(<span class="kw">robust</span>)              <span class="co">// 交乘项应还原 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>   四格均值      政策前   政策后</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   对照组        10.06    13.82</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>   处理组        12.02    19.03</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>   1.treat        1.959    组间水平差 θ1（处理组本就高约 2）</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>   1.<span class="kw">post</span>         3.761    对照组时间趋势 θ2（≈4）</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>   1.treat#1.<span class="kw">post</span> 3.251    双重差分 γ ← 政策效应（真值 3）</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>*----------------- 模拟：2×2 DID</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 20260708</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 200</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> id    = <span class="dt">_n</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> treat = id &gt; 100                    <span class="co">// 后 100 个为处理组</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>expand 2</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">bysort</span> id: <span class="kw">gen</span> <span class="kw">post</span> = <span class="dt">_n</span> - 1            <span class="co">// 0=政策前, 1=政策后</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>* DGP: 基线 10 + 组间差 2 + 时间趋势 4 + 政策效应 3</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> <span class="fu">y</span> = 10 + 2*treat + 4*<span class="kw">post</span> + 3*(treat*<span class="kw">post</span>) + rnormal(0,1)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">table</span> <span class="kw">post</span> treat, stat(<span class="kw">mean</span> <span class="fu">y</span>) nformat(%6.2f)   <span class="co">// 四格均值</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span> <span class="fu">y</span> i.treat##i.<span class="kw">post</span>, <span class="kw">vce</span>(<span class="kw">robust</span>)              <span class="co">// 交乘项应还原 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>   四格均值      政策前   政策后</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   对照组        10.06    13.82</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   处理组        12.02    19.03</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>   1.treat        1.959    组间水平差 θ1（处理组本就高约 2）</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>   1.<span class="kw">post</span>         3.761    对照组时间趋势 θ2（≈4）</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>   1.treat#1.<span class="kw">post</span> 3.251    双重差分 γ ← 政策效应（真值 3）</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>其四，真实财务数据里「换比较对象、换答案」</strong>：用中国上市公司资本结构面板 <code>xtcs.dta</code>，看规模 <code>size</code> 对资产负债率 <code>tl</code> 的系数，如何随固定效应一步步递进而变化。</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"$D/xtcs.dta"</span>, <span class="kw">clear</span>                                     <span class="co">// code=公司, year=年份</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>xtset code <span class="fu">year</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span>     tl <span class="kw">size</span> ndts tang tobin npr                          <span class="co">// 混合回归 POLS</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span>   tl <span class="kw">size</span> ndts tang tobin npr, <span class="kw">fe</span> <span class="kw">cluster</span>(code)        <span class="co">// 个体 FE</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span>   tl <span class="kw">size</span> ndts tang tobin npr i.<span class="fu">year</span>, <span class="kw">fe</span> <span class="kw">cluster</span>(code) <span class="co">// 双向 FE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>   <span class="kw">size</span> 的系数：  混合 POLS  0.041  →  个体 FE  0.120  →  双向 FE  0.134</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"$D/xtcs.dta"</span>, <span class="kw">clear</span>                                     <span class="co">// code=公司, year=年份</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>xtset code <span class="fu">year</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">reg</span>     tl <span class="kw">size</span> ndts tang tobin npr                          <span class="co">// 混合回归 POLS</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span>   tl <span class="kw">size</span> ndts tang tobin npr, <span class="kw">fe</span> <span class="kw">cluster</span>(code)        <span class="co">// 个体 FE</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">xtreg</span>   tl <span class="kw">size</span> ndts tang tobin npr i.<span class="fu">year</span>, <span class="kw">fe</span> <span class="kw">cluster</span>(code) <span class="co">// 双向 FE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>   <span class="kw">size</span> 的系数：  混合 POLS  0.041  →  个体 FE  0.120  →  双向 FE  0.134</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>三个数字不是「越估越准」，而是<strong>在回答三个不同的问题</strong>：POLS 的 0.041 混着「大公司 vs 小公司」的横截面差异；个体 FE 的 0.120 只问「同一家公司规模变大以后，负债率怎么变」；再加年份效应控制掉共同的宏观波动，双向 FE 给到 0.134。系数一路走高，正是本讲那张比较对象递进表在真实数据上的印证。</p>
 </section>
 <section id="ai-协作" class="level2" data-number="5.8">
@@ -1245,6 +1402,20 @@ Y_{it}=\alpha_i+\lambda_t+\sum_{k\neq -1}\delta_k\big(Treat_i\times\mathbf{1}\{t
 </ul>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>引力模型的经典讨论可参见 Silva and Tenreyro (<a href="https://doi.org/10.1162/rest.88.4.641">2006</a>)；系统综述见 Head and Mayer (<a href="https://doi.org/10.1016/B978-0-444-54314-1.00003-3">2014</a>)。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Balazsi, Matyas and Wansbeek (<a href="https://doi.org/10.1080/07474938.2015.1032164">2018</a>) 给出了多维固定效应变换的矩阵讨论，并强调变换写法不止一种。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Balazsi, Matyas and Wansbeek (<a href="https://doi.org/10.1080/07474938.2015.1032164">2018</a>) 给出了多维固定效应变换的矩阵讨论，并强调变换写法不止一种。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><code>reghdfe</code> 通过迭代吸收多组固定效应；命令的说明、算法边界和版本信息应以 <a href="https://scorreia.com/help/reghdfe.html">官方帮助页</a> 为准。它处理的是固定效应残差化，不替研究者决定应当吸收什么或怎样聚类。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>引力模型的经典讨论可参见 Silva and Tenreyro (<a href="https://doi.org/10.1162/rest.88.4.641">2006</a>)；系统综述见 Head and Mayer (<a href="https://doi.org/10.1016/B978-0-444-54314-1.00003-3">2014</a>)。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Egger and Pfaffermayr (<a href="https://doi.org/10.1007/s001810200146">2003</a>) 讨论了欧洲贸易一体化中的引力模型设定。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Matyas (ed., <a href="https://doi.org/10.1007/978-3-319-60783-2">2017</a>) 系统整理了引力模型及其多种固定效应设定。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Balazsi, Matyas and Wansbeek (<a href="https://doi.org/10.1080/07474938.2015.1032164">2018</a>) 给出了多维固定效应变换的矩阵讨论，并强调变换写法不止一种。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>引力模型的经典讨论可参见 Silva and Tenreyro (<a href="https://doi.org/10.1162/rest.88.4.641">2006</a>)；系统综述见 Head and Mayer (<a href="https://doi.org/10.1016/B978-0-444-54314-1.00003-3">2014</a>)。<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

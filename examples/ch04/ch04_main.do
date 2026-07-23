@@ -14,6 +14,7 @@ set more off
 capture mkdir "fig"
 
 * 仓库数据路径：联网直读；离线时把下一行改成 global D "data"
+global D "cd D:\github_lianxh\PXa2026a\examples\ch04\data"  // 本地路径
 global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch04/data"
 
 *==============================================================================

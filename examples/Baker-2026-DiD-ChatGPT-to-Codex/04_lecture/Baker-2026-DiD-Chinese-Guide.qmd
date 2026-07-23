@@ -1,0 +1,100 @@
+---
+title: "从经典 DID 到分期处理：Baker et al. (2026) 学习精要"
+author: "本地学习与复现项目"
+date: "2026-07-23"
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: ctexart
+---
+
+## 1. 先问研究设计，再运行回归
+
+很多 DID 研究从一条双向固定效应回归开始：
+
+$$
+Y_{it}=\alpha_i+\lambda_t+\beta D_{it}+\varepsilon_{it}.
+$$
+
+这条式子在经典 $2\times2$ 设计中很方便，但并不自动说明 $\beta$ 是研究者关心的处理效应。开始前应写清四件事：谁在何时接受处理、处理组与谁比较、希望估计哪个 ATT、平行趋势针对哪两个潜在结果趋势。Baker et al. 的核心观点是把复杂 DID 拆回一组可解释的 $2\times2$ 比较，再决定如何聚合。
+
+本例使用美国县级 Medicaid 扩张资料。结果变量是 20--64 岁人口的粗死亡率；`treat_year` 是首次扩张年份，`0` 表示从未扩张；`set_wt` 是 2013 年成年人口。数据检查、手工计算和回归代码分别见 `03_learning/do/01_data_audit.do` 至 `03_did_2x2_regression.do`。
+
+## 2. 经典 2x2：ATT 来自四个均值
+
+设 $D_i=1$ 为处理组，$t=0,1$ 分别为处理前后。最简单的 DID 是：
+
+$$
+\operatorname{ATT}=
+\left[E(Y_{i1}\mid D_i=1)-E(Y_{i0}\mid D_i=1)\right]-
+\left[E(Y_{i1}\mid D_i=0)-E(Y_{i0}\mid D_i=0)\right].
+$$
+
+它依赖无预期效应和平行趋势。平行趋势不是“两个组的水平相同”，而是若未处理，处理组的平均变化会与对照组的平均变化相同。在本例的 2013--2014 比较中，2014 年扩张县是处理组，2019 年前未扩张县构成对照组。
+
+`02_did_2x2_byhand.do` 先报告四个组别--时期均值，再计算两组变化及其差。`03_did_2x2_regression.do` 以交互项、个体与年份固定效应、长差分三种方式估计。平衡面板、相同样本和固定权重下，它们的点估计应相同。应看的系数是 `treat#post`，或长差分回归中 `treat` 的系数。
+
+## 3. 权重改变目标总体
+
+县不加权的均值回答“典型县的平均效应”；以 2013 年人口加权后，回答“典型居民所在县的平均效应”。两者可以不同，即使两种回归都报告了同样的标准误形式。因此，权重需要写入 estimand，而不是只放在软件选项中。作者在普通回归里使用 analytic weights，在 `csdid` 中使用 importance weights；应按命令帮助和研究对象保留这一差别。
+
+## 4. 协变量：从条件平行趋势出发
+
+若处理组与对照组在处理前特征不同，研究者可以把平行趋势条件化为 $X$：给定处理前协变量后，两组未处理结果的平均变化相同。Regression Adjustment (RA) 先拟合未处理组的结果变化；IPW 用倾向得分重加权对照组；Doubly Robust (DR) 结合二者。DR 的含义是结果模型或倾向得分模型有一个正确时仍可一致，并不意味着可以忽略 overlap、变量时点或模型诊断。
+
+`04_weights_and_covariates.do` 只使用 2013 年协变量，绘制倾向得分重叠并以 499 次 bootstrap 作快速教学检查。处理后、且可能受政策影响的协变量不能默认加入，因为它可能是 bad control。正式 25,000 次 bootstrap 的结果应以 `02_replication` 的成功运行日志为准。
+
+## 5. 2xT 事件研究：处理前系数不是证明
+
+当只有一个处理 cohort、但有多个时期时，可以逐期构造处理组和对照组的 $2\times2$ ATT。事件时间 $e=t-g$ 把不同日历时间换成距离首次处理的相对时间。通常把 $e=-1$ 设为基准期。
+
+处理前系数接近零是有用的诊断，但“不显著”还可能来自低精度。多期图同时查看多个区间时，应区分逐点置信区间和 simultaneous confidence interval。`05_event_study_2xT.do` 用 2014 cohort 与从未处理组估计动态 ATT；图中应看处理后各点、它们的区间以及预先规定的处理后平均窗口。
+
+## 6. 分期处理：基本对象是 ATT(g,t)
+
+当不同 cohort 在不同年份首次处理时，核心对象是：
+
+$$
+\operatorname{ATT}(g,t)=E\left[Y_{it}(g)-Y_{it}(\infty)\mid G_i=g\right].
+$$
+
+它比较首次在 $g$ 期处理的单位与同一 $t$ 期仍合格的对照组。对照组可以只用 never-treated，也可以允许 not-yet-treated；后者通常信息更多，但需要明确各期哪些单位仍未处理。已经处理的单位不应在不加说明的情况下充当对照。
+
+`06_staggered_GxT_csdid.do` 的 `ivar()`、`time()`、`gvar()` 分别对应县、年份和首次处理年份，`notyet` 指定对照逻辑。按事件时间聚合的效应可写为：
+
+$$
+\operatorname{ATT}^{es}(e)=\sum_g w_{g,e}\operatorname{ATT}(g,g+e).
+$$
+
+不同 $e$ 可参与的 cohort 不同，因而权重与研究对象也可能变化。报告时应说明聚合方式，而不是只给一张 event-study 图。
+
+## 7. TWFE 的边界
+
+在标准 2x2 或单一处理时点的 2xT 设计中，`reghdfe` 是透明而实用的实现方式。分期处理且效应随 cohort 或事件时间变化时，传统 TWFE 可能混合多个 $2\times2$ 比较，并使用已处理组作为对照。即使 TWFE 与 `csdid` 的数字碰巧接近，也不能据此证明它估计了正确对象。
+
+实际写作中可把 TWFE 保留为传统基准，但主结果应明确报告 $ATT(g,t)$、对照组、权重与聚合规则。学习脚本没有把 `reghdfe` 删除，而是把它放在标准设计等价性的演示位置。
+
+## 8. HonestDiD：把担忧转化为敏感性范围
+
+HonestDiD 不验证平行趋势，也不修复错误的对照组。它的问题是：如果处理后反事实趋势的偏离不超过处理前偏离的某个相对倍数，常规结论的置信区间会如何变化？使用前必须核对 event-study 的系数顺序和协方差矩阵，`pre()` 与 `post()` 的位置不能照抄别人的代码。
+
+`07_honestdid_sensitivity.do` 展示相对偏离界限 $M=1$ 的接口。报告时应并列常规区间与 robust confidence interval，并用文字说明允许的偏离含义。
+
+## 9. 一套可迁移的操作路径
+
+1. 运行数据审计：唯一性、缺失值、处理 cohort、never-treated、权重和事件时间支持范围。
+2. 决定设计是 2x2、2xT 还是分期处理，写下目标 ATT 与对照组。
+3. 先估计不含协变量的透明版本，再讨论条件平行趋势、重叠和 DR 调整。
+4. 报告动态效应、聚合规则、聚类层级和敏感性分析。
+5. 最后把结果与研究问题相连，而不是把一条熟悉的回归式当作设计本身。
+
+`08_own_research_template.do` 集中定义结果变量、面板单位、时间、首次处理年份、协变量、权重和聚类变量。替换这些宏后仍须由研究者判断识别假设是否可信。
+
+## 参考资料
+
+1. Baker, A., Callaway, B., Cunningham, S., Goodman-Bacon, A., & Sant'Anna, P. H. C. (**2026**). Difference-in-differences designs: A practitioner's guide. *Journal of Economic Literature*, 64(2), 498--557. [Link](https://doi.org/10.1257/jel.20251650), [PDF](https://psantanna.com/files/DiD_JEL.pdf), [Google](<https://scholar.google.com/scholar?q=Difference-in-differences+designs+A+practitioners+guide>).
+
+2. Callaway, B., & Sant'Anna, P. H. C. (**2021**). Difference-in-differences with multiple time periods. *Journal of Econometrics*, 225(2), 200--230. [Link](https://doi.org/10.1016/j.jeconom.2020.12.001), [PDF](https://psantanna.com/files/Callaway_SantAnna_2021.pdf), [Google](<https://scholar.google.com/scholar?q=Difference-in-differences+with+multiple+time+periods>).
+
+3. Rambachan, A., & Roth, J. (**2023**). A more credible approach to parallel trends. *Review of Economic Studies*, 90(5), 2555--2591. [Link](https://doi.org/10.1093/restud/rdad018), [PDF](https://economics.mit.edu/sites/default/files/2023-01/More%20Credible%20Parallel%20Trends.pdf), [Google](<https://scholar.google.com/scholar?q=A+more+credible+approach+to+parallel+trends>).

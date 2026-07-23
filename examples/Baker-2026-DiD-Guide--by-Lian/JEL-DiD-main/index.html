@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data and Code for Difference-in-Differences Designs: A Practitioner's Guide</title>
+  <meta name="description" content="Replication materials for Difference-in-Differences Designs: A Practitioner's Guide by Andrew Baker, Brantly Callaway, Scott Cunningham, Andrew Goodman-Bacon, and Pedro H. C. Sant'Anna.">
+  <link rel="canonical" href="https://psantanna.com/JEL-DiD/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Data and Code for Difference-in-Differences Designs: A Practitioner's Guide">
+  <meta property="og:description" content="Replication materials, R and Stata code, data, figures, tables, and an interactive code appendix for the JEL article.">
+  <meta property="og:url" content="https://psantanna.com/JEL-DiD/">
+  <meta property="og:image" content="https://psantanna.com/images/social-card.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Data and Code for Difference-in-Differences Designs: A Practitioner's Guide">
+  <meta name="twitter:description" content="Replication materials, R and Stata code, data, figures, tables, and an interactive code appendix for the JEL article.">
+  <meta name="twitter:image" content="https://psantanna.com/images/social-card.jpg">
+  <style>
+    :root {
+      --emory-blue: #002878;
+      --ink: #1f2933;
+      --muted: #5d6b7a;
+      --line: #d9e2ec;
+      --paper: #ffffff;
+      --soft: #f5f8fc;
+      --accent: #b8c7e6;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f7faff 0%, #ffffff 320px);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--emory-blue);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 44px;
+      align-items: start;
+      padding: 42px 0 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--emory-blue);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      color: #111827;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4.3vw, 3.2rem);
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .title-mobile-break {
+      display: none;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .authors {
+      max-width: 780px;
+      margin: 18px 0 0;
+      color: #344054;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--paper);
+      color: var(--emory-blue);
+      font-size: 0.95rem;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .button.primary {
+      border-color: var(--emory-blue);
+      background: var(--emory-blue);
+      color: #ffffff;
+    }
+
+    .button:hover,
+    .button:focus {
+      text-decoration: none;
+      border-color: var(--emory-blue);
+    }
+
+    .sidebox {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 48px rgba(0, 40, 120, 0.08);
+    }
+
+    .sidebox h2 {
+      margin: 0 0 14px;
+      color: #111827;
+      font-size: 0.82rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .quick-links {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quick-links a {
+      display: block;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+      font-weight: 650;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 44px;
+      padding-top: 34px;
+    }
+
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:first-child {
+      padding-top: 0;
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: #111827;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 24px 0 8px;
+      color: #111827;
+      font-size: 1.03rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 15px;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 16px 1.3rem;
+      padding: 0;
+    }
+
+    li + li {
+      margin-top: 7px;
+    }
+
+    code {
+      padding: 0.12rem 0.3rem;
+      border-radius: 4px;
+      background: #eef3fb;
+      color: #1a3568;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.93em;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--emory-blue);
+    }
+
+    .note {
+      padding: 18px;
+      border-left: 4px solid var(--emory-blue);
+      background: var(--soft);
+      color: #344054;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .meta-list strong {
+      display: block;
+      color: #111827;
+      font-size: 0.8rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        width: 100%;
+        padding: 28px 14px 72px;
+      }
+
+      .hero,
+      main {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      h1 {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .sidebox {
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+        line-height: 1.12;
+      }
+
+      .hero {
+        min-width: 0;
+      }
+
+      .hero > div,
+      main > div,
+      aside,
+      .subtitle,
+      .authors {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .title-mobile-break {
+        display: block;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Replication Materials</p>
+        <h1>Difference-in-Differences<br>Designs: A Practitioner's<br class="title-mobile-break"> Guide</h1>
+        <p class="subtitle">Data and code for the JEL article.</p>
+        <p class="authors">Andrew Baker, Brantly Callaway, Scott Cunningham,<br>Andrew Goodman-Bacon, and<br>Pedro H. C. Sant'Anna</p>
+        <nav class="actions" aria-label="Primary links">
+          <a class="button primary" href="markdown/R_Stata/Code_Appendix.html">Interactive code appendix</a>
+          <a class="button" href="https://github.com/pedrohcgs/JEL-DiD">GitHub repository</a>
+          <a class="button" href="https://psantanna.com/files/DiD_JEL.pdf">Paper PDF</a>
+          <a class="button" href="https://www.openicpsr.org/openicpsr/project/239070/view">AEA data archive</a>
+        </nav>
+      </div>
+      <aside class="sidebox" aria-label="Quick links">
+        <h2>Quick Access</h2>
+        <ul class="quick-links">
+          <li><a href="README.md">README</a></li>
+          <li><a href="scripts/R/00_master_did_jel.R">R master script</a></li>
+          <li><a href="scripts/Stata/00_stata_master_did_jel.do">Stata master script</a></li>
+          <li><a href="figures/">Figures</a></li>
+          <li><a href="tables/">Tables</a></li>
+        </ul>
+      </aside>
+    </header>
+
+    <main>
+      <div>
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>Difference-in-differences (DiD) is arguably the most popular quasi-experimental research design. Its canonical form, with two groups and two periods, is well-understood. However, empirical practices can be ad hoc when researchers go beyond that simple case.</p>
+          <p>This replication package contains the data, R scripts, Stata do-files, generated figures, generated tables, and a self-contained interactive appendix for reproducing the empirical results in the article.</p>
+          <p class="note">The main landing page is this URL: <a href="https://psantanna.com/JEL-DiD/">https://psantanna.com/JEL-DiD/</a>. The interactive appendix remains available at <a href="markdown/R_Stata/Code_Appendix.html">markdown/R_Stata/Code_Appendix.html</a>.</p>
+        </section>
+
+        <section id="replication">
+          <h2>Replication</h2>
+          <p>Users can reproduce the analysis in either R or Stata. Both workflows are organized around a master script that runs the complete analysis and writes outputs to the repository's <code>figures/</code> and <code>tables/</code> folders.</p>
+
+          <div class="cards">
+            <article class="card">
+              <h3>R</h3>
+              <ol>
+                <li>Open <code>DiD_JEL.Rproj</code> in RStudio.</li>
+                <li>Run <code>scripts/R/00_master_did_jel.R</code>.</li>
+                <li>Check the generated files in <code>figures/</code> and <code>tables/</code>.</li>
+              </ol>
+            </article>
+            <article class="card">
+              <h3>Stata</h3>
+              <ol>
+                <li>Open <code>scripts/Stata/00_stata_master_did_jel.do</code>.</li>
+                <li>Set the <code>rootdir</code> path to this replication folder.</li>
+                <li>Run the master do-file and compare the generated outputs.</li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <section id="archive">
+          <h2>Archive Structure</h2>
+          <ul>
+            <li><code>data/</code>: public data sources and compiled analysis data.</li>
+            <li><code>scripts/R/</code>: R code for data construction, analysis, figures, and tables.</li>
+            <li><code>scripts/Stata/</code>: Stata do-files for the corresponding analysis workflow.</li>
+            <li><code>figures/</code>: generated figure files from the R and Stata workflows.</li>
+            <li><code>tables/</code>: generated table files from the R and Stata workflows.</li>
+            <li><code>markdown/R_Stata/</code>: Quarto source and HTML for the interactive code appendix.</li>
+          </ul>
+        </section>
+
+        <section id="data">
+          <h2>Data</h2>
+          <p>The analysis uses public data from the CDC, Bureau of Labor Statistics, Kaiser Family Foundation, and the U.S. Census Bureau. The compiled county-level analysis data are provided in CSV format, with the replication scripts documenting the construction and analysis steps.</p>
+          <p>The official AEA/openICPSR data archive is available at <a href="https://www.openicpsr.org/openicpsr/project/239070/view">openICPSR project 239070</a>.</p>
+        </section>
+      </div>
+
+      <aside>
+        <section>
+          <h2>Materials</h2>
+          <ul class="meta-list">
+            <li>
+              <strong>Interactive Appendix</strong>
+              <a href="markdown/R_Stata/Code_Appendix.html">Code for replication in R and Stata</a>
+            </li>
+            <li>
+              <strong>Repository</strong>
+              <a href="https://github.com/pedrohcgs/JEL-DiD">github.com/pedrohcgs/JEL-DiD</a>
+            </li>
+            <li>
+              <strong>Paper</strong>
+              <a href="https://psantanna.com/files/DiD_JEL.pdf">PDF</a> and <a href="https://arxiv.org/abs/2503.13323">arXiv</a>
+            </li>
+            <li>
+              <strong>Contact</strong>
+              <a href="https://psantanna.com/">psantanna.com</a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <p>Replication materials for "Difference-in-Differences Designs: A Practitioner's Guide."</p>
+    </footer>
+  </div>
+</body>
+</html>

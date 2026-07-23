@@ -1,0 +1,5 @@
+panel,specification,pretrend_f,pretrend_p,observations
+five_digit,baseline,.7592319019929149,.38432357,4721
+five_digit,controls,.5747786584556751,.44911945,4046
+four_digit,baseline,.1237502938494617,.72585267,1751
+four_digit,controls,.0278000924339479,.86797565,1711

@@ -46,3 +46,11 @@ __pycache__/
 
 # 离线分发包(本地留存,不推送)
 /_dist/
+
+# Baker (2026) 复现中由 Stata 临时安装的外部命令缓存。
+# 保留课程脚本、数据和说明；学员应按相应 do-file/说明自行安装命令。
+/examples/Baker-*/**/ado/
+/examples/Baker-*/**/plus/
+/examples/Baker-*/**/personal/
+/examples/Baker-*/**/site/
+/examples/Baker-*/**/updates/

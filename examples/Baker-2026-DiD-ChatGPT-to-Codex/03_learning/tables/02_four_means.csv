@@ -1,0 +1,9 @@
+treat,post,mean_y,estimand
+0,0,376.402140437999,population-weighted county mean
+0,1,382.7033446078682,population-weighted county mean
+1,0,322.7175962271881,population-weighted county mean
+1,1,326.4559258832235,population-weighted county mean
+0,0,474.0009453130568,unweighted county mean
+0,1,483.14897668061,unweighted county mean
+1,0,419.2276530880362,unweighted county mean
+1,1,428.4973147190288,unweighted county mean

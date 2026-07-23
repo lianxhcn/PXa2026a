@@ -1,0 +1,68 @@
+name: CI Test for R code  
+
+on:
+  push:
+    branches: [ main, master, CI-Workflow-fix ]
+  workflow_dispatch:  
+
+jobs:
+  run-replication:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Download the code from the repo
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Install R environment
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+
+      # 3. Determine where R installs packages ---
+      - name: Query R Library Path
+        run: echo "R_LIBS_USER=$(Rscript -e 'cat(.libPaths()[1])')" >> $GITHUB_ENV
+
+      # 4. Cache that folder ---
+      - name: Cache R Packages
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          # The key hashes this YAML file. If you add a package to the list below, 
+          # the file changes -> hash changes -> cache resets automatically.
+          key: ${{ runner.os }}-r-pak-${{ hashFiles('.github/workflows/*.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-r-pak-
+
+      # 5. Install Linux libraries required by some R packages
+      - name: Install Linux System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libharfbuzz-dev libfribidi-dev  libglpk-dev
+
+      # 6. Install the R packages
+      - name: Install R Dependencies
+        run: |
+          install.packages("pak")
+          pak::pkg_install(c("dplyr"))
+        shell: Rscript {0}
+
+      # 7. Run the script
+      - name: Run the main script
+        run: Rscript scripts/R/00_master_did_jel.R
+        
+      - name: Debug Print current working directory
+        run: pwd
+
+      - name: Debug List all files recursively after script run
+        run: ls -R
+        
+      # 8. artifacts
+      - name: Upload Generated PDFs
+        uses: actions/upload-artifact@v4 # Using v4, the latest stable version
+        with:
+          name: jel-did-replication-pdfs # This is the name for your artifact
+          path: | 
+            figures/*.pdf   # For all PDFs inside the figures directory
+            tables/*.tex    # For all TeX files inside the tables directory

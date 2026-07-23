@@ -1,0 +1,2 @@
+var,coef,stderr,tstat,pval,ci_lower,ci_upper,N,outcome,comparison,estimator
+ATET:r1vs0.hci,1.131265,.24402136,4.635926388843768,3.55342415492e-06,.6529919747863415,1.609538113638341,476,l_ship,1972_to_1979,drdid_drimp_default

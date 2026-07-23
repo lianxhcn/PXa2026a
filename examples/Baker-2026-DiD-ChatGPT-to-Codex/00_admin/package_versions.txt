@@ -1,0 +1,10 @@
+csdid      v1.72
+drdid      installed in project-level ado copy
+honestdid  v1.3.0 (25Jan2024)
+regsave    v1.4.3 (23jan2016)
+estout     v3.31 (26apr2022)
+coefplot   v1.8.5 (23nov2021)
+grc1leg2   v2.26 (4Nov2023)
+reghdfe    v6.13.1 (10Jan2026)
+ftools     v2.50.0 (09jan2026)
+

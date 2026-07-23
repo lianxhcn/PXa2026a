@@ -3,7 +3,7 @@
 *------------------------------------------------------------------------------
 * 连享会 2026 暑期班·初级班 · 第 5 讲
 * 用法：VS Code + Stata All in One，按 **# / **## 大纲导航分节运行。
-* 数据：Stata 自带数据（nlswork / auto）+ 本脚本内模拟数据，无需外部文件。
+* 数据：Stata 自带数据（nlswork / auto）+ 本脚本内模拟数据 + xtcs.dta。
 * 说明：与书稿 lectures/05_FE_intFE.qmd 各节标题一一对应；代码可复跑。
 * 依赖命令（如缺，先安装）：ssc install reghdfe ; ssc install center
 *==============================================================================
@@ -12,9 +12,12 @@ version 17
 clear all
 set more off
 
-* 数据读取：默认联网直读(无需克隆)；离线时把下一行改成 global D "data"(本 do 同级 data 目录)
-global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05/data"
-* global D "data"
+* 数据读取：优先识别本 do 同级的 data 目录，适合离线课程包。
+global D "data"
+capture confirm file "$D/xtcs.dta"
+if _rc global D "examples/ch05/data"
+* 若只在线访问而未下载课程包，可改用：
+* global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05/data"
 * xtcs.dta：中国上市公司资本结构面板（老师授权入公开库 2026-07-18）
 *   code=公司, year=年份, tl=资产负债率, size=规模, ndts=非债务税盾, tang=有形资产, tobin=Tobin Q, npr=净利率
 
@@ -56,11 +59,11 @@ global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05
   gen y = 5 + 0.6*x + e
 
   reg y x                                  // 含常数项
-  cap which center
-  if _rc==0 {
-      center y x, prefix(c_)               // 去均值（De-mean）
-      reg c_y c_x, noconstant              // 与 reg y x 的斜率相同
-  }
+  egen y_bar = mean(y)
+  egen x_bar = mean(x)
+  gen c_y = y - y_bar                      // 去均值（de-mean）
+  gen c_x = x - x_bar
+  reg c_y c_x, noconstant                  // 与 reg y x 的斜率相同
 
 **## FWL 定理：先剔除，再回归（三步等价于一步）
   sysuse auto, clear
@@ -92,12 +95,14 @@ global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05
   *     下面三条组内估计量给出与 LSDV 完全相同的斜率，却快得多：
   xtreg   ln_wage tenure hours, fe           // 组内估计量
   areg    ln_wage tenure hours, absorb(idcode)
-  reghdfe ln_wage tenure hours, absorb(idcode) cluster(idcode)
+  reghdfe ln_wage tenure hours, absorb(idcode) ///
+      vce(cluster idcode)
 
 **## 个体、时间与双向固定效应
   xtreg   ln_wage tenure hours, fe                     // 个体 FE
   xtreg   ln_wage tenure hours i.year, fe              // 双向 FE
-  reghdfe ln_wage tenure hours, absorb(idcode year) cluster(idcode)  // 等价双向 FE
+  reghdfe ln_wage tenure hours, absorb(idcode year) ///
+      vce(cluster idcode)                              // 等价双向 FE
   * 时间效应是否显著（LR 检验）
   qui xtreg ln_wage tenure hours, fe
   est store fe
@@ -105,20 +110,47 @@ global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05
   est store fe_t
   lrtest fe fe_t
 
+**## 平衡面板的手工双重去均值（仅作核对）
+  clear
+  set seed 20260722
+  set obs 12
+  gen id = _n
+  expand 4
+  bysort id: gen year = 2018 + _n - 1
+  gen a_i = rnormal()
+  gen lambda_t = 0.3 * (year - 2018)
+  gen x1 = rnormal()
+  gen x2 = rnormal()
+  gen y = 1.2 * x1 - 0.7 * x2 + a_i + lambda_t + rnormal()
+
+  * `center` 为 SSC 外部命令。样本是完整平衡面板时，
+  * 依次按个体和年份去心，等价于双重去均值。
+  preserve
+  bysort id: center y x1 x2, inplace
+  bysort year: center y x1 x2, inplace
+  reg y x1 x2, noconstant vce(cluster id)
+  restore
+
+  reghdfe y x1 x2, absorb(id year) vce(cluster id)
+
 **## 常见问题：时不变变量放不进固定效应
-  gen black = 2.race                          // 种族虚拟变量（样本期内不随时间变）
+  gen byte black = race == 2                  // 样本期内不随时间变
   xtreg ln_wage black tenure hours, fe        // black 被 (omitted)
   * 若确要估计时不变变量：改用混合回归 + 控制变量（把个体效应黑盒拆开）
-  reg   ln_wage black i.occ_code south collgrad tenure hours, vce(cluster idcode)
+  reg ln_wage black i.occ_code south collgrad tenure hours, ///
+      vce(cluster idcode)
 
 
 **## 真实财务数据：中国上市公司资本结构的双向固定效应
   use "$D/xtcs.dta", clear
   xtset code year
-  reg     tl size ndts tang tobin npr                                      // 混合回归 POLS
-  xtreg   tl size ndts tang tobin npr, fe cluster(code)                     // 个体 FE
-  xtreg   tl size ndts tang tobin npr i.year, fe cluster(code)             // 双向 FE
-  reghdfe tl size ndts tang tobin npr, absorb(code year) cluster(code)      // 等价双向 FE
+  reg tl size ndts tang tobin npr                 // 混合回归 POLS
+  xtreg tl size ndts tang tobin npr, ///
+      fe vce(cluster code)                        // 个体 FE
+  xtreg tl size ndts tang tobin npr i.year, ///
+      fe vce(cluster code)                        // 双向 FE
+  reghdfe tl size ndts tang tobin npr, ///
+      absorb(code year) vce(cluster code)         // 等价双向 FE
   * 时间效应是否显著
   qui xtreg tl size ndts tang tobin npr, fe
   est store fe0
@@ -127,14 +159,45 @@ global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05
   lrtest fe0 fe0_t
 
 
-**# 高维固定效应的基本思想
+**# 高维固定效应：更多维度与更窄的比较
 
-  webuse nlswork, clear
-  xtset idcode year
-  * absorb() 吸什么 与 vce(cluster) 聚类到哪，是两个独立决定
-  reghdfe ln_wage tenure hours, absorb(idcode year)          cluster(idcode)
-  reghdfe ln_wage tenure hours, absorb(idcode year ind_code) cluster(idcode)
-  * 处理变量与固定效应同层级会被吸收（示意：ind_code#year 层面的变量放不进 ind#year FE）
+**## 三维加性固定效应
+  clear
+  set seed 20260723
+  set obs 4
+  gen province = _n
+  expand 3
+  bysort province: gen industry = _n
+  expand 5
+  bysort province industry: gen year = 2018 + _n - 1
+  gen x1 = rnormal()
+  gen x2 = rnormal()
+  gen y = 0.8 * x1 - 0.4 * x2 + ///
+      0.2 * province + 0.3 * industry + ///
+      0.1 * (year - 2018) + rnormal()
+
+  * 这里的 4 个省份只为演示语法；不能据此作正式推断。
+  reghdfe y x1 x2, absorb(province industry year) ///
+      vce(cluster province)
+
+**## 交互固定效应
+  * province#industry：每个「省份 × 行业」组合的固定差异。
+  reghdfe y x1 x2, absorb(province#industry year) ///
+      vce(cluster province industry)
+
+  * 同时控制三组两两交互固定效应的完整示例。
+  reghdfe y x1 x2, ///
+      absorb(province#industry province#year industry#year) ///
+      vce(cluster province industry)
+
+  * 若 x 只在「行业 × 年份」层面变化，加入该交互 FE 后会被 omitted。
+  bysort industry year: gen x_ind_year = 0.2 * industry + ///
+      0.1 * (year - 2018)
+  capture noisily reghdfe y x_ind_year, ///
+      absorb(industry#year) vce(cluster province)
+  if _rc != 0 {
+      display as text "x_ind_year 被 industry#year 固定效应完全吸收。"
+  }
 
 
 **# 双向固定效应与 DID
@@ -164,7 +227,8 @@ global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05
   gen k = year - 2014                     // 相对政策时间（2014 实施）
   gen post = year >= 2014
   * DGP：无事前趋势差异；事后效应逐期走强
-  gen y = 5 + 2*treat + 0.3*(year-2010) + (post & treat)*(0.8*(k+1)) + rnormal(0,1)
+  gen y = 5 + 2*treat + 0.3*(year - 2010) + ///
+      (post & treat) * (0.8 * (k + 1)) + rnormal(0, 1)
   xtset id year
   * 事件研究：生成"处理组 × 相对期"虚拟变量，以 k=-1 为基准（不含 k=-1）
   qui forval j = -4/3 {
@@ -172,7 +236,8 @@ global D "https://raw.githubusercontent.com/lianxhcn/PXa2026a/main/examples/ch05
       gen evt_`lab' = (k==`j') & treat==1
   }
   * 事前 evt_m4..evt_m2 应接近 0（平行趋势）；事后 evt_p0..evt_p3 逐期走强（≈0.8,1.6,2.4,3.2）
-  reghdfe y evt_m4 evt_m3 evt_m2 evt_p0 evt_p1 evt_p2 evt_p3, absorb(id year) cluster(id)
+  reghdfe y evt_m4 evt_m3 evt_m2 evt_p0 evt_p1 evt_p2 evt_p3, ///
+      absorb(id year) vce(cluster id)
   * 如需事件研究图（需 coefplot）：coefplot, vertical yline(0)
 
 
